@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  fraction: 0.04
 --- !u!58 &366022337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  fraction: 0.04
 --- !u!120 &435475458
 LineRenderer:
   m_ObjectHideFlags: 0

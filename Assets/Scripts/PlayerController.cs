@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public float speed;
+    public float fraction;
 
     Rigidbody2D rb;
 
@@ -15,6 +16,6 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
     {
         float x = Input.GetAxisRaw("Horizontal " + gameObject.name) * speed;
-        rb.velocity = new Vector2( x, rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x * (1f - fraction) + x * fraction, rb.velocity.y);
 	}
 }

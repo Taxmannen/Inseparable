@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     int jumping;
 
     //Jump Variables
+    [Header("Jump Variables")]
     public int jumpPower;
     public int jumpCycles;
     public float jumpCycleInterval;

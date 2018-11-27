@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-/*Script made by Daniel*/
+/* Script made by Daniel */
 public class ScrollingBackground : MonoBehaviour {
-    [Range(0.05f, 0.5f)]
+    [Range(0.01f, 0.1f)]
     public float scrollSpeed;
 
     Renderer rend;
@@ -27,6 +27,6 @@ public class ScrollingBackground : MonoBehaviour {
             rend.material.mainTextureOffset = new Vector2(offset, 0);
             oldX = cam.transform.position.x;
         }   
-        transform.position = new Vector3(cam.position.x, transform.position.y, 0);
+        transform.position = new Vector3(cam.position.x, transform.position.y, 0.01f);
     }
 }

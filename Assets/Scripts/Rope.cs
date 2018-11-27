@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+/* Script made by Daniel */
 public class Rope : MonoBehaviour {
     float maxDistance = 3.5f;
 

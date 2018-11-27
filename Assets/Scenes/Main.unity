@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080cb5250392d0a45bf8bd63d4ef975e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fractionFromNewPositon: 0.05
+  fractionFromNewPositon: 0.01
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

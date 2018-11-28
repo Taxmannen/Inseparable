@@ -255,6 +255,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75615dd44e00dc4ebe8e3fc5c113e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  tmp1: {fileID: 0}
+  tmp2: {fileID: 0}
+  cameraManager: {fileID: 0}
+  enabledMenu: 0
 --- !u!1 &366022335
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,10 +297,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   drawGizmos: 1
-  speed: 5
+  airForce: 6
+  groundSpeed: 8
   jumpPower: 100
-  jumpCycles: 10
-  jumpCycleInterval: 0.05
+  jumpPowerReductionPerCycle: 5
+  jumpCycles: 6
+  jumpCycleInterval: 0.01
 --- !u!58 &366022337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -395,7 +403,7 @@ DistanceJoint2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 366022335}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
@@ -549,17 +557,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   drawGizmos: 1
-  speed: 5
+  airForce: 6
+  groundSpeed: 8
   jumpPower: 100
-  jumpCycles: 10
-  jumpCycleInterval: 0.05
+  jumpPowerReductionPerCycle: 5
+  jumpCycles: 6
+  jumpCycleInterval: 0.01
 --- !u!120 &435475458
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435475452}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -651,7 +661,7 @@ DistanceJoint2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435475452}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}

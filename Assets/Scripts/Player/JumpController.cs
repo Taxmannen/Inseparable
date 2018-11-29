@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class JumpController : MonoBehaviour
 {
+    [Range(1, 150)]
     public float jumpForce;
+    [Range(0.1f, 2f)]
     public float jumpTime;
+    [Range(0.01f, 0.2f)]
     public float jumpTimeCounter;
 
     bool jumpButton;
+    bool hasReleasedButton;
+    bool grounded;
 
-    public bool grounded;
-    public LayerMask whatIsGround;
+    public LayerMask groundLayer;
     public bool stoppedJumping;
     
     private Rigidbody2D rb;
@@ -24,7 +28,7 @@ public class JumpController : MonoBehaviour
 
     void Update()
     {
-        grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, whatIsGround);
+        grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
 
         if (grounded)
         {

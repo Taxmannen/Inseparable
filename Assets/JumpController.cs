@@ -8,6 +8,8 @@ public class JumpController : MonoBehaviour
     public float jumpTime;
     public float jumpTimeCounter;
 
+    bool jumpButton;
+
     public bool grounded;
     public LayerMask whatIsGround;
     public bool stoppedJumping;
@@ -28,11 +30,13 @@ public class JumpController : MonoBehaviour
         {
             jumpTimeCounter = jumpTime;
         }
+
+        jumpButton = Input.GetButton("Jump " + gameObject.name);
     }
 
     void FixedUpdate()
     {
-        if (Input.GetButtonDown("Jump " + gameObject.name))
+        if (jumpButton)
         {
             if (grounded)
             {
@@ -41,7 +45,7 @@ public class JumpController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump " + gameObject.name) && !stoppedJumping)
+        if (jumpButton && !stoppedJumping)
         {
             if (jumpTimeCounter > 0)
             {
@@ -50,7 +54,7 @@ public class JumpController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump " + gameObject.name))
+        if (jumpButton)
         {
             jumpTimeCounter = 0;
             stoppedJumping = true;

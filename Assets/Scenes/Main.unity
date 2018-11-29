@@ -297,12 +297,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   drawGizmos: 1
-  airForce: 6
-  groundSpeed: 8
-  jumpPower: 100
-  jumpPowerReductionPerCycle: 5
-  jumpCycles: 6
-  jumpCycleInterval: 0.01
+  speed: 0
 --- !u!58 &366022337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -441,6 +436,7 @@ GameObject:
   - component: {fileID: 435475458}
   - component: {fileID: 435475457}
   - component: {fileID: 435475460}
+  - component: {fileID: 435475461}
   m_Layer: 9
   m_Name: Player 1
   m_TagString: Untagged
@@ -557,12 +553,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   drawGizmos: 1
-  airForce: 6
-  groundSpeed: 8
-  jumpPower: 100
-  jumpPowerReductionPerCycle: 5
-  jumpCycles: 6
-  jumpCycleInterval: 0.01
+  speed: 4.33
 --- !u!120 &435475458
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -684,6 +675,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fdeb5125ad21245bfeb79c231fcca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &435475461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435475452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c312f6a88950a4fb50bf3812589a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 10
+  jumpTime: 1
+  jumpTimeCounter: 0.1
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  stoppedJumping: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

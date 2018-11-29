@@ -506,6 +506,9 @@ MonoBehaviour:
   jumpForce: 0
   jumpTime: 0
   jumpTimeCounter: 0
+  jumpForceReduction: 0
+  jumpButton: 0
+  grounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -776,9 +779,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c312f6a88950a4fb50bf3812589a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
-  jumpTime: 1
-  jumpTimeCounter: 0.1
+  jumpForce: 112.6
+  jumpTime: 0.085
+  jumpTimeCounter: 0
+  jumpForceReduction: 12.4
+  jumpButton: 0
+  grounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256

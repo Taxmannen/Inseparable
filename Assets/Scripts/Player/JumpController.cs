@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class JumpController : MonoBehaviour
 {
-    [Range(1, 150)]
+    [Range(1f, 150f)]
     public float jumpForce;
-    [Range(0.1f, 2f)]
+    [Range(0.01f, 0.5f)]
     public float jumpTime;
-    [Range(0.01f, 0.2f)]
     public float jumpTimeCounter;
 
-    bool jumpButton;
-    bool hasReleasedButton;
-    bool grounded;
+    [Range(0f, 150f)]
+    public float jumpForceReduction;
+
+    public bool jumpButton;
+    public bool grounded;
 
     public LayerMask groundLayer;
-    public bool stoppedJumping;
-    
     private Rigidbody2D rb;
 
     void Start()
@@ -29,39 +28,30 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
-
-        if (grounded)
-        {
-            jumpTimeCounter = jumpTime;
-        }
-
         jumpButton = Input.GetButton("Jump " + gameObject.name);
+
+        if (!jumpButton)
+        {
+            if (grounded)
+                jumpTimeCounter = jumpTime;
+            else
+            {
+                jumpTimeCounter = 0;
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        if (jumpButton)
+        if (jumpButton && jumpTimeCounter > 0)
         {
-            if (grounded)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                stoppedJumping = false;
-            }
-        }
+            Debug.Log(jumpForceReduction * (1 - (jumpTimeCounter / jumpTime)));
+            rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
+            jumpTimeCounter -= Time.deltaTime;
 
-        if (jumpButton && !stoppedJumping)
-        {
-            if (jumpTimeCounter > 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
-            }
+            if (jumpTimeCounter < 0)
+                jumpTimeCounter = 0;
         }
-
-        if (jumpButton)
-        {
-            jumpTimeCounter = 0;
-            stoppedJumping = true;
-        }
+        
     }
 }

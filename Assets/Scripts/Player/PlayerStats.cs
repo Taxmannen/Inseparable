@@ -9,6 +9,11 @@ public class PlayerStats : MonoBehaviour {
         currentHealth = maxHealth;	
 	}
 
+    private void FixedUpdate()
+    {
+        CheckHealth();
+    }
+
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -31,5 +36,19 @@ public class PlayerStats : MonoBehaviour {
     void Die()
     {
         Debug.Log("You are dead Mother Fucker");
+    }
+
+    void CheckHealth()
+    {
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        if(currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
     }
 }

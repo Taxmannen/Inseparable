@@ -29,10 +29,10 @@ public class CameraManager : MonoBehaviour
     void FixedUpdate()
     {
         float x = (player1.position.x + player2.position.x) * 0.5f;
-        if ((player1.position.x + player2.position.x * 0.5f) < minCameraX)
+        if ((player1.position.x + player2.position.x) * 0.5f < minCameraX)
             x = minCameraX;
 
-        if ((player1.position.x + player2.position.x * 0.5f) > maxCameraX)
+        if ((player1.position.x + player2.position.x) * 0.5f > maxCameraX)
             x = maxCameraX;
 
         Vector3 medianPosition = new Vector3(x, ((player1.position + player2.position) * 0.5f).y, ((player1.position + player2.position) * 0.5f).z);

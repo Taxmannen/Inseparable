@@ -4,18 +4,15 @@ using UnityEngine.UI;
 public class SelectedItem : MonoBehaviour {
     Image selectedItem;
     Sprite sprite;
-	void Start () {
-        selectedItem = GetComponent <Image>();
+
+
+    void Start () {
+        selectedItem = transform.GetChild(1).GetComponent <Image>();
         
     }
-
-    private void Update()
-    {
-        SwapSprite(sprite);
-    }
-
+    
     public void SwapSprite(Sprite sprite)
     {
-        selectedItem.sprite = this.sprite;
+        selectedItem.sprite = sprite;
     }
 }

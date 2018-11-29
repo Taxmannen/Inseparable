@@ -2,19 +2,17 @@
 using UnityEngine.UI;
 // Made by Jocke
 public class PlayerHealth : MonoBehaviour {
-    
+    public PlayerStats playerStats;
     public Slider healthBar;
-    public float CurrentHealth;
-    public float MaxHealth;
 
 
     void Start () {
-        healthBar.maxValue = MaxHealth;
-        healthBar.value = CurrentHealth;
+        healthBar.maxValue = playerStats.maxHealth;
+        healthBar.value = playerStats.currentHealth;
 	}
 
     private void Update()
     {
-        healthBar.value = CurrentHealth;
+        healthBar.value = playerStats.currentHealth;
     }
 }

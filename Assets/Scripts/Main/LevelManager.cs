@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 
     private void Start()
     {
-        loadingImage = GetComponentInChildren<Image>();
+        loadingImage = GetComponent<Image>();
     }
 
     private void Update()

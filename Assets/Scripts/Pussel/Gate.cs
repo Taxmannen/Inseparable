@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-/* Made by Daniel */
+/*Script made by Daniel */
 public class Gate : MonoBehaviour {
     [Range(0.5f, 2f)]
     public float speed;

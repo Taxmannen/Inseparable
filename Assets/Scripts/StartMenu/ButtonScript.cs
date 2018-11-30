@@ -15,7 +15,7 @@ public class ButtonScript : MonoBehaviour {
 
         controlsButton.onClick.AddListener(OpenControlsMenu);
 
-        generalButton.onClick.AddListener(OpenGeneralMenu);
+        //generalButton.onClick.AddListener(OpenGeneralMenu);
     }
 	
 	// Update is called once per frame

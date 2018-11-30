@@ -17,7 +17,7 @@ public class ScrollingBackground : MonoBehaviour {
         oldX = cam.position.x;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (cam.position.x.ToString("F1") != oldX.ToString("F1"))
         {

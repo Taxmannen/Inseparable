@@ -3,14 +3,17 @@
 /* Script made by Daniel */
 public class MovingObstacle : MonoBehaviour {
     public int damage;
-    public int damageRate;
+    public float damageRate;
     public float endPosX;
     public float speed;
     public bool on;
     public bool drawGizmos;
 
+    float timer;
+
     void Update ()
     {
+        timer -= Time.deltaTime;
 		if (on) transform.position = Vector3.MoveTowards(transform.position, new Vector2(endPosX, transform.position.y), speed/100);
 	}
 
@@ -19,7 +22,11 @@ public class MovingObstacle : MonoBehaviour {
         if (other.tag == "Player")
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
-            playerStats.TakeHealth(damage); 
+            if (timer <= 0)
+            {
+                playerStats.TakeHealth(damage);
+                timer = damageRate;
+            }
         }
     }
 
@@ -27,5 +34,4 @@ public class MovingObstacle : MonoBehaviour {
     {
         if (drawGizmos) Gizmos.DrawCube(new Vector2(endPosX, transform.position.y), transform.localScale);
     }
-
 }

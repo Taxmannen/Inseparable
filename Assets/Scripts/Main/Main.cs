@@ -6,5 +6,6 @@ public class Main : MonoBehaviour {
     void Start()
     {
         Application.targetFrameRate = frameRate;
+        QualitySettings.vSyncCount = 0;
     }
 }

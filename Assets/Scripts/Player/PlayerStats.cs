@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour {
         CheckHealth();
     }
 
-    void TakeDamage(int damage)
+    public void TakeHealth(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -24,9 +24,9 @@ public class PlayerStats : MonoBehaviour {
         }
     }
 
-    void RestorHealth(int restorHealth)
+    public void RestoreHealth(int restorHealth)
     {
-        if(currentHealth + restorHealth > maxHealth)
+        if (currentHealth + restorHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }

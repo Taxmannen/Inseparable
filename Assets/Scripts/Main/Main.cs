@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour {
+    public int frameRate;
 
     void Start()
     {
-        Application.targetFrameRate = 60;
-    }
-
-    private void Update()
-    {
-
+        Application.targetFrameRate = frameRate;
     }
 }

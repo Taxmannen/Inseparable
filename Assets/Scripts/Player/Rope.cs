@@ -19,6 +19,7 @@ public class Rope : MonoBehaviour {
 
     void Update()
     {
+        /*
         if (gameObject.name == "Player 1")
         {
             line.SetPosition(0, player1.position);
@@ -28,5 +29,6 @@ public class Rope : MonoBehaviour {
         else joint.connectedAnchor = player1.position;
         joint.anchor = new Vector2(0, 0);
         if (joint.distance > maxDistance) joint.distance = maxDistance;
+        */
     }
 }

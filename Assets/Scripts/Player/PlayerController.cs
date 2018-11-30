@@ -10,28 +10,36 @@ public class PlayerController : MonoBehaviour {
     [Header("Ground Variables")]
     [Range(1, 10)]
     public float groundSpeed;
-    [Range(0.01f, 0.9f)]
-    public float newSpeedfraction;
+    public float maxGroundSpeed;
+    public float flatMultiplier;
 
     Rigidbody2D rb;
     bool grounded;
+    float xInput;
     
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update ()
+    void Update()
+    {
+        xInput = Input.GetAxisRaw("Horizontal " + gameObject.name);
+    }
+
+    void FixedUpdate ()
     {
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
-        float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
         if (grounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x * (1 - newSpeedfraction) + newSpeedfraction * x * groundSpeed, rb.velocity.y);
+            //rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
+            //jumpTimeCounter -= Time.deltaTime;
+            rb.AddForce(new Vector2((maxGroundSpeed - Mathf.Abs(rb.velocity.x)) * xInput * Time.deltaTime * flatMultiplier, 0));
+            //rb.velocity = new Vector2(rb.velocity.x * (1 - newSpeedfraction) + newSpeedfraction * xInput * groundSpeed * Time.deltaTime, rb.velocity.y);
         }
         else
         {
-            rb.AddForce(new Vector2(x * airForce, 0));
+            rb.AddForce(new Vector2(xInput * airForce, 0));
         }
     }
 

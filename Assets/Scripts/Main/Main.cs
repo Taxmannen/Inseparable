@@ -10,6 +10,6 @@ public class Main : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetButton("Cancel")) SceneManager.LoadScene(SceneManager.GetActiveScene().name); // For Debug!
+
     }
 }

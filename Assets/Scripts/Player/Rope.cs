@@ -7,16 +7,14 @@ public class Rope : MonoBehaviour {
     Transform player1;
     Transform player2;
     LineRenderer line;
-    DistanceJoint2D joint;
+    SpringJoint2D joint;
 
     void Start()
     {
         player1 = GameObject.Find("Player 1").transform;
         player2 = GameObject.Find("Player 2").transform;
         line = GetComponent<LineRenderer>();
-        joint = GetComponent<DistanceJoint2D>();
-
-        joint.distance = maxDistance;
+        joint = GetComponent<SpringJoint2D>();
     }
 
     void Update()
@@ -29,5 +27,6 @@ public class Rope : MonoBehaviour {
         }
         else joint.connectedAnchor = player1.position;
         joint.anchor = new Vector2(0, 0);
+        if (joint.distance > maxDistance) joint.distance = maxDistance;
     }
 }

@@ -45,12 +45,9 @@ public class JumpController : MonoBehaviour
     {
         if (jumpButton && jumpTimeCounter > 0)
         {
-            Debug.Log(jumpForceReduction * (1 - (jumpTimeCounter / jumpTime)));
             rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
             jumpTimeCounter -= Time.deltaTime;
-
-            if (jumpTimeCounter < 0)
-                jumpTimeCounter = 0;
+            if (jumpTimeCounter < 0) jumpTimeCounter = 0;
         }
         
     }

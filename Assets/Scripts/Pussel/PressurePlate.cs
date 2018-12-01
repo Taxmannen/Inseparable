@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-
+/* Made by Daniel */
 public class PressurePlate : MonoBehaviour {
 
     public bool on;

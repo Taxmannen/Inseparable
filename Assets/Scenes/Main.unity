@@ -151,7 +151,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10499018}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
@@ -676,6 +676,8 @@ GameObject:
   - component: {fileID: 366022344}
   - component: {fileID: 366022345}
   - component: {fileID: 366022343}
+  - component: {fileID: 366022346}
+  - component: {fileID: 366022336}
   m_Layer: 9
   m_Name: Player 2
   m_TagString: Player
@@ -683,6 +685,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &366022336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366022335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b089e0a2e6fea134cb8b44a7ddfdf051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!58 &366022337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -867,6 +884,25 @@ MonoBehaviour:
   airForce: 0
   maxGroundSpeed: 0
   flatMultiplier: 0
+--- !u!114 &366022346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366022335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1625c51fef26e4582d9e823cd6068b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 120
+  jumpTime: 0.1
+  jumpTimeCounter: 0
+  jumpForceReduction: 12.4
+  wallContact: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &377755893
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +984,8 @@ GameObject:
   - component: {fileID: 435475462}
   - component: {fileID: 435475460}
   - component: {fileID: 435475461}
+  - component: {fileID: 435475457}
+  - component: {fileID: 435475463}
   m_Layer: 9
   m_Name: Player 1
   m_TagString: Player
@@ -1049,6 +1087,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.085
+--- !u!114 &435475457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435475452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1625c51fef26e4582d9e823cd6068b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 120
+  jumpTime: 0.1
+  jumpTimeCounter: 0
+  jumpForceReduction: 12.4
+  wallContact: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!233 &435475458
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -1139,6 +1196,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   currentHealth: 0
+--- !u!114 &435475463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 435475452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b089e0a2e6fea134cb8b44a7ddfdf051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &478510835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1610,14 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 562014198}
     m_ColliderPaths:
+    - - X: -40000000
+        Y: 60000000
+      - X: -50000000
+        Y: 60000000
+      - X: -50000000
+        Y: 0
+      - X: -40000000
+        Y: 0
     - - X: 510000000
         Y: 10000000
       - X: 450000000
@@ -1610,6 +1690,10 @@ CompositeCollider2D:
         Y: -30000000
   m_CompositePaths:
     m_Paths:
+    - - {x: -4, y: 6}
+      - {x: -5, y: 6}
+      - {x: -5, y: 0}
+      - {x: -4, y: 0}
     - - {x: 51, y: 1}
       - {x: 45, y: 1}
       - {x: 45, y: 0}
@@ -3169,6 +3253,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: -5, y: 0, z: 0}
+    second:
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: 45, y: 0, z: 0}
     second:
       m_TileIndex: 2
@@ -3223,6 +3316,51 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: -5, y: 1, z: 0}
+    second:
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -5, y: 2, z: 0}
+    second:
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -5, y: 3, z: 0}
+    second:
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -5, y: 4, z: 0}
+    second:
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -5, y: 5, z: 0}
+    second:
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
@@ -3237,7 +3375,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 4fc89948fd8bc954186354f8904e6700, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 7d07bd1db06ad0240b052a240f7bbb1d, type: 2}
-  - m_RefCount: 60
+  - m_RefCount: 66
     m_Data: {fileID: 11400000, guid: 3335525bbe05bba49ac1ba281d30cce7, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -3266,7 +3404,7 @@ Tilemap:
     m_Data: {fileID: 21300038, guid: 8de9b5b4bd9e7eb48b69feba137edb6a, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300040, guid: 8de9b5b4bd9e7eb48b69feba137edb6a, type: 3}
-  - m_RefCount: 60
+  - m_RefCount: 66
     m_Data: {fileID: 21300042, guid: 8de9b5b4bd9e7eb48b69feba137edb6a, type: 3}
   - m_RefCount: 25
     m_Data: {fileID: 21300010, guid: 8de9b5b4bd9e7eb48b69feba137edb6a, type: 3}
@@ -3291,7 +3429,7 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 21300082, guid: 8de9b5b4bd9e7eb48b69feba137edb6a, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 166
+  - m_RefCount: 172
     m_Data:
       e00: 1
       e01: 0
@@ -3316,12 +3454,12 @@ Tilemap:
     m_Data: {r: 6e-45, g: 6e-45, b: 6e-45, a: 6e-45}
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
-  - m_RefCount: 166
+  - m_RefCount: 172
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -4, y: -5, z: 0}
-  m_Size: {x: 55, y: 8, z: 1}
+  m_Origin: {x: -5, y: -5, z: 0}
+  m_Size: {x: 56, y: 11, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -3454,7 +3592,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 663088644}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
@@ -3705,9 +3843,9 @@ MonoBehaviour:
   scale: {x: 0.2, y: 0.2}
   ropeSprite: {fileID: 21300000, guid: c8bdbb862016e5144b9edaf92cb8f49d, type: 3}
   material: {fileID: 2100000, guid: dc7e653fba96bae4fbb9b01d2213d26d, type: 2}
-  mass: 0.05
+  mass: 0.1
   size: 50
-  maxDistance: 0.1
+  maxDistance: 0.055
   autoConfigureAnchor: 0
   autoConfigureDistance: 0
   maxDistanceOnly: 1
@@ -4274,7 +4412,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1631279299}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
@@ -4814,7 +4952,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892650310}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 

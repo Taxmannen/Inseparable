@@ -10,6 +10,8 @@ public class ResolutionScript : MonoBehaviour {
     public string currentRes;
     public int index;
     public List<string> resolutions = new List<string>() { "1920 x 1080", "1280 x 720" };
+    public MenuManagerScript menuManagerScript;
+
 
 
     // Use this for initialization
@@ -19,19 +21,24 @@ public class ResolutionScript : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetButtonDown("Submit"))
+        if (menuManagerScript.toggleMenu)
         {
-            index++;
+
+            if (Input.GetButtonDown("Submit"))
+            {
+                index++;
+                Debug.Log("hi");
+            }
+
+            if (index >= resolutions.Count)
+            {
+                index = 0;
+            }
+
+            changeRes();
+
+            resValue.text = currentRes;
         }
-
-        if(index >= resolutions.Count)
-        {
-            index = 0;
-        }
-
-        changeRes();
-
-        resValue.text = currentRes;
     }
 
     void changeRes()

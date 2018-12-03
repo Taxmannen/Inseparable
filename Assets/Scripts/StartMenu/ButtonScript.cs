@@ -13,9 +13,6 @@ public class ButtonScript : MonoBehaviour {
     void Start () {
         str = transform.name;
 
-        controlsButton.onClick.AddListener(OpenControlsMenu);
-
-        //generalButton.onClick.AddListener(OpenGeneralMenu);
     }
 	
 	// Update is called once per frame
@@ -24,6 +21,11 @@ public class ButtonScript : MonoBehaviour {
     }
 
     void OpenControlsMenu()
+    {
+
+    }
+
+    void OpenGeneralMenu()
     {
 
     }

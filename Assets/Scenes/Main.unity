@@ -833,7 +833,6 @@ MonoBehaviour:
   jumpTime: 0.1
   jumpTimeCounter: 0
   jumpForceReduction: 12.4
-  jumpButton: 0
   grounded: 0
   groundLayer:
     serializedVersion: 2
@@ -1123,7 +1122,6 @@ MonoBehaviour:
   jumpTime: 0.1
   jumpTimeCounter: 0
   jumpForceReduction: 12.4
-  jumpButton: 0
   grounded: 0
   groundLayer:
     serializedVersion: 2

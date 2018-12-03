@@ -13,7 +13,7 @@ public class JumpController : MonoBehaviour
     //[Range(0f, 150f)]
     public float jumpForceReduction;
 
-    public bool jumpButton;
+    bool jumpButton;
     public bool grounded;
 
     public LayerMask groundLayer;
@@ -32,12 +32,8 @@ public class JumpController : MonoBehaviour
 
         if (!jumpButton)
         {
-            if (grounded)
-                jumpTimeCounter = jumpTime;
-            else
-            {
-                jumpTimeCounter = 0;
-            }
+            if (grounded) jumpTimeCounter = jumpTime;
+            else          jumpTimeCounter = 0;
         }
     }
 
@@ -49,6 +45,5 @@ public class JumpController : MonoBehaviour
             jumpTimeCounter -= Time.deltaTime;
             if (jumpTimeCounter < 0) jumpTimeCounter = 0;
         }
-        
     }
 }

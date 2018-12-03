@@ -6,7 +6,7 @@ public class RopeCreator : MonoBehaviour{
     public Vector2 scale = new Vector2(0.2f, 0.2f);
     public Sprite ropeSprite;
     public Material material;
-    public float mass = 0.08f;
+    public float mass = 0.06f;
     public int size = 50;
 
     [Header("Hinge Joint")]

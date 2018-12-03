@@ -151,12 +151,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10499018}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.01
+  scrollspeedMultiplier: 0
+  flatTimeMultiplier: 0
 --- !u!114 &10499021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,7 +872,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   airForce: 0
-  groundSpeed: 0
   maxGroundSpeed: 0
   flatMultiplier: 0
 --- !u!1 &377755893
@@ -1062,7 +1063,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435475452}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 769d1aafde7875d40b934ed0d5d2600a, type: 3}
   m_Name: 
@@ -1120,7 +1121,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435475452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1316026d5c79cef45b5932f2f6e61caa, type: 3}
   m_Name: 
@@ -1128,17 +1129,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  airForce: 0
-  groundSpeed: 0
-  maxGroundSpeed: 0
-  flatMultiplier: 0
+  airForce: 20
+  maxGroundSpeed: 70
+  flatMultiplier: 70
 --- !u!114 &435475461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435475452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70c312f6a88950a4fb50bf3812589a72, type: 3}
   m_Name: 
@@ -1314,7 +1314,14 @@ MonoBehaviour:
   right: {fileID: 538390368}
   top: {fileID: 599662225}
   bottom: {fileID: 115085896}
+  mainScripts:
+  - {fileID: 663088644}
+  - {fileID: 10499018}
+  - {fileID: 1892650310}
+  - {fileID: 1631279299}
   fractionFromNewPositon: 0.01
+  limitLess: 1
+  lerpidometer: 100
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3201,6 +3208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.025
+  scrollspeedMultiplier: 1
+  flatTimeMultiplier: 1
 --- !u!114 &663088647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4148,12 +4157,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1631279299}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.075
+  scrollspeedMultiplier: 0
+  flatTimeMultiplier: 0
 --- !u!23 &1631279302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4687,12 +4698,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892650310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.01
+  scrollspeedMultiplier: 0
+  flatTimeMultiplier: 0
 --- !u!23 &1892650313
 MeshRenderer:
   m_ObjectHideFlags: 0

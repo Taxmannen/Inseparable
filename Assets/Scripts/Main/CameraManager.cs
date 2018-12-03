@@ -13,6 +13,8 @@ public class CameraManager : MonoBehaviour
     Transform player2;
 
     public float fractionFromNewPositon;
+    public bool limitLess;
+    public float lerpidometer;
     
     void Start()
     {
@@ -23,14 +25,26 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        float x = Mathf.Clamp((player1.position.x + player2.position.x) * 0.5f,
-            left.position.x + Camera.main.orthographicSize * Camera.main.aspect,
-            right.position.x - Camera.main.orthographicSize * Camera.main.aspect);
 
-        float y = Mathf.Clamp((player1.position.y + player2.position.y) * 0.5f,
-            bottom.position.y + Camera.main.orthographicSize,
-            top.position.y - Camera.main.orthographicSize);
+        if (!limitLess)
+        { 
+            float x = Mathf.Clamp((player1.position.x + player2.position.x) * 0.5f,
+                left.position.x + Camera.main.orthographicSize * Camera.main.aspect,
+                right.position.x - Camera.main.orthographicSize * Camera.main.aspect);
 
-        transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), 3f * Time.deltaTime);
+            float y = Mathf.Clamp((player1.position.y + player2.position.y) * 0.5f,
+                bottom.position.y + Camera.main.orthographicSize,
+                top.position.y - Camera.main.orthographicSize);
+
+            
+            transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), lerpidometer * Time.deltaTime);
+        }
+        else
+        {
+            float x = (player1.position.x + player2.position.x) * 0.5f;
+            float y = (player1.position.y + player2.position.y) * 0.5f;
+
+            transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), lerpidometer * Time.deltaTime);
+        }
     }
 }

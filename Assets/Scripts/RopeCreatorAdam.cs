@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RopeCreator : MonoBehaviour {
+public class RopeCreatorAdam : MonoBehaviour {
 
     public List<GameObject> ropeSegments;
     public GameObject ropeSegment;

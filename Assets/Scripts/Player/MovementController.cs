@@ -6,13 +6,13 @@ public class MovementController : MonoBehaviour
 {
     [Header("Air Variables")]
     public LayerMask groundLayer;
-    [Range(1, 10)]
+    [Range(5,35)]
     public float airForce;
 
     [Header("Ground Variables")]
-    [Range(1, 10)]
-    public float groundSpeed;
+    [Range(50, 100)]
     public float maxGroundSpeed;
+    [Range(50, 100)]
     public float flatMultiplier;
 
     Rigidbody2D rb;

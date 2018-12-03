@@ -10,9 +10,9 @@ public class MovementController : MonoBehaviour
     public float airForce;
 
     [Header("Ground Variables")]
-    [Range(50, 100)]
+    //[Range(50, 100)]
     public float maxGroundSpeed;
-    [Range(50, 100)]
+    //[Range(50, 100)]
     public float flatMultiplier;
 
     Rigidbody2D rb;

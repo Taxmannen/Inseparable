@@ -151,12 +151,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10499018}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.01
+  scrollSpeed: 0.03
+  flat: 0.1
   moveWithTime: 0
 --- !u!114 &10499021
 MonoBehaviour:
@@ -1049,6 +1050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6110c79aee1e1014087dc5fa726571d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
+  affectedAreaSize: 0.5
+  drawGizmos: 1
 --- !u!233 &435475458
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -3455,12 +3461,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 663088644}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.025
+  scrollSpeed: 0.02
+  flat: 0.1
   moveWithTime: 0
 --- !u!114 &663088647
 MonoBehaviour:
@@ -4275,12 +4282,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1631279299}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.075
+  scrollSpeed: 0.05
+  flat: 0.1
   moveWithTime: 0
 --- !u!23 &1631279302
 MeshRenderer:
@@ -4815,12 +4823,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892650310}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bfc66a36fdf2964fa06fef47d9c351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.01
+  flat: 0.05
   moveWithTime: 0
 --- !u!23 &1892650313
 MeshRenderer:

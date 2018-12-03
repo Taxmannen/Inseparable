@@ -4,6 +4,7 @@
 public class ScrollingBackground : MonoBehaviour {
     [Range(0.01f, 0.1f)]
     public float scrollSpeed;
+    public bool moveWithTime;
 
     Renderer rend;
     Transform cam;
@@ -16,17 +17,18 @@ public class ScrollingBackground : MonoBehaviour {
         cam = GameObject.Find("Main Camera").transform;
         oldX = cam.position.x;
     }
-
-    void Update()
+    
+    public void FixedUpdate()
     {
-        if (cam.position.x.ToString("F1") != oldX.ToString("F1"))
-        {
-            if (oldX > cam.position.x) offset += (scrollSpeed / 100);
-            if (oldX < cam.position.x) offset -= (scrollSpeed / 100);
+        float deltaX = (oldX - cam.position.x);
+        if (moveWithTime)
+            deltaX -= Time.deltaTime;
+                
+        offset += (deltaX) * scrollSpeed;
+        
+        rend.material.mainTextureOffset = new Vector2(offset, 0);
+        oldX = cam.transform.position.x;
 
-            rend.material.mainTextureOffset = new Vector2(offset, 0);
-            oldX = cam.transform.position.x;
-        }   
         transform.position = new Vector3(cam.position.x, transform.position.y, 0.01f);
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class JumpController : MonoBehaviour
 {
-    [Range(1f, 150f)]
+    //[Range(1f, 150f)]
     public float jumpForce;
-    [Range(0.01f, 0.5f)]
+    //[Range(0.01f, 0.5f)]
     public float jumpTime;
     public float jumpTimeCounter;
 
-    [Range(0f, 150f)]
+    //[Range(0f, 150f)]
     public float jumpForceReduction;
 
     public bool jumpButton;

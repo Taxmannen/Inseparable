@@ -6,7 +6,6 @@ public class MovementController : MonoBehaviour
 {
     [Header("Air Variables")]
     public LayerMask groundLayer;
-    [Range(5,35)]
     public float airForce;
 
     [Header("Ground Variables")]

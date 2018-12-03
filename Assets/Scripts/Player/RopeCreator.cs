@@ -23,6 +23,17 @@ public class RopeCreator : MonoBehaviour{
 
     void Start()
     {
+        CreateRope();   
+    }
+
+    private void Update()
+    {
+        if (firstLink != null) firstLink.position = player1.position;
+        if (lastLink  != null) lastLink.position  = player2.position;
+    }
+
+    public void CreateRope()
+    {
         gameObjects = new List<GameObject>();
         Vector3 pos = transform.position;
         for (int i = 0; i < size; i++)
@@ -33,7 +44,7 @@ public class RopeCreator : MonoBehaviour{
             g.transform.localScale = new Vector3(scale.x, scale.y, 1);
             g.transform.localPosition = new Vector3(0, 0 - ((scale.x * 0.33f) * i), 0);
             g.name = "" + (i + 1);
-         
+
             Rigidbody2D rb = g.AddComponent<Rigidbody2D>();
             rb.mass = mass;
 
@@ -45,32 +56,32 @@ public class RopeCreator : MonoBehaviour{
             gameObjects.Add(g);
         }
 
-        for (int i = size-1; i > 0; i--)
+        for (int i = size - 1; i > 0; i--)
         {
-            if (i != 0 && i < size-1)
+            if (i != 0 && i < size - 1)
             {
                 DistanceJoint2D dj1 = transform.GetChild(i).gameObject.AddComponent<DistanceJoint2D>();
-                dj1.connectedBody = transform.GetChild(i+1).GetComponent<Rigidbody2D>();
+                dj1.connectedBody = transform.GetChild(i + 1).GetComponent<Rigidbody2D>();
                 dj1.autoConfigureConnectedAnchor = autoConfigureAnchor;
                 dj1.autoConfigureDistance = autoConfigureDistance;
                 dj1.maxDistanceOnly = maxDistanceOnly;
                 dj1.distance = maxDistance;
 
                 DistanceJoint2D dj2 = transform.GetChild(i).gameObject.AddComponent<DistanceJoint2D>();
-                dj2.connectedBody = transform.GetChild(i-1).GetComponent<Rigidbody2D>();
+                dj2.connectedBody = transform.GetChild(i - 1).GetComponent<Rigidbody2D>();
                 dj2.autoConfigureConnectedAnchor = autoConfigureAnchor;
                 dj2.autoConfigureDistance = autoConfigureDistance;
                 dj2.maxDistanceOnly = maxDistanceOnly;
                 dj2.distance = maxDistance;
 
                 HingeJoint2D hj1 = transform.GetChild(i).gameObject.AddComponent<HingeJoint2D>();
-                hj1.connectedBody = transform.GetChild(i-1).GetComponent<Rigidbody2D>();
+                hj1.connectedBody = transform.GetChild(i - 1).GetComponent<Rigidbody2D>();
                 hj1.autoConfigureConnectedAnchor = false;
                 hj1.connectedAnchor = new Vector2(-0.2f, 0);
 
 
                 HingeJoint2D hj2 = transform.GetChild(i).gameObject.AddComponent<HingeJoint2D>();
-                hj2.connectedBody = transform.GetChild(i+1).GetComponent<Rigidbody2D>();
+                hj2.connectedBody = transform.GetChild(i + 1).GetComponent<Rigidbody2D>();
                 hj2.autoConfigureConnectedAnchor = false;
                 hj2.connectedAnchor = new Vector2(0.2f, 0);
 
@@ -93,11 +104,5 @@ public class RopeCreator : MonoBehaviour{
 
         player1.GetComponent<DistanceJoint2D>().connectedBody = firstLink.GetComponent<Rigidbody2D>();
         player2.GetComponent<DistanceJoint2D>().connectedBody = lastLink.GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        firstLink.position = player1.position;
-        lastLink.position  = player2.position;
     }
 }

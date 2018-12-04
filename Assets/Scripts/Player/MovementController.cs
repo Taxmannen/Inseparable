@@ -4,6 +4,8 @@ using UnityEngine;
 /* Script made by Adam */
 public class MovementController : MonoBehaviour
 {
+    [HideInInspector] public bool grounded;
+
     [Header("Air Variables")]
     public LayerMask groundLayer;
     public float airForce;
@@ -15,7 +17,7 @@ public class MovementController : MonoBehaviour
     public float flatMultiplier;
 
     Rigidbody2D rb;
-    bool grounded;
+
     float xInput;
 
     void Start()

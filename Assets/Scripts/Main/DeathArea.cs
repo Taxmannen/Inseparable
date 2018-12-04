@@ -19,6 +19,11 @@ public class DeathArea : MonoBehaviour {
         */
     }
 
+    private void Update()
+    { 
+        if (Input.GetButtonDown("Inventory Player 1")) levelManager.Load("Main");   
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

@@ -43,7 +43,7 @@ public class WallJumpController : MonoBehaviour
     {
         if (jumpButton && jumpTimeCounter > 0)
         {
-            Debug.Log("Walljumping!");
+            //Debug.Log("Walljumping!");
             rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
             jumpTimeCounter -= Time.deltaTime;
             if (jumpTimeCounter < 0) jumpTimeCounter = 0;

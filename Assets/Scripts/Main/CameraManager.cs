@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraManager : MonoBehaviour
 {
+    public List<ScrollingBackground> backgrounds;
+
     public Transform left;
     public Transform right;
     public Transform top;
@@ -25,26 +28,27 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        foreach(ScrollingBackground b in backgrounds)
+        {
+            b.update();
+        }
 
+        float x, y;
         if (!limitLess)
         { 
-            float x = Mathf.Clamp((player1.position.x + player2.position.x) * 0.5f,
+            x = Mathf.Clamp((player1.position.x + player2.position.x) * 0.5f,
                 left.position.x + Camera.main.orthographicSize * Camera.main.aspect,
                 right.position.x - Camera.main.orthographicSize * Camera.main.aspect);
 
-            float y = Mathf.Clamp((player1.position.y + player2.position.y) * 0.5f,
+            y = Mathf.Clamp((player1.position.y + player2.position.y) * 0.5f,
                 bottom.position.y + Camera.main.orthographicSize,
                 top.position.y - Camera.main.orthographicSize);
-
-            
-            transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), lerpidometer * Time.deltaTime);
         }
         else
         {
-            float x = (player1.position.x + player2.position.x) * 0.5f;
-            float y = (player1.position.y + player2.position.y) * 0.5f;
-
-            transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), lerpidometer * Time.deltaTime);
+            x = (player1.position.x + player2.position.x) * 0.5f;
+            y = (player1.position.y + player2.position.y) * 0.5f;
         }
+        transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), lerpidometer * Time.deltaTime);
     }
 }

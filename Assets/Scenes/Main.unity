@@ -159,6 +159,7 @@ MonoBehaviour:
   scrollSpeed: 0.03
   flat: 0.1
   moveWithTime: 0
+  rb: {fileID: 435475453}
 --- !u!114 &10499021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3638,6 +3639,7 @@ MonoBehaviour:
   scrollSpeed: 0.02
   flat: 0.1
   moveWithTime: 0
+  rb: {fileID: 435475453}
 --- !u!114 &663088647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3880,16 +3882,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 0.2, y: 0.2}
-  placement: {x: 0.2, y: 0}
   ropeSprite: {fileID: 21300000, guid: c8bdbb862016e5144b9edaf92cb8f49d, type: 3}
   material: {fileID: 2100000, guid: dc7e653fba96bae4fbb9b01d2213d26d, type: 2}
   mass: 0.04
   size: 40
-  hingePosition: {x: 0.25, y: 0}
-  hingeOn: 1
-  hingeAutoConfigureAnchor: 0
   maxDistance: 0.15
-  distanceOn: 1
   autoConfigureAnchor: 0
   autoConfigureDistance: 0
   maxDistanceOnly: 1
@@ -4464,6 +4461,7 @@ MonoBehaviour:
   scrollSpeed: 0.05
   flat: 0.1
   moveWithTime: 0
+  rb: {fileID: 435475453}
 --- !u!23 &1631279302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5005,6 +5003,7 @@ MonoBehaviour:
   scrollSpeed: 0.01
   flat: 0.05
   moveWithTime: 0
+  rb: {fileID: 435475453}
 --- !u!23 &1892650313
 MeshRenderer:
   m_ObjectHideFlags: 0

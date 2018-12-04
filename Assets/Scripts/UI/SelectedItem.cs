@@ -7,7 +7,8 @@ public class SelectedItem : MonoBehaviour {
 
 
     void Start () {
-        selectedItem = transform.GetChild(1).GetComponent <Image>();
+        selectedItem = transform.GetComponent <Image>();
+        //Debug.Log(transform.parent.name);
         
     }
     

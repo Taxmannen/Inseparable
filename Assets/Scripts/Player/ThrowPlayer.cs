@@ -1,49 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ThrowPlayer : MonoBehaviour {
-    public float power = 40;
-    bool pickedUp;
+    public Vector2 power = new Vector2(25, 30);
 
+    MovementController movementController;
     Transform player;
     Rigidbody2D rb;
-    MovementController movementController;
+    float direction;
+    bool pickUp;
+    bool buttonUp;
 
-    float horizontal;
-	void Start ()
+    void Start ()
     {
-		
-	}
+        string otherPlayer;
+		if      (gameObject.name == "Player 1") otherPlayer = "Player 2";
+		else                                    otherPlayer = "Player 1";
+        player = GameObject.Find(otherPlayer).transform;
+        movementController = player.GetComponent<MovementController>();
+        rb = player.GetComponent<Rigidbody2D>();
+    }
 	
 	void Update ()
     {
-       if (Input.GetAxisRaw("Horizontal" + " " + gameObject.name) != 0) horizontal = Input.GetAxisRaw("Horizontal" + " " + gameObject.name);
-       if (pickedUp)
-       {
+        if (Input.GetAxisRaw("Horizontal" + " " + gameObject.name) != 0) direction = Input.GetAxisRaw("Horizontal" + " " + gameObject.name);
+        if (Input.GetAxisRaw("Throw" + " " + gameObject.name) == 0) buttonUp = true;
+
+        if (pickUp)
+        {
             rb.isKinematic = true;
-            player.position = Vector3.MoveTowards(player.position, new Vector3(transform.position.x, transform.position.y + 1f, 0), 0.04f);
-            if (Input.GetAxisRaw("Throw Player 1") != 0)
+            player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
+
+            if (Input.GetAxisRaw("Throw" + " " + gameObject.name) != 0 && buttonUp)
             {
-                pickedUp = false;
+                pickUp = false;
                 rb.isKinematic = false;
-                if      (horizontal < 0) rb.AddForce(new Vector2(-power, 35), ForceMode2D.Impulse);
-                else if (horizontal > 0) rb.AddForce(new Vector2(power, 35),  ForceMode2D.Impulse);
+                if      (direction < 0) rb.AddForce(new Vector2(-power.x, power.y), ForceMode2D.Impulse);
+                else if (direction > 0) rb.AddForce(new Vector2(power.x, power.y),  ForceMode2D.Impulse);
+                buttonUp = false;
             }
-       }
+        }
+        else if (!pickUp && rb.isKinematic) rb.isKinematic = false;
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
-        {
-            if (movementController == null) movementController = other.GetComponent<MovementController>(); //BUGG!
-            if (Input.GetAxisRaw("Pickup" + " " + gameObject.name) != 0 && movementController.grounded)
-            {
-                if (player == null) player = other.transform;
-                if (rb == null) rb = other.GetComponent<Rigidbody2D>();
-                pickedUp = true;
-            }
-        }
+        if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name) != 0) pickUp = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player") pickUp = false;
     }
 }

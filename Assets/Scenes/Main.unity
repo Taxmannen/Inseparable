@@ -1042,9 +1042,59 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114318423105056396, guid: 88c04a49380c1d04f917b67a607a5075, type: 2}
+    - {fileID: 114120663443361378, guid: 88c04a49380c1d04f917b67a607a5075, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 88c04a49380c1d04f917b67a607a5075, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &495858082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1107747114444694, guid: 88c04a49380c1d04f917b67a607a5075,
+    type: 2}
+  m_PrefabInternal: {fileID: 495858081}
+--- !u!114 &495858083 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114863187975545582, guid: 88c04a49380c1d04f917b67a607a5075,
+    type: 2}
+  m_PrefabInternal: {fileID: 495858081}
+  m_Script: {fileID: 11500000, guid: 6c85c8e7923dae044af2b7b99bd92d43, type: 3}
+--- !u!114 &495858084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495858082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8938f093bfb8420468d31286cc325125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItem: {fileID: 495858083}
+  player: 1
+--- !u!1 &495858085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1014408069380274, guid: 88c04a49380c1d04f917b67a607a5075,
+    type: 2}
+  m_PrefabInternal: {fileID: 495858081}
+--- !u!114 &495858086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114900943164651844, guid: 88c04a49380c1d04f917b67a607a5075,
+    type: 2}
+  m_PrefabInternal: {fileID: 495858081}
+  m_Script: {fileID: 11500000, guid: 6c85c8e7923dae044af2b7b99bd92d43, type: 3}
+--- !u!114 &495858087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495858085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8938f093bfb8420468d31286cc325125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItem: {fileID: 495858086}
+  player: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

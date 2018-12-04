@@ -40,7 +40,8 @@ public class LevelManager : MonoBehaviour {
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
-        while (!asyncLoad.isDone) yield return null;
+        //while (!asyncLoad.isDone) yield return null;
+        yield return new WaitForSeconds(1);
 
         start = false;
     }

@@ -11,13 +11,13 @@ public class ItemInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            for(int i = 0; i < inventory.images.Length; i++)
+            /*for( int i = 0; i < inventory.images.Length; i++)
             {
                 if(inventory.images[i] == null)
                 {
                     Debug.Log("HEEEJ");
                 }
-            }    
+            }    */
         }
     }
 }

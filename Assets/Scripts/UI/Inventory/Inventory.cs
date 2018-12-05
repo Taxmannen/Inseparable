@@ -7,7 +7,8 @@ public class Inventory : MonoBehaviour {
     public SelectedItem selectedItem;
     public Sprite empty;
     public string player;
-
+    public CanvasRenderer bg;
+    
     Image[] images;
     float timer;
     readonly int numberOfItems = 3;
@@ -25,7 +26,7 @@ public class Inventory : MonoBehaviour {
 
     private void Update()
     {
-       if (timer > 0)
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
             SetAlpha(timer * fadeSpeed);
@@ -66,6 +67,9 @@ public class Inventory : MonoBehaviour {
     {
         CanvasRenderer[] children = transform.GetChild(0).GetComponentsInChildren<CanvasRenderer>();
         foreach (CanvasRenderer child in children) child.SetAlpha(alpha);
+
+        bg.SetAlpha(alpha);
+        if (alpha > 0.75f) bg.SetAlpha(0.75f);
     }
 
     //För automatisk pickup

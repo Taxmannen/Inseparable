@@ -16,7 +16,7 @@ public class ThrowPlayer : MonoBehaviour {
 		if      (gameObject.name == "Player 1") otherPlayer = "Player 2";
 		else                                    otherPlayer = "Player 1";
         player = GameObject.Find(otherPlayer).transform;
-        movementController = player.GetComponent<MovementController>();
+        movementController = GetComponent<MovementController>();
         rb = player.GetComponent<Rigidbody2D>();
     }
 	
@@ -44,8 +44,8 @@ public class ThrowPlayer : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name) != 0) pickUp = true;
-    }
+        if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name) != 0 && movementController.grounded) pickUp = true;
+        }
 
     private void OnTriggerExit2D(Collider2D other)
     {

@@ -18,7 +18,7 @@ public class AnchorController : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
-        float anchorAxis = Input.GetAxisRaw("Anchor " + gameObject.name);
+        float anchorAxis = Input.GetAxisRaw("Attack " + gameObject.name);
         if (anchorAxis > 0.19f) anchorButton = true;
         else anchorButton = false;
 

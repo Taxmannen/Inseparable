@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 // Made by Jocke
 public class Inventory : MonoBehaviour {
+    public float fadeSpeed = 5f;
     public SelectedItem selectedItem;
+    public Sprite empty;
+    public string player;
+
     Image[] images;
     float timer;
-    public string player;
-    int numberOfItems = 3;
-
+    readonly int numberOfItems = 3;
 
     private void Start()
     {
-        setAlpha(0);
+        SetAlpha(0);
         images = new Image[numberOfItems];
-        for(int i = 0; i < transform.GetChild(0).childCount; i++)
+        for (int i = 0; i < transform.GetChild(0).childCount; i++)
         {
-            images[i] = transform.GetChild(0).GetChild(i).GetComponent<Image>();
+            images[i] = transform.GetChild(0).GetChild(i).GetChild(0).GetComponent<Image>();
         }
+        selectedItem.SwapSprite(images[1].sprite);
     }
 
     private void Update()
@@ -24,7 +28,7 @@ public class Inventory : MonoBehaviour {
        if (timer > 0)
         {
             timer -= Time.deltaTime;
-            setAlpha(timer);
+            SetAlpha(timer * fadeSpeed);
         }
 
         if (Input.GetButtonDown("Change Item Player " + player))
@@ -37,32 +41,50 @@ public class Inventory : MonoBehaviour {
     private void PositiveItemSwap()
     {
         timer = 2;
-        setAlpha(timer);
+        SetAlpha(timer);
 
-        Sprite tmp = images[0].sprite;
+        Sprite tmp = images[1].sprite;
+        images[1].sprite = images[0].sprite;
         images[0].sprite = images[2].sprite;
-        images[2].sprite = images[1].sprite;
-        images[1].sprite = tmp;
-        selectedItem.SwapSprite(images[0].sprite);
+        images[2].sprite = tmp;
+        selectedItem.SwapSprite(images[1].sprite);
     }
 
     private void NegativeItemSwap()
     {
         timer = 2;
-        setAlpha(timer);
+        SetAlpha(timer);
 
         Sprite tmp = images[0].sprite;
         images[0].sprite = images[1].sprite;
         images[1].sprite = images[2].sprite;
         images[2].sprite = tmp;
-        selectedItem.SwapSprite(images[0].sprite);
+        selectedItem.SwapSprite(images[1].sprite);
     }
 
-    public void setAlpha(float alpha) {
+    public void SetAlpha(float alpha)
+    {
         CanvasRenderer[] children = transform.GetChild(0).GetComponentsInChildren<CanvasRenderer>();
-            foreach (CanvasRenderer child in children)
+        foreach (CanvasRenderer child in children) child.SetAlpha(alpha);
+    }
+
+    //För automatisk pickup
+    public void PickupItem(Sprite s) 
+    {
+        foreach (Image i in images)
+        {
+            if (i.sprite == empty)
             {
-                child.SetAlpha(alpha);
+                Debug.Log(i.name + " " + "Empty");
+                i.sprite = s;
+                //Break
             }
+        }
+    }
+
+    //För byte av item
+    public void SwitchItem(Sprite s)
+    {
+        images[1].sprite = s;
     }
 }

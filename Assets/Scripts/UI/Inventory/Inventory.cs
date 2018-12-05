@@ -82,7 +82,7 @@ public class Inventory : MonoBehaviour {
             if (i.sprite == empty)
             {
                 i.sprite = s;
-                if (selectedItem.selectedItem.sprite.name == "Transparent") selectedItem.SwapSprite(s);
+                if (selectedItem.selectedItem.sprite == empty) selectedItem.SwapSprite(s);
                 isItemSlotEmpty = false;
                 return;
             }
@@ -100,7 +100,6 @@ public class Inventory : MonoBehaviour {
         foreach (Image i in images)
         {
             if (i.sprite == empty) isItemSlotEmpty = true;
-            return;
         }
     }
 

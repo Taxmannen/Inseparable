@@ -4,7 +4,6 @@ using UnityEngine.UI;
 //Made by Jocke
 public class SelectedItem : MonoBehaviour {
     Image selectedItem;
-    Sprite sprite;
 
     void Start ()
     {

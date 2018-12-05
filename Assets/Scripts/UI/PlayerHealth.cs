@@ -7,7 +7,8 @@ public class PlayerHealth : MonoBehaviour {
     public Slider healthBar;
 
 
-    void Start () {
+    void Start ()
+    {
         healthBar.maxValue = playerStats.maxHealth;
         healthBar.value = playerStats.currentHealth;
 	}
@@ -16,8 +17,8 @@ public class PlayerHealth : MonoBehaviour {
     {
         if (playerStats == null)
         {
-            if      (gameObject.name.Contains("One")) playerStats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
-            else if (gameObject.name.Contains("Two")) playerStats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
+            if      (gameObject.name.Contains("1")) playerStats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
+            else if (gameObject.name.Contains("2")) playerStats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
         }
         healthBar.value = playerStats.currentHealth;
     }

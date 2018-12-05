@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour {
     bool isItemSlotEmpty = false;
     
     Image[] images;
+    CanvasRenderer bg;
     float timer;
     readonly int numberOfItems = 3;
 
@@ -69,6 +70,7 @@ public class Inventory : MonoBehaviour {
         CanvasRenderer[] children = transform.GetChild(0).GetComponentsInChildren<CanvasRenderer>();
         foreach (CanvasRenderer child in children) child.SetAlpha(alpha);
 
+        if (bg == null) bg = GetComponent<CanvasRenderer>();
         bg.SetAlpha(alpha);
         if (alpha > 0.75f) bg.SetAlpha(0.75f);
     }

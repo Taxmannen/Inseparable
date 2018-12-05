@@ -7,7 +7,8 @@ public class PlayerHealth : MonoBehaviour {
     public Slider healthBar;
 
 
-    void Start () {
+    void Start ()
+    {
         healthBar.maxValue = playerStats.maxHealth;
         healthBar.value = playerStats.currentHealth;
 	}

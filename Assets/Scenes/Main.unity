@@ -782,7 +782,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 435475452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.156, y: -0.5, z: 0}
+  m_LocalPosition: {x: -2, y: 0.3, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 488428151}
@@ -836,7 +836,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -3.156, y: -0.5}
+  m_ConnectedAnchor: {x: -2, y: 0.3}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -859,7 +859,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -3.156, y: -0.5}
+  m_ConnectedAnchor: {x: -2, y: 0.3}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -969,6 +969,7 @@ Transform:
   m_Children:
   - {fileID: 435475455}
   - {fileID: 366022340}
+  - {fileID: 1577307082}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3604,6 +3605,83 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1577307081
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 488428151}
+    m_Modifications:
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1577307082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4111606884920612, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1577307081}
+--- !u!1 &1577307083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1487808726143178, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1577307081}
+--- !u!114 &1577307084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1577307083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d50c72e4edad3b46aac1921d053419a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 0.2, y: 0.2}
+  placement: {x: 0.2, y: 0}
+  ropeSprite: {fileID: 21300000, guid: c8bdbb862016e5144b9edaf92cb8f49d, type: 3}
+  material: {fileID: 2100000, guid: dc7e653fba96bae4fbb9b01d2213d26d, type: 2}
+  mass: 0.02
+  size: 40
+  hingePosition: {x: 0.25, y: 0}
+  hingeOn: 1
+  hingeAutoConfigureAnchor: 0
+  maxDistance: 0.2
+  distanceOn: 1
+  autoConfigureAnchor: 0
+  autoConfigureDistance: 0
+  maxDistanceOnly: 1
 --- !u!1 &1631279299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,6 +4345,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114746779525567700, guid: 88c04a49380c1d04f917b67a607a5075,
+        type: 2}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 366022344}
+    - target: {fileID: 114622554092873016, guid: 88c04a49380c1d04f917b67a607a5075,
+        type: 2}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 435475462}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88c04a49380c1d04f917b67a607a5075, type: 2}
   m_IsPrefabAsset: 0

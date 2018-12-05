@@ -5,7 +5,6 @@ using UnityEngine;
 /* Made by Adam */
 [RequireComponent(typeof(LineRenderer))]
 public class LineController : MonoBehaviour {
-
     public Transform previous;
     public LineRenderer line;
     public Color ropeColor;
@@ -15,10 +14,12 @@ public class LineController : MonoBehaviour {
         line = GetComponent<LineRenderer>();
     }
 
-    void Setup(Transform previous, Material material, float width)
+    public void Setup(Transform previous, Material material, float width)
     {
+        Debug.Log(line);
         this.previous = previous;
-        line.startWidth = line.endWidth = width;
+        line.startWidth = width;
+        line.endWidth = width;
         line.material = material;
     }
     

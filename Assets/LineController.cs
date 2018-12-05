@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Made by Adam */
+[RequireComponent(typeof(LineRenderer))]
 public class LineController : MonoBehaviour {
 
     public Transform previous;
-    public LineRenderer lineRenderer;
+    public LineRenderer line;
+    public Color ropeColor;
+    
+    void Start()
+    {
+        line = GetComponent<LineRenderer>();
+        line.material = new Material(Shader.Find("Standard"));
+    }
 
-    // Update is called once per frame
+    void Setup(Transform previous, Color ropeColor, float width)
+    {
+        this.previous = previous;
+        line.startWidth = line.endWidth = width;
+        line.startColor = line.startColor = ropeColor;
+    }
+    
     void Update ()
     {
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, previous.position);
+        if (previous != null)
+        {
+            line.SetPosition(0, transform.position);
+            line.SetPosition(1, previous.position);
+        }
 	}
 }

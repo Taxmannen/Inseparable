@@ -2,12 +2,10 @@
 using UnityEngine;
 
 /* Made by Daniel */
-public class RopeCreator : MonoBehaviour
-{
+public class RopeCreator : MonoBehaviour{
     public Vector2 scale = new Vector2(0.2f, 0.2f);
-    public Vector2 placement = new Vector2(0.2f, 0.2f);
+    public Vector2 placement = new Vector2(0.2f, 0.2f); 
     public Sprite ropeSprite;
-    public Color ropeColor;
     public Material material;
     public float mass = 0.06f;
     public int size = 50;
@@ -24,29 +22,21 @@ public class RopeCreator : MonoBehaviour
     public bool autoConfigureDistance = false;
     public bool maxDistanceOnly = true;
 
-    [Header("Player Line Renderer")]
-    public LineRenderer player2Renderer;
-
     List<GameObject> gameObjects;
     Transform player1;
     Transform player2;
-
     Transform firstLink;
     Transform lastLink;
 
     void Start()
     {
-        CreateRope();
+        CreateRope();   
     }
 
     private void Update()
     {
         if (firstLink != null) firstLink.position = player1.position;
-        if (lastLink != null) lastLink.position = player2.position;
-
-
-        player2Renderer.SetPosition(0, player2.position);
-        player2Renderer.SetPosition(1, lastLink.position);
+        if (lastLink  != null) lastLink.position  = player2.position;
     }
 
     public void CreateRope()
@@ -61,7 +51,7 @@ public class RopeCreator : MonoBehaviour
             g.transform.localScale = new Vector3(scale.x, scale.y, 1);
             g.transform.localPosition = new Vector3(placement.x, 0 - (placement.y * i), 0);
             g.name = "" + (i + 1);
-            
+
             Rigidbody2D rb = g.AddComponent<Rigidbody2D>();
             if (i == 0 || i == size - 1) rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Tas bort?
             rb.mass = mass;
@@ -69,24 +59,6 @@ public class RopeCreator : MonoBehaviour
             SpriteRenderer sr = g.AddComponent<SpriteRenderer>();
             sr.sprite = ropeSprite;
             sr.material = material;
-            sr.enabled = false;
-
-            LineRenderer lr = g.AddComponent<LineRenderer>();
-            LineController lc = g.AddComponent<LineController>();
-
-            lr.material = new Material(Shader.Find("Standard"));
-            lr.SetWidth(0.15f, 0.15f);
-            lr.SetColors(ropeColor, ropeColor);
-            lc.lineRenderer = lr;
-
-            if (i==0)
-            {
-                lc.previous = GameObject.Find("Player 1").transform;
-            }
-            else
-            {
-                lc.previous = gameObjects[gameObjects.Count - 1].transform;
-            }
 
             g.AddComponent<BoxCollider2D>();
             gameObjects.Add(g);
@@ -103,7 +75,7 @@ public class RopeCreator : MonoBehaviour
             {
                 DistanceJoint2D dj1 = transform.GetChild(i).gameObject.AddComponent<DistanceJoint2D>();
                 if (i + 1 == size) dj1.connectedBody = player2rb;
-                if (i + 1 < size) dj1.connectedBody = transform.GetChild(i + 1).GetComponent<Rigidbody2D>();
+                if (i + 1 < size)  dj1.connectedBody = transform.GetChild(i + 1).GetComponent<Rigidbody2D>();
 
                 dj1.autoConfigureConnectedAnchor = autoConfigureAnchor;
                 dj1.autoConfigureDistance = autoConfigureDistance;
@@ -113,13 +85,13 @@ public class RopeCreator : MonoBehaviour
                 DistanceJoint2D dj2 = transform.GetChild(i).gameObject.AddComponent<DistanceJoint2D>();
                 if (i == 0) dj2.connectedBody = player1rb;
                 if (i > 0) dj2.connectedBody = transform.GetChild(i - 1).GetComponent<Rigidbody2D>();
-
+             
                 dj2.autoConfigureConnectedAnchor = autoConfigureAnchor;
                 dj2.autoConfigureDistance = autoConfigureDistance;
                 dj2.maxDistanceOnly = maxDistanceOnly;
                 dj2.distance = maxDistance;
             }
-
+          
             if (hingeOn)
             {
                 HingeJoint2D hj1 = transform.GetChild(i).gameObject.AddComponent<HingeJoint2D>();
@@ -134,7 +106,7 @@ public class RopeCreator : MonoBehaviour
                 if (i + 1 == size) hj2.connectedBody = player2rb;
                 else hj2.connectedBody = transform.GetChild(i + 1).GetComponent<Rigidbody2D>();
                 hj2.autoConfigureConnectedAnchor = hingeAutoConfigureAnchor;
-                if (i == size - 1) hj2.autoConfigureConnectedAnchor = true;
+                if (i == size -1) hj2.autoConfigureConnectedAnchor = true;
                 hj2.connectedAnchor = new Vector2(hingePosition.x, hingePosition.y);
             }
 

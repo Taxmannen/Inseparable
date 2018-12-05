@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /* Made by Adam */
-//[RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(LineRenderer))]
 public class LineController : MonoBehaviour {
     public Transform previous;
     public LineRenderer line;
@@ -9,7 +9,7 @@ public class LineController : MonoBehaviour {
 
     public void Setup(Transform previous, Material material, float width)
     {
-        line = gameObject.AddComponent<LineRenderer>();
+        line = GetComponent<LineRenderer>();
         this.previous = previous;
         line.startWidth = width;
         line.endWidth = width;

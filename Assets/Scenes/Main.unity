@@ -3554,17 +3554,22 @@ Prefab:
     - target: {fileID: 114212654063895770, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0,
         type: 2}
       propertyPath: hingePosition.x
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114212654063895770, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0,
         type: 2}
       propertyPath: maxDistance
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 114212654063895770, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0,
         type: 2}
       propertyPath: lineOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114212654063895770, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0,
+        type: 2}
+      propertyPath: mass
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f4ab27b91d2b5b4c9189432e2a2a6a0, type: 2}

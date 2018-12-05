@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour {
     public Sprite empty;
     public string player;
     public CanvasRenderer bg;
+    bool isItemSlotEmpty = false;
     
     Image[] images;
     float timer;
@@ -81,7 +82,9 @@ public class Inventory : MonoBehaviour {
             {
                 Debug.Log(i.name + " " + "Empty");
                 i.sprite = s;
-                //Break
+                selectedItem.SwapSprite(s);
+                isItemSlotEmpty = false;
+                return;
             }
         }
     }
@@ -90,5 +93,18 @@ public class Inventory : MonoBehaviour {
     public void SwitchItem(Sprite s)
     {
         images[1].sprite = s;
+    }
+
+    public void CheckItemSlot()
+    {
+        foreach (Image i in images)
+        {
+            if (i.sprite == empty) isItemSlotEmpty = true;
+        }
+    }
+
+    public bool GetIsItemSlotEmpty()
+    {
+        return isItemSlotEmpty;
     }
 }

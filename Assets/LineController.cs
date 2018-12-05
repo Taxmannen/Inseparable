@@ -13,14 +13,13 @@ public class LineController : MonoBehaviour {
     void Start()
     {
         line = GetComponent<LineRenderer>();
-        line.material = new Material(Shader.Find("Standard"));
     }
 
-    void Setup(Transform previous, Color ropeColor, float width)
+    void Setup(Transform previous, Material material, float width)
     {
         this.previous = previous;
         line.startWidth = line.endWidth = width;
-        line.startColor = line.startColor = ropeColor;
+        line.material = material;
     }
     
     void Update ()

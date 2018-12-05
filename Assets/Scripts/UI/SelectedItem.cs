@@ -12,6 +12,6 @@ public class SelectedItem : MonoBehaviour {
     
     public void SwapSprite(Sprite sprite)
     {
-        selectedItem.sprite = sprite;
+        if (selectedItem != null) selectedItem.sprite = sprite;
     }
 }

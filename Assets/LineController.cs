@@ -1,22 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /* Made by Adam */
-[RequireComponent(typeof(LineRenderer))]
+//[RequireComponent(typeof(LineRenderer))]
 public class LineController : MonoBehaviour {
     public Transform previous;
     public LineRenderer line;
     public Color ropeColor;
-    
-    void Start()
-    {
-        line = GetComponent<LineRenderer>();
-    }
 
     public void Setup(Transform previous, Material material, float width)
     {
-        Debug.Log(line);
+        line = gameObject.AddComponent<LineRenderer>();
         this.previous = previous;
         line.startWidth = width;
         line.endWidth = width;
@@ -25,7 +18,7 @@ public class LineController : MonoBehaviour {
     
     void Update ()
     {
-        if (previous != null)
+        if (previous != null && line != null)
         {
             line.SetPosition(0, transform.position);
             line.SetPosition(1, previous.position);

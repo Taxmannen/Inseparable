@@ -66,7 +66,9 @@ public class RopeCreator : MonoBehaviour{
             sr.sprite = ropeSprite;
             sr.material = material;
 
-            g.AddComponent<BoxCollider2D>();
+            BoxCollider2D col = g.AddComponent<BoxCollider2D>();
+            col.size = new Vector2(1.5f, 1); //??
+
             gameObjects.Add(g);
         }
 
@@ -123,7 +125,6 @@ public class RopeCreator : MonoBehaviour{
                 }*/
             }
 
-            bool lineOn = true;
             if (lineOn)
             {
                 LineController lc = transform.GetChild(i).gameObject.AddComponent<LineController>();
@@ -131,7 +132,7 @@ public class RopeCreator : MonoBehaviour{
                 else        lc.Setup(transform.GetChild(i-1), material, 0.2f);
             }
         }
-        //player2.gameObject.AddComponent<LineController>().Setup(gameObjects[gameObjects.Count -1].transform, material, 0.2f);
+        if (lineOn) player2.gameObject.AddComponent<LineController>().Setup(gameObjects[gameObjects.Count -1].transform, material, 0.2f);
 
         firstLink = transform.GetChild(0);
         lastLink = transform.GetChild(size - 1);

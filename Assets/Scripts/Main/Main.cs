@@ -11,10 +11,11 @@ public class Main : MonoBehaviour {
         QualitySettings.vSyncCount = 0;
 
         string[] names = Input.GetJoystickNames();
-        for (int x = 0; x < names.Length; x++)
+        for (int x = 0; x < 2; x++)
         {
-            if (names[x].Length == 19) controllers[x] = "PS4";
-            else                       controllers[x] = "XBOX";
+
+            if (names.Length > x && names[x].Length == 19) controllers[x] = "PS4";
+            else                                           controllers[x] = "XBOX";
         }
     }
 

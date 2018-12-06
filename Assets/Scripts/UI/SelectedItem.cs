@@ -4,6 +4,7 @@ using UnityEngine.UI;
 //Made by Jocke
 public class SelectedItem : MonoBehaviour {
     public Image selectedItem;
+    bool healthPot;
 
     void Start ()
     {
@@ -13,5 +14,16 @@ public class SelectedItem : MonoBehaviour {
     public void SwapSprite(Sprite sprite)
     {
         if (selectedItem != null) selectedItem.sprite = sprite;
+        CheckUsebleItem(sprite.name);
+    }
+
+    public void CheckUsebleItem(string s)
+    {
+       healthPot = s == "Potion" ? true : false;
+    }
+
+    public bool GetHealthPot()
+    {
+        return healthPot;
     }
 }

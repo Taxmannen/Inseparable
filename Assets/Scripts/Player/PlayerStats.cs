@@ -5,6 +5,7 @@ public class PlayerStats : MonoBehaviour {
     public int maxHealth;
     public int currentHealth;
     public bool dead;
+    bool usePotion;
 
     MonoBehaviour[] scripts;
 
@@ -24,6 +25,7 @@ public class PlayerStats : MonoBehaviour {
         if (!dead)
         {
             currentHealth -= damage;
+            usePotion = true;
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -36,19 +38,20 @@ public class PlayerStats : MonoBehaviour {
     {
         if (!dead)
         {
-            if (currentHealth + restorHealth > maxHealth)
+            if ((currentHealth + restorHealth) >= maxHealth)
             {
-                currentHealth = maxHealth;
+                currentHealth = maxHealth;                
             }
             else currentHealth += restorHealth;
         } 
     }
 
     void CheckHealth()
-    {
-        if(currentHealth > maxHealth)
+    {        
+        if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
+            usePotion = false;
         }
 
         if(currentHealth <= 0)
@@ -79,5 +82,10 @@ public class PlayerStats : MonoBehaviour {
             if (!(scripts[i] is PlayerStats)) scripts[i].enabled = state;
         }
         transform.GetChild(0).gameObject.SetActive(!state);
+    }
+
+    public bool GetUsePotion()
+    {
+        return usePotion;
     }
 }

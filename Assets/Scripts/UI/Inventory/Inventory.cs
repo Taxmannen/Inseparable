@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour {
     public SelectedItem selectedItem;
     public Sprite empty;
     public string player;
-    bool isItemSlotEmpty = false;
+    bool isItemSlotEmpty;
     bool setFadeEffect;
     
     Image[] images;
@@ -119,4 +119,8 @@ public class Inventory : MonoBehaviour {
         }
     }
 
+    public void SetSpriteInImages(Sprite s)
+    {
+        images[1].sprite = s;
+    }
 }

@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour {
     public Sprite empty;
     public string player;
     bool isItemSlotEmpty = false;
+    bool setFadeEffect;
     
     Image[] images;
     CanvasRenderer bg;
@@ -27,24 +28,17 @@ public class Inventory : MonoBehaviour {
 
     private void Update()
     {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            SetAlpha(timer * fadeSpeed);
-        }
-
+        CalculateFadeEffect();
         if (Input.GetButtonDown("Change Item Player " + player))
         {
-            if (Input.GetAxisRaw("Change Item Player " + player) > 0) PositiveItemSwap();
-            if (Input.GetAxisRaw("Change Item Player " + player) < 0) NegativeItemSwap();
+            if (Input.GetAxisRaw("Change Item Player " + player) > 0) NegativeItemSwap();
+            if (Input.GetAxisRaw("Change Item Player " + player) < 0) PositiveItemSwap();
         }
     }
 
     private void PositiveItemSwap()
     {
-        timer = 2;
-        SetAlpha(timer);
-
+        setFadeEffect = true;
         Sprite tmp = images[1].sprite;
         images[1].sprite = images[0].sprite;
         images[0].sprite = images[2].sprite;
@@ -54,9 +48,7 @@ public class Inventory : MonoBehaviour {
 
     private void NegativeItemSwap()
     {
-        timer = 2;
-        SetAlpha(timer);
-
+        setFadeEffect = true;
         Sprite tmp = images[0].sprite;
         images[0].sprite = images[1].sprite;
         images[1].sprite = images[2].sprite;
@@ -74,7 +66,6 @@ public class Inventory : MonoBehaviour {
         if (alpha > 0.75f) bg.SetAlpha(0.75f);
     }
 
-    //För automatisk pickup
     public void PickupItem(Sprite s) 
     {
         foreach (Image i in images)
@@ -89,7 +80,7 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    //För byte av item
+    //TODO För byte av item
     public void SwitchItem(Sprite s)
     {
         images[1].sprite = s;
@@ -107,4 +98,27 @@ public class Inventory : MonoBehaviour {
     {
         return isItemSlotEmpty;
     }
+
+    public void CalculateFadeEffect()
+    {
+        if (timer > 2)
+        {
+            setFadeEffect = false;
+        }
+
+        if (setFadeEffect)
+        {
+            timer += Time.deltaTime;
+            SetAlpha(timer * fadeSpeed);
+            Debug.Log(timer);
+        }
+
+        if (!setFadeEffect && timer > 0)
+        {
+            timer -= Time.deltaTime;
+            SetAlpha(timer * fadeSpeed);
+            Debug.Log(timer);
+        }
+    }
+
 }

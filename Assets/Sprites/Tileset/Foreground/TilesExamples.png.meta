@@ -56,12 +56,12 @@ TextureImporter:
     21300102: TilesExamples_51
     21300104: TilesExamples_52
     21300106: TilesExamples_53
-    21300108: TilesExamples_54
-    21300110: TilesExamples_55
-    21300112: TilesExamples_56
-    21300114: TilesExamples_57
-    21300116: TilesExamples_58
-    21300118: TilesExamples_59
+    21300108: 21
+    21300110: 22
+    21300112: 23
+    21300114: 24
+    21300116: 25
+    21300118: 26
     21300120: TilesExamples_60
     21300122: TilesExamples_61
     21300124: TilesExamples_62
@@ -76,12 +76,12 @@ TextureImporter:
     21300142: TilesExamples_71
     21300144: TilesExamples_72
     21300146: TilesExamples_73
-    21300148: TilesExamples_74
-    21300150: TilesExamples_75
-    21300152: TilesExamples_76
-    21300154: TilesExamples_77
-    21300156: TilesExamples_78
-    21300158: TilesExamples_79
+    21300148: 27
+    21300150: 28
+    21300152: 29
+    21300154: 30
+    21300156: 31
+    21300158: 32
     21300160: TilesExamples_80
     21300162: TilesExamples_81
     21300164: TilesExamples_82
@@ -94,10 +94,10 @@ TextureImporter:
     21300178: TilesExamples_89
     21300180: TilesExamples_90
     21300182: TilesExamples_91
-    21300184: TilesExamples_92
-    21300186: TilesExamples_93
-    21300188: TilesExamples_94
-    21300190: TilesExamples_95
+    21300184: 33
+    21300186: 34
+    21300188: 35
+    21300190: 36
     21300192: TilesExamples_96
     21300194: TilesExamples_97
     21300196: TilesExamples_98
@@ -1395,7 +1395,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_54
+      name: 21
       rect:
         serializedVersion: 2
         x: 32
@@ -1419,7 +1419,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_55
+      name: 22
       rect:
         serializedVersion: 2
         x: 48
@@ -1439,7 +1439,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_56
+      name: 23
       rect:
         serializedVersion: 2
         x: 64
@@ -1459,7 +1459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_57
+      name: 24
       rect:
         serializedVersion: 2
         x: 80
@@ -1479,7 +1479,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_58
+      name: 25
       rect:
         serializedVersion: 2
         x: 96
@@ -1499,7 +1499,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_59
+      name: 26
       rect:
         serializedVersion: 2
         x: 112
@@ -1799,7 +1799,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_74
+      name: 27
       rect:
         serializedVersion: 2
         x: 32
@@ -1826,7 +1826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_75
+      name: 28
       rect:
         serializedVersion: 2
         x: 48
@@ -1846,7 +1846,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_76
+      name: 29
       rect:
         serializedVersion: 2
         x: 64
@@ -1866,7 +1866,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_77
+      name: 30
       rect:
         serializedVersion: 2
         x: 80
@@ -1886,7 +1886,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_78
+      name: 31
       rect:
         serializedVersion: 2
         x: 96
@@ -1906,7 +1906,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_79
+      name: 32
       rect:
         serializedVersion: 2
         x: 112
@@ -2166,7 +2166,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_92
+      name: 33
       rect:
         serializedVersion: 2
         x: 48
@@ -2186,7 +2186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_93
+      name: 34
       rect:
         serializedVersion: 2
         x: 64
@@ -2206,7 +2206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_94
+      name: 35
       rect:
         serializedVersion: 2
         x: 80
@@ -2226,7 +2226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesExamples_95
+      name: 36
       rect:
         serializedVersion: 2
         x: 96

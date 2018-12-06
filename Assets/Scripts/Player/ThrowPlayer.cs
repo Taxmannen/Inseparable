@@ -45,7 +45,7 @@ public class ThrowPlayer : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name) != 0 && movementController.grounded) pickUp = true;
-        }
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {

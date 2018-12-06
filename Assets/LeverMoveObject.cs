@@ -5,45 +5,60 @@ using UnityEngine;
 /* Made by Adam */
 public class LeverMoveObject : LeverAction
 {
+    [Header("Positions")]
     public Vector3 leverOnPosition;
     public Vector3 leverOffPosition;
     public bool leverState;
-    public float lerpSpeed;
     public bool drawGizmos;
 
-    bool lerping;
+    [Header("Speed")]
+    [Tooltip("0 for constant, 1 for lerping.")]
+    [Range(0, 1)]
+    public int constantOrLerping;
+    
+    [Header("Lerper settings")]
+    public float lerpSpeed;
+    bool moving;
 
+    [Header("Constant settings")]
+    [Range(0.000001f, 1f)]
+    public float percentageOfDistancePerTick;
+    
     private void Start()
     {
-        lerping = false;
+        moving = false;
     }
 
     public override void LeverPulled(bool leverState)
     {
-        lerping = true;
+        moving = true;
         this.leverState = leverState;
     }
 
     public void Update()
     {
-        if(lerping)
+        if(moving)
         {
-            Vector3 pos = new Vector3(0, 0, 0);
-            switch(leverState)
-            {
-                case true:
-                    pos = leverOnPosition;
-                    break;
 
-                case false:
-                    pos = leverOffPosition;
-                    break;
+            Vector3 pos = new Vector3(0, 0, 0);
+            if (leverState) pos = leverOnPosition;
+            else            pos = leverOffPosition;
+
+            if (constantOrLerping == 1)
+            { 
+                transform.position = Vector3.Lerp(transform.position, pos, lerpSpeed);
+            }
+            else
+            {
+                Vector3 differenceVector;
+                if (leverState) differenceVector = leverOnPosition - leverOffPosition;
+                else            differenceVector = leverOffPosition - leverOnPosition;
+
+                transform.position += differenceVector * percentageOfDistancePerTick;
             }
 
-            transform.position = Vector3.Lerp(transform.position, pos, lerpSpeed);
-
             if ((transform.position - pos).sqrMagnitude < 0.5)
-                lerping = false;
+                moving = false;
         }
     }
 

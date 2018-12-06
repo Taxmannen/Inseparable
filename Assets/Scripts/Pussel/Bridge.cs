@@ -12,7 +12,7 @@ public class Bridge : MonoBehaviour
 
     private void Start()
     {
-        pressurePlate = FindObjectOfType<PressurePlate>();
+        pressurePlate = transform.parent.GetComponentInChildren<PressurePlate>();
         open = new Quaternion(0, 0, -90, 90);
         closed = new Quaternion(0, 0, 0, 90);
     }

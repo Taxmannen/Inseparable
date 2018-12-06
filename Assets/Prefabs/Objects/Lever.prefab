@@ -23,8 +23,6 @@ GameObject:
   - component: {fileID: 58436411572998800}
   - component: {fileID: 50244615278017662}
   - component: {fileID: 233733469241214584}
-  - component: {fileID: 114041587578435912}
-  - component: {fileID: 114182698960217534}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -75,7 +73,6 @@ GameObject:
   - component: {fileID: 212752953990630806}
   - component: {fileID: 50787981784950390}
   - component: {fileID: 58052342110672166}
-  - component: {fileID: 114884636958540354}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -208,28 +205,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!114 &114041587578435912
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1233978879194106}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0eef09119a70c4b9edd3a747072d4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114182698960217534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1233978879194106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf61f994f32db04c8b5d4dd11ea8019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114295890855550006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,17 +219,6 @@ MonoBehaviour:
   leverAction: {fileID: 0}
   leverHandle: {fileID: 4229408114041100}
   leverState: 0
---- !u!114 &114884636958540354
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1885042202417390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf61f994f32db04c8b5d4dd11ea8019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212751700379212016
 SpriteRenderer:
   m_ObjectHideFlags: 1

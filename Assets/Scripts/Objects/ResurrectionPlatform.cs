@@ -29,7 +29,7 @@ public class ResurrectionPlatform : MonoBehaviour {
                     if(player1Stats.dead) player1Stats.Revive(1);
                     player1Stats.RestoreHealth(healthAmount);
                 }
-                if (player2Stats != null && player2)
+                if (player2)
                 {
                     if (player2Stats.dead) player2Stats.Revive(1);
                     player2Stats.RestoreHealth(healthAmount);

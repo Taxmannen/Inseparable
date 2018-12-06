@@ -8,7 +8,7 @@ public class LoadLevel : MonoBehaviour {
 
     private void Start()
     {
-        levelManager = GameObject.Find("UI").GetComponent<LevelManager>();
+        levelManager = GameObject.Find("Loading Screen").GetComponent<LevelManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

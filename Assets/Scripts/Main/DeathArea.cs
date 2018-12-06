@@ -4,37 +4,29 @@
 public class DeathArea : MonoBehaviour {
 
     LevelManager levelManager;
-    //Transform player1;
-    //Transform player2;
-    //Transform rope;
+    PlayerStats player1Stats;
+    PlayerStats player2Stats;
+    bool loading;
 
     private void Start()
     {
         levelManager = GameObject.Find("Loading Screen").GetComponent<LevelManager>();
-
-        /*
-        player1 = GameObject.Find("Player 1").transform;
-        player2 = GameObject.Find("Player 2").transform;
-        rope    = GameObject.Find("Rope").transform;
-        */
+        player1Stats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
+        player2Stats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
     }
 
     private void Update()
     { 
-        if (Input.GetButtonDown("Inventory Player 1")) levelManager.Load("Main");   
+        if (Input.GetButtonDown("Inventory Player 1")) levelManager.Load("Level 1");
+        if (player1Stats.dead && player2Stats.dead && !loading)
+        {
+            loading = true;
+            levelManager.Load("Level 1");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
-        {
-            levelManager.Load("Main");
-            
-            /*foreach (Transform t in rope) Destroy(t.gameObject);
-            player1.position = new Vector3(-2, 0.3f, 0);
-            player2.position = new Vector3(2, 0.3f, 0);
-            rope.GetComponent<RopeCreator>().CreateRope();
-            */
-        }
+        if (other.tag == "Player") other.GetComponent<PlayerStats>().TakeHealth(100000);
     }
 }

@@ -9,6 +9,7 @@ public class LeverMoveObject : LeverAction
     public Vector3 leverOffPosition;
     public bool leverState;
     public float lerpSpeed;
+    public bool drawGizmos;
 
     bool lerping;
 
@@ -46,4 +47,12 @@ public class LeverMoveObject : LeverAction
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        if (drawGizmos)
+        {
+            Gizmos.DrawCube(leverOnPosition + new Vector3(3, -3, 0),  new Vector2(6, 6));
+            Gizmos.DrawCube(leverOffPosition + new Vector3(3, -3, 0), new Vector2(6, 6));
+        }
+    }
 }

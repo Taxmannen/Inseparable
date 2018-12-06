@@ -88,4 +88,9 @@ public class PlayerStats : MonoBehaviour {
     {
         return usePotion;
     }
+
+    public bool GetDead()
+    {
+        return dead;
+    }
 }

@@ -37,6 +37,13 @@ public class UseItems : MonoBehaviour {
                 selectedItemPlayer1.SwapSprite(transparent);
                 inventoryPlayer1.SetSpriteInImages(transparent);
             }
+
+            if (selectedItemPlayer1.GetReviveStone() && player2Stats.GetDead())
+            {
+                player2Stats.Revive(healAmount);
+                selectedItemPlayer1.SwapSprite(transparent);
+                inventoryPlayer1.SetSpriteInImages(transparent);
+            }
         }
     }
 
@@ -47,6 +54,13 @@ public class UseItems : MonoBehaviour {
             if (selectedItemPlayer2.GetHealthPot() && player2Stats.GetUsePotion())
             {
                 player2Stats.RestoreHealth(healAmount);
+                selectedItemPlayer2.SwapSprite(transparent);
+                inventoryPlayer2.SetSpriteInImages(transparent);
+            }
+
+            if (selectedItemPlayer2.GetReviveStone() && player1Stats.GetDead())
+            {
+                player1Stats.Revive(healAmount);
                 selectedItemPlayer2.SwapSprite(transparent);
                 inventoryPlayer2.SetSpriteInImages(transparent);
             }

@@ -24,11 +24,16 @@ public class ScrollingBackground : MonoBehaviour
     //The lowercase is intentional.
     public void update()
     {
-        oldX = Mathf.Lerp(oldX, cam.position.x, 5f);
-        if (moveWithTime)
-            timeOffset += Time.deltaTime * flat * this.scrollSpeed;
+        if (rend != null)
+        {
+            oldX = Mathf.Lerp(oldX, cam.position.x, 5f);
+            if (moveWithTime) timeOffset += Time.deltaTime * flat * this.scrollSpeed;
+            rend.material.mainTextureOffset = new Vector2(oldX * scrollSpeed + timeOffset, 0);
+        }
+    }
 
-        rend.material.mainTextureOffset = new Vector2(oldX * scrollSpeed + timeOffset, 0);
-        transform.position = new Vector3(cam.position.x, transform.position.y, 0.01f);
+    private void Update()
+    {
+        transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
     }
 }

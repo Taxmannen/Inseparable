@@ -19,14 +19,21 @@ public class ResurrectionPlatform : MonoBehaviour {
 
     private void Update()
     {
-        //TODO: Resurrect Dead Player!
         timer -= Time.deltaTime;
         if (player1 || player2)
         {
             if (timer <= 0)
             {
-                if (player1) player1Stats.RestoreHealth(healthAmount);
-                if (player2) player2Stats.RestoreHealth(healthAmount);
+                if (player1)
+                {
+                    if(player1Stats.dead) player1Stats.Revive(1);
+                    player1Stats.RestoreHealth(healthAmount);
+                }
+                if (player2)
+                {
+                    if (player2Stats.dead) player2Stats.Revive(1);
+                    player2Stats.RestoreHealth(healthAmount);
+                }
                 timer = healthRate;
             }   
         }

@@ -10,6 +10,9 @@ public class RopeCreator : MonoBehaviour{
     public float mass = 0.04f;
     public int size = 40;
 
+    [Header("Collider")]
+    public Vector2 colliderSize = new Vector2(1.5f, 1);
+
     [Header("Hinge Joint")]
     public Vector2 hingePosition = new Vector2(0.25f, 0f);
     public bool hingeOn = true;
@@ -67,7 +70,7 @@ public class RopeCreator : MonoBehaviour{
             sr.material = material;
 
             BoxCollider2D col = g.AddComponent<BoxCollider2D>();
-            col.size = new Vector2(1.5f, 1); //??
+            col.size = colliderSize;
 
             gameObjects.Add(g);
         }

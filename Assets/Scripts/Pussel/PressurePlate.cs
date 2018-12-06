@@ -5,9 +5,9 @@ public class PressurePlate : MonoBehaviour {
 
     public bool on;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "PhysicalObject")
         {
             on = true;
             transform.localScale = new Vector3(transform.localScale.x, 0.1f, transform.localScale.z);
@@ -16,7 +16,7 @@ public class PressurePlate : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "PhysicalObject")
         {
             on = false;
             transform.localScale = new Vector3(transform.localScale.x, 0.2f, transform.localScale.z);

@@ -23,7 +23,7 @@ public class UseItems : MonoBehaviour {
 
     void Update()
     {
-           UseItemPlayer1();
+        UseItemPlayer1();
         UseItemPlayer2();
     }
 

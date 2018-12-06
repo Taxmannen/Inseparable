@@ -110,14 +110,12 @@ public class Inventory : MonoBehaviour {
         {
             timer += Time.deltaTime;
             SetAlpha(timer * fadeSpeed);
-            Debug.Log(timer);
         }
 
         if (!setFadeEffect && timer > 0)
         {
             timer -= Time.deltaTime;
             SetAlpha(timer * fadeSpeed);
-            Debug.Log(timer);
         }
     }
 

@@ -9,6 +9,7 @@ public class ThrowPlayer : MonoBehaviour {
     float direction;
     bool pickUp;
     bool buttonUp;
+    float throwButton;
 
     void Start ()
     {
@@ -22,15 +23,17 @@ public class ThrowPlayer : MonoBehaviour {
 	
 	void Update ()
     {
+        throwButton = Input.GetAxisRaw("Throw" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]);
+
         if (Input.GetAxisRaw("Horizontal" + " " + gameObject.name) != 0) direction = Input.GetAxisRaw("Horizontal" + " " + gameObject.name);
-        if (Input.GetAxisRaw("Throw" + " " + gameObject.name) == 0) buttonUp = true;
+        if (throwButton == 0) buttonUp = true;
 
         if (pickUp)
         {
             rb.isKinematic = true;
             player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
 
-            if (Input.GetAxisRaw("Throw" + " " + gameObject.name) != 0 && buttonUp)
+            if (throwButton != 0 && buttonUp)
             {
                 pickUp = false;
                 rb.isKinematic = false;
@@ -44,7 +47,7 @@ public class ThrowPlayer : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name) != 0 && movementController.grounded) pickUp = true;
+        if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]) != 0 && movementController.grounded) pickUp = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)

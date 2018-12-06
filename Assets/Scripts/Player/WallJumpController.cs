@@ -31,7 +31,7 @@ public class WallJumpController : MonoBehaviour
         wallContact = Physics2D.OverlapBox(new Vector2(transform.position.x - 0.35f, transform.position.y), new Vector2(0.1f, 0.5f), 0, groundLayer)
                     || Physics2D.OverlapBox(new Vector2(transform.position.x + 0.35f, transform.position.y), new Vector2(0.1f, 0.5f), 0, groundLayer);
 
-        jumpButton = Input.GetButton("Jump " + gameObject.name);
+        jumpButton = Input.GetButton("Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]);
 
         if (jumpButton && wallContact)
             jumpTimeCounter = jumpTime;

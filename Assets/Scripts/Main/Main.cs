@@ -2,17 +2,28 @@
 
 public class Main : MonoBehaviour {
     public int frameRate;
+    public static string[] controllers;
 
     void Start()
     {
+        controllers = new string[2];
         Application.targetFrameRate = frameRate;
         QualitySettings.vSyncCount = 0;
+
+        string[] names = Input.GetJoystickNames();
+        for (int x = 0; x < names.Length; x++)
+        {
+            if (names[x].Length == 19) controllers[x] = "PS4";
+            else                       controllers[x] = "XBOX";
+        }
     }
 
     private void Update()
     {
         //ButtonTest("Player 1");
         //ButtonTest("Player 2");
+        //if (Input.GetButtonDown("Menu XBOX")) Debug.Log("Menu XBOX");
+        //if (Input.GetButtonDown("Menu PS4"))  Debug.Log("Menu PS4");
     }
 
     void ButtonTest(string player)

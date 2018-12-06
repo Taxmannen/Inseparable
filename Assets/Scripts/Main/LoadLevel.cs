@@ -8,6 +8,7 @@ public class LoadLevel : MonoBehaviour {
 
     private void Start()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
         levelManager = GameObject.Find("Loading Screen").GetComponent<LevelManager>();
     }
 

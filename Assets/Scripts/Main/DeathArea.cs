@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* Script made by Daniel */
 public class DeathArea : MonoBehaviour {
@@ -16,12 +17,15 @@ public class DeathArea : MonoBehaviour {
     }
 
     private void Update()
-    { 
-        if (Input.GetButtonDown("Inventory Player 1")) levelManager.Load("Level 1");
-        if (player1Stats.dead && player2Stats.dead && !loading)
+    {
+        // if (Input.GetButtonDown("Inventory Player 1")) levelManager.Load("Level 1");
+        if (player1Stats != null && player2Stats != null)
         {
-            loading = true;
-            levelManager.Load("Level 1");
+            if (player1Stats.dead && player2Stats.dead && !loading)
+            {
+                loading = true;
+                levelManager.Load(SceneManager.GetActiveScene().name);
+            }
         }
     }
 

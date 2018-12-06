@@ -28,6 +28,7 @@ public class LeverMoveObject : LeverAction
     Transform player1;
     Transform player2;
 
+    public bool printGizmoCoordinates;
     public float GizmoX, GizmoY, GizmoWidth, GizmoHeight;
 
     private void Start()
@@ -45,10 +46,10 @@ public class LeverMoveObject : LeverAction
 
     public bool checkPlayer(Transform player)
     {
-        return 
-            Physics2D.OverlapBox(new Vector2(player.position.x + 0.6f, player.position.y + -0.45f), new Vector2(1.14f, 1f), 0, playerLayer) ||
-            Physics2D.OverlapBox(new Vector2(player.position.x + 5.4f, player.position.y + -0.45f), new Vector2(1.08f, 1f), 0, playerLayer) ||
-            Physics2D.OverlapBox(new Vector2(player.position.x + 3.05f, player.position.y + 0.55f), new Vector2(0.55f, 1f), 0, playerLayer);
+        Bounds b1 = new Bounds();
+        b1.Encapsulate(new Vector3(transform.position.x + 0.12f, transform.position.y + -0.965f)); 
+        b1.Encapsulate(new Vector3(transform.position.x + 6.04f, transform.position.y + 1.825f));
+        return b1.Contains(player.position);
     } 
 
     public void Update()
@@ -74,13 +75,13 @@ public class LeverMoveObject : LeverAction
             }
 
             transform.position += movement;
-            if (checkPlayer(player1))
+            if (checkPlayer(player1) && checkPlayer(player2))
+            {
                 player1.position += movement;
-            if (checkPlayer(player2))
-                player1.position += movement;
+                player2.position += movement;
+            }
 
-
-            if ((transform.position - pos).sqrMagnitude < 0.5)
+            if ((transform.position - pos).sqrMagnitude < 1)
                 moving = false;
         }
     }
@@ -92,9 +93,17 @@ public class LeverMoveObject : LeverAction
             Gizmos.DrawCube(leverOnPosition + new Vector3(3, -3, 0),  new Vector2(6, 6));
             Gizmos.DrawCube(leverOffPosition + new Vector3(3, -3, 0), new Vector2(6, 6));
 
-            Gizmos.DrawCube(new Vector2(transform.position.x + 0.6f, transform.position.y + -0.45f), new Vector2(1.14f, 1f));
-            Gizmos.DrawCube(new Vector2(transform.position.x + 5.4f, transform.position.y + -0.45f), new Vector2(1.08f, 1f));
-            Gizmos.DrawCube(new Vector2(transform.position.x + 3.05f, transform.position.y + 0.55f), new Vector2(0.55f, 1f));
+        }
+
+        Gizmos.DrawCube(new Vector2(transform.position.x + GizmoX, transform.position.y + GizmoY), new Vector2(GizmoWidth, GizmoHeight));
+
+        if(printGizmoCoordinates)
+        {
+            Vector2 topleft = new Vector2(GizmoX - GizmoWidth / 2, GizmoY - GizmoHeight / 2);
+            Vector2 bottomright = new Vector2(GizmoX + GizmoWidth / 2, GizmoY + GizmoHeight / 2);
+            Debug.Log("new Vector3(transform.position.x + " + topleft.x + ", transform.position.y + " + topleft.y + ");");
+            Debug.Log("new Vector3(transform.position.x + " + bottomright.x + ", transform.position.y + " + bottomright.y + ");");
+            printGizmoCoordinates = false;
         }
 
     }

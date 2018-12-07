@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4083279636129156}
   - component: {fileID: 212580937132908786}
-  - component: {fileID: 114720004369589874}
-  - component: {fileID: 50449832235639434}
-  - component: {fileID: 58790424856816416}
   - component: {fileID: 58909067970509610}
+  - component: {fileID: 58790424856816416}
+  - component: {fileID: 50449832235639434}
+  - component: {fileID: 114720004369589874}
   m_Layer: 0
   m_Name: Revive
   m_TagString: Untagged
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774900787049630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.357355, y: 0.8753679, z: 0}
-  m_LocalScale: {x: 0.7375, y: 0.65765625, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bbf76471a439445b8dc741afebc2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 21300000, guid: 2067cf1f822a53c459b61ec460f8f09a, type: 3}
 --- !u!212 &212580937132908786
 SpriteRenderer:
   m_ObjectHideFlags: 1

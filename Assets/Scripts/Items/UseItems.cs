@@ -1,69 +1,43 @@
 ﻿using UnityEngine;
+
 //Made by Jocke
 public class UseItems : MonoBehaviour {
     public int healAmount = 100;
-
-    PlayerStats player1Stats;
-    PlayerStats player2Stats;
-    SelectedItem selectedItemPlayer1;
-    SelectedItem selectedItemPlayer2;
-    Inventory inventoryPlayer1;
-    Inventory inventoryPlayer2;
     public Sprite transparent;
-    
+
+    PlayerStats playerStats;
+    PlayerStats otherPlayer;
+    SelectedItem selectedItem;
+    Inventory inventory;
+
     private void Start()
     {
-        player1Stats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
-        player2Stats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
-        selectedItemPlayer1 = GameObject.Find("Player 1 UI").GetComponentInChildren<SelectedItem>();
-        selectedItemPlayer2 = GameObject.Find("Player 2 UI").GetComponentInChildren<SelectedItem>();
-        inventoryPlayer1 = GameObject.Find("Player 1 UI").GetComponentInChildren<Inventory>();
-        inventoryPlayer2 = GameObject.Find("Player 2 UI").GetComponentInChildren<Inventory>();
+        GameObject UI = GameObject.Find(gameObject.name + " " + "UI");
+        selectedItem = UI.GetComponentInChildren<SelectedItem>();
+        inventory    = UI.GetComponentInChildren<Inventory>();
+
+        playerStats = GetComponent<PlayerStats>();
+
+        if (gameObject.name == "Player 1") otherPlayer = GameObject.Find("Player 2").GetComponent<PlayerStats>();
+        if (gameObject.name == "Player 2") otherPlayer = GameObject.Find("Player 1").GetComponent<PlayerStats>();
     }
 
     void Update()
     {
-        UseItemPlayer1();
-        UseItemPlayer2();
+        UseItem();
+
+        if (Input.GetButtonDown("Seperate Player 1")) playerStats.TakeHealth(100);
     }
 
-    void UseItemPlayer1()
-    {
-        if (Input.GetButtonDown("Use Item Player 1"))
+    void UseItem()
+    { 
+        if (Input.GetButtonDown("Use Item" + " " + gameObject.name))
         {
-            if (selectedItemPlayer1.GetHealthPot() && player1Stats.GetUsePotion())
-            {
-                player1Stats.RestoreHealth(healAmount);
-                selectedItemPlayer1.SwapSprite(transparent);
-                inventoryPlayer1.SetSpriteInImages(transparent);
-            }
+            if (selectedItem.GetHealthPot() && playerStats.GetUsePotion()) playerStats.RestoreHealth(healAmount);
+            else if (selectedItem.GetReviveStone() && otherPlayer.GetDead()) otherPlayer.Revive(healAmount);
 
-            if (selectedItemPlayer1.GetReviveStone() && player2Stats.GetDead())
-            {
-                player2Stats.Revive(healAmount);
-                selectedItemPlayer1.SwapSprite(transparent);
-                inventoryPlayer1.SetSpriteInImages(transparent);
-            }
-        }
-    }
-
-    void UseItemPlayer2()
-    {
-        if (Input.GetButtonDown("Use Item Player 2"))
-        {
-            if (selectedItemPlayer2.GetHealthPot() && player2Stats.GetUsePotion())
-            {
-                player2Stats.RestoreHealth(healAmount);
-                selectedItemPlayer2.SwapSprite(transparent);
-                inventoryPlayer2.SetSpriteInImages(transparent);
-            }
-
-            if (selectedItemPlayer2.GetReviveStone() && player1Stats.GetDead())
-            {
-                player1Stats.Revive(healAmount);
-                selectedItemPlayer2.SwapSprite(transparent);
-                inventoryPlayer2.SetSpriteInImages(transparent);
-            }
+            selectedItem.SwapSprite(transparent);
+            inventory.SetSpriteInImages(transparent);
         }
     }
 }

@@ -13,7 +13,6 @@ public class Main : MonoBehaviour {
         string[] names = Input.GetJoystickNames();
         for (int x = 0; x < 2; x++)
         {
-
             if (names.Length > x && names[x].Length == 19) controllers[x] = "PS4";
             else                                           controllers[x] = "XBOX";
         }

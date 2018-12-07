@@ -286,6 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedTags:
   - Player
+  startScaleY: 0.1
+  endScaleY: 0.05
   on: 0
 --- !u!114 &114368342072004496
 MonoBehaviour:
@@ -300,6 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedTags:
   - Player
+  startScaleY: 0.1
+  endScaleY: 0.05
   on: 0
 --- !u!114 &114844750148174428
 MonoBehaviour:

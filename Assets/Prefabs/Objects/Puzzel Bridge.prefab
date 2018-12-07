@@ -379,6 +379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedTags:
   - PhysicalObject
+  startScaleY: 0.1
+  endScaleY: 0.05
   on: 0
 --- !u!114 &114922532911970952
 MonoBehaviour:

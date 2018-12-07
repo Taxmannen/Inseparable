@@ -25,7 +25,6 @@ public class UseItems : MonoBehaviour {
     void Update()
     {
         UseItem();
-
         if (Input.GetButtonDown("Seperate Player 1")) playerStats.TakeHealth(100);
     }
 

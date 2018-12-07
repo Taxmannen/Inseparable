@@ -19,8 +19,12 @@ public class JumpController : MonoBehaviour
     public LayerMask groundLayer;
     private Rigidbody2D rb;
 
+    string jumpButtonStr;
+
     void Start()
     {
+        jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+
         rb = GetComponent<Rigidbody2D>();
         jumpTimeCounter = jumpTime;
     }
@@ -28,8 +32,7 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
-        jumpButton = Input.GetButton("Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]);
-       
+        jumpButton = Input.GetButton(jumpButtonStr);
         
         if (!jumpButton)
         {

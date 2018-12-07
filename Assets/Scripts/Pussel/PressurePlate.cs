@@ -7,6 +7,11 @@ public class PressurePlate : MonoBehaviour {
     public float endScaleY= 0.05f;
     public bool on;
 
+    private void Start()
+    {
+        transform.localScale = new Vector3(transform.localScale.x, startScaleY, transform.localScale.z);
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         foreach (string tag in affectedTags)

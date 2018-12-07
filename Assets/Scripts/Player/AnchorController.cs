@@ -10,15 +10,18 @@ public class AnchorController : MonoBehaviour
     public LayerMask groundLayer;
     private Rigidbody2D rb;
 
+    string anchorButtonStr;
+
     void Start()
     {
+        anchorButtonStr = "Anchor" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
-        float anchorAxis = Input.GetAxisRaw("Anchor" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]);
+        float anchorAxis = Input.GetAxisRaw(anchorButtonStr);
         if (anchorAxis > 0.19f) anchorButton = true;
         else anchorButton = false;
 

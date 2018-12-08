@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-/* Made by Daniel */
+/* Script made by Daniel */
 public class PressurePlate : MonoBehaviour {
     public string[] affectedTags;
     public float startScaleY = 0.1f;

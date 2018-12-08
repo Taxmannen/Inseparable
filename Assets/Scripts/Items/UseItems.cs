@@ -2,8 +2,8 @@
 
 //Made by Jocke
 public class UseItems : MonoBehaviour {
+    [HideInInspector] public Sprite transparent;
     public int healAmount = 100;
-    public Sprite transparent;
 
     PlayerStats playerStats;
     PlayerStats otherPlayer;
@@ -17,7 +17,6 @@ public class UseItems : MonoBehaviour {
         inventory    = UI.GetComponentInChildren<Inventory>();
 
         playerStats = GetComponent<PlayerStats>();
-
         if (gameObject.name == "Player 1") otherPlayer = GameObject.Find("Player 2").GetComponent<PlayerStats>();
         if (gameObject.name == "Player 2") otherPlayer = GameObject.Find("Player 1").GetComponent<PlayerStats>();
     }

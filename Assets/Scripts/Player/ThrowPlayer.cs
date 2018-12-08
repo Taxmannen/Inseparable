@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+/* Script made by Daniel */
 public class ThrowPlayer : MonoBehaviour {
     public Vector2 power = new Vector2(20, 25);
 

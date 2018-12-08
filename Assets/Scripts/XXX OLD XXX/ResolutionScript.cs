@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ResolutionScript : MonoBehaviour {
@@ -12,10 +10,8 @@ public class ResolutionScript : MonoBehaviour {
     public List<string> resolutions = new List<string>() { "1920 x 1080", "1280 x 720" };
     public MenuManagerScript menuManagerScript;
 
-
-
-    // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         currentRes = resolutions[0];
     }
 
@@ -23,7 +19,6 @@ public class ResolutionScript : MonoBehaviour {
     {
         if (menuManagerScript.toggleMenu)
         {
-
             if (Input.GetButtonDown("Submit"))
             {
                 index++;
@@ -35,13 +30,12 @@ public class ResolutionScript : MonoBehaviour {
                 index = 0;
             }
 
-            changeRes();
-
+            ChangeRes();
             resValue.text = currentRes;
         }
     }
 
-    void changeRes()
+    void ChangeRes()
     {
         for(int i = 0; i < resolutions.Count; i++)
         {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+/* Script made by Jocke */
 public class RespawnableObject : MonoBehaviour {
     [SerializeField] Transform spawnPoint;
 

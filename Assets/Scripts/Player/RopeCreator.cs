@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-/* Made by Daniel */
+/* Script made by Daniel */
 public class RopeCreator : MonoBehaviour{
     public Vector2 scale = new Vector2(0.2f, 0.2f);
     public Vector2 placement = new Vector2(0.2f, 0f); 

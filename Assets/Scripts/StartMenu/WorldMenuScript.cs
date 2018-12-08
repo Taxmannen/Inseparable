@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/* Script made by Michael */
 public class WorldMenuScript : MonoBehaviour {
-
     public GameObject settingsPanel;
     public GameObject helpPanel;
     public GameObject aboutPanel;
@@ -13,23 +11,9 @@ public class WorldMenuScript : MonoBehaviour {
     private bool openedFromWorldMenu;
 
 
-    // Use this for initialization
-    void Start () {
-
- 
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        
-
-
-	}
-
-    private void OnTriggerEnter2D(Collider2D col)
+    /*private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+       /*if (col.tag == "Player")
         {
             if (this.tag == "SettingsTag")
             {
@@ -88,6 +72,5 @@ public class WorldMenuScript : MonoBehaviour {
                 Debug.Log("Left " + this.tag);
             }
         }
-    }
-
+    }*/
 }

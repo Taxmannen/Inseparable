@@ -1,21 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
+/* Script made by Michael */
 public class MenuManagerScript : MonoBehaviour {
-
     public GameObject menu;
     public bool toggleMenu;
     public List<GameObject> menus = new List<GameObject>();
     Button curResButton;
     int curRes;
 
-    //
     public AudioSource sound;
     public bool audioOn;
-
 
     public float currentMasterVolume;
     public Slider masterVolumeSlider;
@@ -30,34 +26,26 @@ public class MenuManagerScript : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Menu") )
+        if (Input.GetButtonDown("Menu XBOX"))
         {
             toggleMenu = !toggleMenu;
             menu.SetActive(toggleMenu);
 
             if (!toggleMenu)
             {
-                for(var i = 0; i < menus.Count; i++)
+                for (var i = 0; i < menus.Count; i++)
                 {
                     menus[i].SetActive(false);
                 }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OpenSettingsMenu();
-        }
-
-        sound.volume = currentMasterVolume;
+        if (sound != null) sound.volume = currentMasterVolume;
         ChangeMasterVolume();
 
-        if (currentMasterVolume > 0)
-            audioOn = true;
-        else
-            audioOn = false;
+        if (currentMasterVolume > 0) audioOn = true;
+        else                         audioOn = false;
     }
-
 
     public void OpenSettingsMenu()
     {
@@ -67,7 +55,6 @@ public class MenuManagerScript : MonoBehaviour {
             menus[1].SetActive(toggleMenu);
         }
     }
-
 
     public void ChangeResolution(int curRes)
     {
@@ -81,9 +68,7 @@ public class MenuManagerScript : MonoBehaviour {
             Screen.SetResolution(1280, 720, true);
             Debug.Log("Changed resolution to " + curRes);
         }
-
     }
-
 
     public void ChangeMasterVolume()
     {
@@ -95,16 +80,9 @@ public class MenuManagerScript : MonoBehaviour {
         currentSoundEffectsVolume = soundEffectsVolumeSlider.value;
     }
 
-
-
     public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Quitted Game");
     }
-
-
-
-
-
 }

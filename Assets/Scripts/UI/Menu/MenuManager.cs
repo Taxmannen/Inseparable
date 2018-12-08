@@ -13,16 +13,20 @@ public class MenuManager : MonoBehaviour {
     public AudioMixer mixer;
     public bool toggleMenu;
 
+    string player1Button;
+    string player2Button;
     int curRes;
 
     void Start()
     {
+        player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
+        player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
         toggleMenu = false;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Menu XBOX"))
+        if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button))
         {
             toggleMenu = !toggleMenu;
             menu.SetActive(toggleMenu);
@@ -48,16 +52,9 @@ public class MenuManager : MonoBehaviour {
 
     private void ChangeResolution(int curRes)
     {
-        if (curRes == 1920)
-        {
-            Screen.SetResolution(1920, 1200, true);
-            Debug.Log("Changed resolution to " + curRes);
-        }
-        if (curRes == 1280)
-        {
-            Screen.SetResolution(1280, 720, true);
-            Debug.Log("Changed resolution to " + curRes);
-        }
+        if      (curRes == 1920) Screen.SetResolution(1920, 1200, true);
+        else if (curRes == 1280) Screen.SetResolution(1280, 720, true);
+        Debug.Log("Changed resolution to" + " " + curRes);
     }
 
     public void ChangeMasterVolume()

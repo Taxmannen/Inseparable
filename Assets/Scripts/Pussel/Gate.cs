@@ -2,7 +2,7 @@
 
 /* Script made by Daniel */
 public class Gate : MonoBehaviour {
-    [Range(0.5f, 2f)]
+    [Range(1f, 5f)]
     public float speed;
     public Vector2 endPos;
     public bool drawGizmos;

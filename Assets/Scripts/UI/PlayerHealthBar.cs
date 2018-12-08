@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 // Made by Jocke
 public class PlayerHealthBar : MonoBehaviour {
-    public PlayerStats playerStats;
     public Slider healthBar;
+
+    PlayerStats playerStats;
 
     void Start ()
     {

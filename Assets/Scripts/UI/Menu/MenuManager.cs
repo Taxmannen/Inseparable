@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /* Script made by Michael */
@@ -8,7 +9,7 @@ public class MenuManager : MonoBehaviour {
     public List<GameObject> menus = new List<GameObject>();
     public GameObject menu;
     public Slider masterVolumeSlider;
-    public Slider musicSlider;
+    public Slider musicVolumeSlider;
     public Slider soundEffectsVolumeSlider;
     public AudioMixer mixer;
     public bool toggleMenu;
@@ -26,16 +27,19 @@ public class MenuManager : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button))
+        if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
-            toggleMenu = !toggleMenu;
-            menu.SetActive(toggleMenu);
-
-            if (!toggleMenu)
+            if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button))
             {
-                for (var i = 0; i < menus.Count; i++)
+                toggleMenu = !toggleMenu;
+                menu.SetActive(toggleMenu);
+
+                if (!toggleMenu)
                 {
-                    menus[i].SetActive(false);
+                    for (var i = 0; i < menus.Count; i++)
+                    {
+                        menus[i].SetActive(false);
+                    }
                 }
             }
         }
@@ -69,7 +73,7 @@ public class MenuManager : MonoBehaviour {
 
     public void ChangeMusicVolume()
     {
-        mixer.SetFloat("MusicVol", musicSlider.value);
+        mixer.SetFloat("MusicVol", musicVolumeSlider.value);
     }
 
     public void QuitGame()

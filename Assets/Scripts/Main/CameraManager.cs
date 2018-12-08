@@ -32,7 +32,7 @@ public class CameraManager : MonoBehaviour {
     {
         foreach(ScrollingBackground b in backgrounds)
         {
-            if (b!= null) b.update();
+            if (b!= null) b.UpdatePosition();
         }
 
         float x, y;

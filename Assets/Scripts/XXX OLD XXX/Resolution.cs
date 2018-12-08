@@ -2,17 +2,18 @@
 using UnityEngine;
 using TMPro;
 
-public class ResolutionScript : MonoBehaviour {
-
+/* Script made by Michael */
+public class Resolution : MonoBehaviour {
     public TextMeshProUGUI resValue;
     public string currentRes;
     public int index;
     public List<string> resolutions = new List<string>() { "1920 x 1080", "1280 x 720" };
-    public MenuManagerScript menuManagerScript;
+    public MenuManager menuManagerScript;
 
     void Start ()
     {
         currentRes = resolutions[0];
+        Debug.Log("Using" + " " + gameObject.name);
     }
 
     void Update()
@@ -41,6 +42,5 @@ public class ResolutionScript : MonoBehaviour {
         {
             currentRes = resolutions[index];
         }
-
     }
 }

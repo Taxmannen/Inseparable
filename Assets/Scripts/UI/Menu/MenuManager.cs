@@ -1,23 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 /* Script made by Michael */
-public class MenuManagerScript : MonoBehaviour {
-    public GameObject menu;
-    public bool toggleMenu;
+public class MenuManager : MonoBehaviour {
     public List<GameObject> menus = new List<GameObject>();
-    Button curResButton;
-    int curRes;
-
-    public AudioSource sound;
-    public bool audioOn;
-
-    public float currentMasterVolume;
+    public GameObject menu;
     public Slider masterVolumeSlider;
-
-    public float currentSoundEffectsVolume;
+    public Slider musicSlider;
     public Slider soundEffectsVolumeSlider;
+    public AudioMixer mixer;
+    public bool toggleMenu;
+
+    int curRes;
 
     void Start()
     {
@@ -39,12 +35,6 @@ public class MenuManagerScript : MonoBehaviour {
                 }
             }
         }
-
-        if (sound != null) sound.volume = currentMasterVolume;
-        ChangeMasterVolume();
-
-        if (currentMasterVolume > 0) audioOn = true;
-        else                         audioOn = false;
     }
 
     public void OpenSettingsMenu()
@@ -56,9 +46,9 @@ public class MenuManagerScript : MonoBehaviour {
         }
     }
 
-    public void ChangeResolution(int curRes)
+    private void ChangeResolution(int curRes)
     {
-        if(curRes == 1920)
+        if (curRes == 1920)
         {
             Screen.SetResolution(1920, 1200, true);
             Debug.Log("Changed resolution to " + curRes);
@@ -72,17 +62,24 @@ public class MenuManagerScript : MonoBehaviour {
 
     public void ChangeMasterVolume()
     {
-        currentMasterVolume = masterVolumeSlider.value;
+        mixer.SetFloat("MasterVol", masterVolumeSlider.value);
     }
 
-    public void ChangeSoundEffectsVolume()
+    public void ChangeSFXVolume()
     {
-        currentSoundEffectsVolume = soundEffectsVolumeSlider.value;
+        mixer.SetFloat("SFXVol", soundEffectsVolumeSlider.value);
+    }
+
+    public void ChangeMusicVolume()
+    {
+        mixer.SetFloat("MusicVol", musicSlider.value);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quitted Game");
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }

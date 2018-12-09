@@ -16016,6 +16016,11 @@ Prefab:
       propertyPath: hingePosition.x
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114812428554157368, guid: 07497410bf2a8a64199a194a9caa1b18,
+        type: 2}
+      propertyPath: lineOn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07497410bf2a8a64199a194a9caa1b18, type: 2}
   m_IsPrefabAsset: 0

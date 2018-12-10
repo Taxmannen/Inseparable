@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/* Script made by Adam */
 public class JumpController : MonoBehaviour
 {
     //[Range(1f, 150f)]

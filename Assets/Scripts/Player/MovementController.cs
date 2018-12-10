@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 /* Script made by Adam */
 public class MovementController : MonoBehaviour

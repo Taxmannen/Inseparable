@@ -7,7 +7,7 @@ public class SetSortingOrder : MonoBehaviour {
 
 	void Start ()
     {
-        Renderer renderer = GetComponent<MeshRenderer>();
+        Renderer renderer = GetComponent<Renderer>();
         renderer.sortingOrder = order;
     }
 }

@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
+/* Script made by Adam */
 public class MoveControllerMaster : MonoBehaviour {
 
     public List<MovementController> playerMovements;

@@ -216,7 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da69314dba1df442854b6e060a9f17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leverAction: {fileID: 0}
+  leverActions:
+  - {fileID: 0}
   leverHandle: {fileID: 4229408114041100}
   leverState: 0
 --- !u!212 &212751700379212016

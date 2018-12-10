@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 /* Script made by Adam */
-public class JumpController : MonoBehaviour
+public class JumpController : MovementScript
 {
     //[Range(1f, 150f)]
     public float jumpForce;

@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 /* Script made by Adam */
-public class AnchorController : MonoBehaviour
+public class AnchorController : MovementScript
 {
     bool anchorButton;
     public bool grounded;

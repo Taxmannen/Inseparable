@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrowingBridgeController : LeverAction {
+public class GrowingBridgeController : Action {
     
     public List<Sprite> topTiles;
     public List<Sprite> midTiles;
@@ -20,14 +20,20 @@ public class GrowingBridgeController : LeverAction {
 
     public GameObject movingObjects;
     public GameObject staticObjects;
+    
+    public bool drawGizmos;
+    
+    [Header("Cutscene Settings")]
+    public bool cutscene;
+    public Vector2 cutsceneOffset;
+    public bool freezePlayers;
+    public List<ScriptController> playerScriptControllers;
 
     Vector3 startPosition;
     Vector3 endPosition;
 
     GameObject[] staticTiles;
     List<GameObject> movingTiles;
-
-    public bool drawGizmos;
 
     bool leverState;
     bool moving;
@@ -58,10 +64,19 @@ public class GrowingBridgeController : LeverAction {
         return gameObject;
     }
 
-    public override void LeverPulled(bool leverState)
+    public override void onStateChange(bool state)
     {
+        if (cutscene)
+        {
+            CameraManager.instance.ChangeFocusTo(movingObjects.transform, cutsceneOffset);
+
+            if (freezePlayers)
+                foreach (ScriptController sc in playerScriptControllers)
+                    sc.freezePlayer();
+        }
+
         bool previousLeverState = this.leverState;
-        this.leverState = leverState;
+        this.leverState = state;
         moving = true;
 
         if (movingTiles.Count == 0)
@@ -80,7 +95,6 @@ public class GrowingBridgeController : LeverAction {
 
     public void destroyMoving()
     {
-        Debug.Log("Destroying!");
         foreach (GameObject go in new List<GameObject>(movingTiles.ToArray()))
         {
             Destroy(go);
@@ -107,7 +121,6 @@ public class GrowingBridgeController : LeverAction {
                 {
                     if (staticTiles[(int)i] == null)
                     {
-                        Debug.Log("x=" + x + ", y=" + y);
                         if (y == 0)
                             staticTiles[(int)i] = this.spawnTile(x, -y, topTiles[0], staticObjects.transform, sortingOrderStatic);
                         else if (y > (int)((i + 1) % (height + 2)))
@@ -142,6 +155,15 @@ public class GrowingBridgeController : LeverAction {
             {
                 moving = false;
                 destroyMoving();
+            }
+
+            if(!moving && cutscene)
+            {
+                CameraManager.instance.ResetFocus();
+
+                if (freezePlayers)
+                    foreach (ScriptController sc in playerScriptControllers)
+                        sc.unfreezePlayer();
             }
         }
     }

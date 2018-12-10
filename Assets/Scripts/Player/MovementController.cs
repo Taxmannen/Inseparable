@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /* Script made by Adam */
-public class MovementController : MonoBehaviour
+public class MovementController : MovementScript
 {
     [HideInInspector] public bool grounded;
 

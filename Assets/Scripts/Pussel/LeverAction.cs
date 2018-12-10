@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* Made by Adam */
-public class LeverAction : MonoBehaviour
+public class Action : MonoBehaviour
 {
-    public virtual void LeverPulled(bool leverState){}
+    public virtual void onStateChange(bool state){}
 }

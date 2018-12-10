@@ -6,7 +6,7 @@ using UnityEngine;
 public class LeverController : MonoBehaviour {
 
     [Header("Script")]
-    public LeverAction leverAction;
+    public List<Action> leverActions;
     
     public Transform leverHandle;
     public bool leverState;
@@ -16,17 +16,18 @@ public class LeverController : MonoBehaviour {
 	}
 	
 	void Update () {
-        bool tempLeverState;
+        bool tempState;
         if (leverHandle.position.x < transform.position.x)
-            tempLeverState = true;
+            tempState = true;
         else
-            tempLeverState = false;
+            tempState = false;
 
-        if (tempLeverState ^ leverState)
+        if (tempState ^ leverState)
         {
-            leverAction.LeverPulled(tempLeverState);
+            foreach(Action la in leverActions)
+                la.onStateChange(tempState);
         }
 
-        leverState = tempLeverState;
+        leverState = tempState;
     }
 }

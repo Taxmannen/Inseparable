@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /* Script made by Adam */
-public class WallJumpController : MonoBehaviour
+public class WallJumpController : MovementScript
 {
     //[Range(1f, 150f)]
     public float jumpForce;

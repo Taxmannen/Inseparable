@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* Made by Adam */
-public class LeverMoveObject : LeverAction
+public class LeverMoveObject : Action
 {
     [Header("Positions")]
     public Vector3 leverOnPosition;
@@ -16,11 +16,11 @@ public class LeverMoveObject : LeverAction
     [Range(0, 1)]
     public int constantOrLerping;
     
-    [Header("Lerper settings")]
+    [Header("Lerp Settings")]
     public float lerpSpeed;
     bool moving;
 
-    [Header("Constant settings")]
+    [Header("Constant Settings")]
     [Range(0.000001f, 0.1f)]
     public float percentageOfDistancePerTick;
 
@@ -28,9 +28,16 @@ public class LeverMoveObject : LeverAction
     Transform player1;
     Transform player2;
 
+    [Header("Gizmo Settings")]
     public bool printGizmoCoordinates;
     public float GizmoX, GizmoY, GizmoWidth, GizmoHeight;
 
+    [Header("Cutscene Settings")]
+    public bool cutscene;
+    public Vector2 cutsceneOffset;
+    public bool freezePlayers;
+    public List<ScriptController> playerScriptControllers;
+    
     private void Start()
     {
         player1 = GameObject.Find("Player 1").transform;
@@ -38,18 +45,29 @@ public class LeverMoveObject : LeverAction
         moving = false;
     }
 
-    public override void LeverPulled(bool leverState)
+    public override void onStateChange(bool state)
     {
+        if(cutscene)
+        {
+            CameraManager.instance.ChangeFocusTo(transform, cutsceneOffset);
+
+            if (freezePlayers)
+                foreach (ScriptController sc in playerScriptControllers)
+                    sc.freezePlayer();
+        }
         moving = true;
-        this.leverState = leverState;
+        this.leverState = state;
     }
 
     public bool checkPlayer(Transform player)
     {
-        Bounds b1 = new Bounds();
-        b1.Encapsulate(new Vector3(transform.position.x + 0.12f, transform.position.y + -0.965f)); 
-        b1.Encapsulate(new Vector3(transform.position.x + 6.04f, transform.position.y + 1.825f));
-        return b1.Contains(player.position);
+        Vector3 bottomLimit = new Vector3(transform.position.x + 0.12f, transform.position.y - 0.965f);
+        Vector3 topLimit = new Vector3(transform.position.x + 6.04f, transform.position.y + 1.825f);
+        //Bounds b1 = new Bounds();
+        //b1.Encapsulate(new Vector3(transform.position.x + 0.12f, transform.position.y - 0.965f)); 
+        //b1.Encapsulate(new Vector3(transform.position.x + 6.04f, transform.position.y + 1.825f));
+        //return b1.Contains(player.position);
+        return (player.position.x > bottomLimit.x && player.position.x < topLimit.x) && (player.position.y > bottomLimit.y && player.position.y < topLimit.y);
     } 
 
     public void Update()
@@ -63,7 +81,7 @@ public class LeverMoveObject : LeverAction
             Vector3 movement;
             if (constantOrLerping == 1)
             { 
-                movement = transform.position - Vector3.Lerp(transform.position, pos, lerpSpeed);
+                movement = Vector3.Lerp(transform.position, pos, lerpSpeed) - transform.position;
             }
             else
             {
@@ -82,7 +100,15 @@ public class LeverMoveObject : LeverAction
             }
 
             if ((transform.position - pos).sqrMagnitude < 1)
+            {
                 moving = false;
+
+                CameraManager.instance.ResetFocus();
+
+                if (freezePlayers)
+                    foreach (ScriptController sc in playerScriptControllers)
+                        sc.unfreezePlayer();
+            }
         }
     }
 
@@ -92,12 +118,10 @@ public class LeverMoveObject : LeverAction
         {
             Gizmos.DrawCube(leverOnPosition + new Vector3(3, -3, 0),  new Vector2(6, 6));
             Gizmos.DrawCube(leverOffPosition + new Vector3(3, -3, 0), new Vector2(6, 6));
-
+            //Gizmos.DrawCube(new Vector2(transform.position.x + GizmoX, transform.position.y + GizmoY), new Vector2(GizmoWidth, GizmoHeight));
         }
 
-        Gizmos.DrawCube(new Vector2(transform.position.x + GizmoX, transform.position.y + GizmoY), new Vector2(GizmoWidth, GizmoHeight));
-
-        if(printGizmoCoordinates)
+        if (printGizmoCoordinates)
         {
             Vector2 topleft = new Vector2(GizmoX - GizmoWidth / 2, GizmoY - GizmoHeight / 2);
             Vector2 bottomright = new Vector2(GizmoX + GizmoWidth / 2, GizmoY + GizmoHeight / 2);

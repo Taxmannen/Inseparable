@@ -284,8 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe0f1a860540c0428552c53e9eb176c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags:
+  affectedTags:
   - Player
+  startScaleY: 0.1
+  endScaleY: 0.05
   on: 0
 --- !u!114 &114368342072004496
 MonoBehaviour:
@@ -298,8 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe0f1a860540c0428552c53e9eb176c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags:
+  affectedTags:
   - Player
+  startScaleY: 0.1
+  endScaleY: 0.05
   on: 0
 --- !u!114 &114844750148174428
 MonoBehaviour:

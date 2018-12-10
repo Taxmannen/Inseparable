@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RopeCreatorAdam : MonoBehaviour {
+/* Script made by Adam */
+public class RopeCreatorTest : MonoBehaviour {
 
     public List<GameObject> ropeSegments;
     public GameObject ropeSegment;

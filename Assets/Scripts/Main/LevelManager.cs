@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour {
 
     private IEnumerator LoadLevel(string scene)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        /*AsyncOperation asyncLoad = */ SceneManager.LoadSceneAsync(scene);
 
         //while (!asyncLoad.isDone) yield return null;
         yield return new WaitForSeconds(1);

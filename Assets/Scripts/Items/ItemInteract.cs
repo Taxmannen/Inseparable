@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+
 //Made by Jocke
 public class ItemInteract : MonoBehaviour
 {
     GameObject playerUI;
-    public Sprite item;
+    //public Sprite item;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,7 +14,7 @@ public class ItemInteract : MonoBehaviour
             playerUI.GetComponentInChildren<Inventory>().CheckItemSlot();
             if (playerUI.GetComponentInChildren<Inventory>().GetIsItemSlotEmpty())
             {
-                playerUI.GetComponentInChildren<Inventory>().PickupItem(item);
+                playerUI.GetComponentInChildren<Inventory>().PickupItem(GetComponent<SpriteRenderer>().sprite);
                 Destroy(gameObject);
             }
         }

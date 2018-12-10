@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 /* Script made by Daniel */
-public class ScrollingBackground : MonoBehaviour
-{
+public class ScrollingBackground : MonoBehaviour {
     public float scrollSpeed;
     public float flat;
     public bool moveWithTime;
@@ -21,8 +20,7 @@ public class ScrollingBackground : MonoBehaviour
         oldX = cam.position.x;
     }
 
-    //The lowercase is intentional.
-    public void update()
+    public void UpdatePosition()
     {
         if (rend != null)
         {

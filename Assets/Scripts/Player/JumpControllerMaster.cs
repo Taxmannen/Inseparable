@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
+/* Script made by Adam */
 public class JumpControllerMaster : MonoBehaviour {
 
     public List<JumpController> playerMovements;
@@ -12,7 +12,6 @@ public class JumpControllerMaster : MonoBehaviour {
 
     public float jumpForceReduction;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         foreach (JumpController jc in playerMovements)

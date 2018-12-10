@@ -1,29 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class ResolutionScript : MonoBehaviour {
-
+/* Script made by Michael */
+public class Resolution : MonoBehaviour {
     public TextMeshProUGUI resValue;
     public string currentRes;
     public int index;
     public List<string> resolutions = new List<string>() { "1920 x 1080", "1280 x 720" };
-    public MenuManagerScript menuManagerScript;
+    public MenuManager menuManagerScript;
 
-
-
-    // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         currentRes = resolutions[0];
+        Debug.Log("Using" + " " + gameObject.name);
     }
 
     void Update()
     {
         if (menuManagerScript.toggleMenu)
         {
-
             if (Input.GetButtonDown("Submit"))
             {
                 index++;
@@ -35,18 +31,16 @@ public class ResolutionScript : MonoBehaviour {
                 index = 0;
             }
 
-            changeRes();
-
+            ChangeRes();
             resValue.text = currentRes;
         }
     }
 
-    void changeRes()
+    void ChangeRes()
     {
         for(int i = 0; i < resolutions.Count; i++)
         {
             currentRes = resolutions[index];
         }
-
     }
 }

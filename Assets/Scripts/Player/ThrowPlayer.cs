@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
+/* Script made by Daniel */
 public class ThrowPlayer : MonoBehaviour {
-    public Vector2 power = new Vector2(25, 30);
+    public Vector2 power = new Vector2(20, 25);
 
     MovementController movementController;
     Transform player;
@@ -9,7 +10,9 @@ public class ThrowPlayer : MonoBehaviour {
     float direction;
     bool pickUp;
     bool buttonUp;
-    float throwButton;
+
+    string throwButtonStr;
+    string pickupButtonStr;
 
     void Start ()
     {
@@ -19,21 +22,22 @@ public class ThrowPlayer : MonoBehaviour {
         player = GameObject.Find(otherPlayer).transform;
         movementController = GetComponent<MovementController>();
         rb = player.GetComponent<Rigidbody2D>();
-    }
-	
-	void Update ()
-    {
-        throwButton = Input.GetAxisRaw("Throw" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]);
 
+        throwButtonStr  = "Throw"  + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+        pickupButtonStr = "Pickup" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+    }
+
+    void Update ()
+    {
         if (Input.GetAxisRaw("Horizontal" + " " + gameObject.name) != 0) direction = Input.GetAxisRaw("Horizontal" + " " + gameObject.name);
-        if (throwButton == 0) buttonUp = true;
+        if (Input.GetAxisRaw(throwButtonStr) == 0) buttonUp = true;
 
         if (pickUp)
         {
             rb.isKinematic = true;
             player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
 
-            if (throwButton != 0 && buttonUp)
+            if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUp)
             {
                 pickUp = false;
                 rb.isKinematic = false;
@@ -47,7 +51,10 @@ public class ThrowPlayer : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && Input.GetAxisRaw("Pickup" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()]) != 0 && movementController.grounded) pickUp = true;
+        if (other.tag == "Player")
+        {
+            if (Input.GetAxisRaw(pickupButtonStr) != 0 && movementController.grounded) pickUp = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

@@ -5,7 +5,7 @@ public class LoadLevel : MonoBehaviour {
     public string sceneName;
 
     LevelManager levelManager;
-
+    bool loading;
     private void Start()
     {
         GetComponent<SpriteRenderer>().enabled = false;
@@ -14,6 +14,10 @@ public class LoadLevel : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player") levelManager.Load(sceneName);
+        if (other.tag == "Player" && !loading)
+        {
+            levelManager.Load(sceneName);
+            loading = true;
+        }
     }
 }

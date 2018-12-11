@@ -13,18 +13,13 @@ public class MenuManager : MonoBehaviour {
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
     public Slider soundEffectsVolumeSlider;
+    public EventSystem eventSystem;
     public AudioMixer mixer;
     public bool toggleMenu;
 
-    GameObject selectedButton;
     string player1Button;
     string player2Button;
-    int curRes;
-
-    public EventSystem eventSystem;
-    GameObject firstObject;
-
-    bool isInMenu;
+    GameObject firstButton;
 
 
     void Start()
@@ -43,8 +38,10 @@ public class MenuManager : MonoBehaviour {
                 toggleMenu = !toggleMenu;
                 mainMenu.SetActive(toggleMenu);
                 OnMenuChange();
-                if (!toggleMenu)
+                if (toggleMenu) Time.timeScale = 0;
+                else
                 {
+                    Time.timeScale = 1;
                     for (var i = 0; i < menus.Count; i++)
                     {
                         menus[i].SetActive(false);
@@ -105,8 +102,8 @@ public class MenuManager : MonoBehaviour {
                 {
                     if (button.GetComponent<Button>() != null || button.GetComponent<Slider>() != null)
                     {
-                        firstObject = button.gameObject;
-                        eventSystem.SetSelectedGameObject(firstObject);
+                        firstButton = button.gameObject;
+                        eventSystem.SetSelectedGameObject(firstButton);
                         return;
                     }
                 }

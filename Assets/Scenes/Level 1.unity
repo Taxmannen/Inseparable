@@ -254,7 +254,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1814217156060938, guid: 52f87e9d5cee35d4f88de69920d51dfc, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f87e9d5cee35d4f88de69920d51dfc, type: 2}
@@ -526,7 +526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &366022335
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +676,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 88.57, y: 1.51}
+  m_ConnectedAnchor: {x: 87.57, y: 1.51}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -699,7 +699,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 88.57, y: 1.51}
+  m_ConnectedAnchor: {x: 87.57, y: 1.51}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -973,7 +973,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 84.57, y: 1.51}
+  m_ConnectedAnchor: {x: 85.57, y: 1.51}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -996,7 +996,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 84.57, y: 1.51}
+  m_ConnectedAnchor: {x: 85.57, y: 1.51}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -1369,7 +1369,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1808085825924792, guid: d672ce868dd04bc4b85e5a6200e7e157, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d672ce868dd04bc4b85e5a6200e7e157, type: 2}
@@ -27036,7 +27036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1854644023064480, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 2}
@@ -27341,7 +27341,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1651041365610890, guid: 22618c1e8eec4ef47b8f64fcef716fa4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22618c1e8eec4ef47b8f64fcef716fa4, type: 2}
@@ -27387,7 +27387,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1651041365610890, guid: 22618c1e8eec4ef47b8f64fcef716fa4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22618c1e8eec4ef47b8f64fcef716fa4, type: 2}
@@ -27470,7 +27470,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1306317708125528, guid: d14516489eb362745ae645bdd9548069, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14516489eb362745ae645bdd9548069, type: 2}
@@ -27601,7 +27601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 2}
@@ -27691,7 +27691,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1769440597173858, guid: e38c601ea4f66394c96d227311b87369, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38c601ea4f66394c96d227311b87369, type: 2}
@@ -27991,7 +27991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1489035493
 Transform:
   m_ObjectHideFlags: 0
@@ -28132,7 +28132,7 @@ Prefab:
       objectReference: {fileID: 934472945}
     - target: {fileID: 1854644023064480, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 2}
@@ -28183,7 +28183,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1618066344231268, guid: 7ce9bebf38cc509499cdf75d82d800d0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ce9bebf38cc509499cdf75d82d800d0, type: 2}
@@ -28930,7 +28930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 2}

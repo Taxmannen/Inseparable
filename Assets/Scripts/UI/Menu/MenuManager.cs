@@ -21,34 +21,24 @@ public class MenuManager : MonoBehaviour {
     string player2Button;
     GameObject firstButton;
 
-
     void Start()
     {
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
         player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
         toggleMenu = false;
-
-
-
+  
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         soundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
 
-        
-
-        if(PlayerPrefs.GetInt("CurrentResolution1") == 0 && PlayerPrefs.GetInt("CurrentResolution2") == 0)
+        if (PlayerPrefs.GetInt("CurrentResolution1") == 0 && PlayerPrefs.GetInt("CurrentResolution2") == 0)
         {
             Screen.SetResolution(1920, 1200, true);
-            Debug.Log("Current res is " + "1920 x 1200");
         }
         else
         {
             Screen.SetResolution(PlayerPrefs.GetInt("CurrentResolution1"), PlayerPrefs.GetInt("CurrentResolution2"), true);
-            Debug.Log("Current res is " + PlayerPrefs.GetInt("CurrentResolution1") + " x " + PlayerPrefs.GetInt("CurrentResolution2"));
         }
-
-        
-
     }
 
     void Update()
@@ -96,8 +86,6 @@ public class MenuManager : MonoBehaviour {
             PlayerPrefs.SetInt("CurrentResolution1", 1280);
             PlayerPrefs.SetInt("CurrentResolution2", 720);
         }
-
-        
     }
 
     public void ChangeMasterVolume()
@@ -144,20 +132,5 @@ public class MenuManager : MonoBehaviour {
                 }
             }
         }
-
-
     }
-
-
-
-    public void saveSettings()
-    {
-       
-    }
-
-    public void loadSettings()
-    {
-
-    }
-
 }

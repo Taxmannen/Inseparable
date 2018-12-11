@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /* Script made by Adam */
@@ -17,8 +15,6 @@ public class AnchorController : MovementScript
     {
         anchorButtonStr = "Anchor" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
         rb = GetComponent<Rigidbody2D>();
-
-        GameObject apa = Resources.Load<GameObject>("Prefabs/" + name);
     }
 
     void Update()

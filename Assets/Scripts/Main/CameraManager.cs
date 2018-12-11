@@ -43,6 +43,11 @@ public class CameraManager : MonoBehaviour {
         player2 = GameObject.Find("Player 2").transform;
     }
 
+    public static float Damp(float source, float target, float smoothing, float dt)
+    {
+        return Mathf.Lerp(source, target, 1 - Mathf.Pow(smoothing, dt));
+    }
+
     void LateUpdate()
     {
         foreach(ScrollingBackground b in backgrounds)
@@ -52,7 +57,7 @@ public class CameraManager : MonoBehaviour {
 
         if (player1 == null || player2 == null) FindPlayers();
 
-        if(focus == null)
+        if (focus == null)
             FocusOn((player1.position + player2.position) * 0.5f);
         else
             FocusOn(focus.position + focusOffset);
@@ -69,7 +74,7 @@ public class CameraManager : MonoBehaviour {
         focusOffset = offset;
         Vector3 newCameraPosition = tf.position + offset;
         newCameraPosition.z = -10;
-        transform.position = newCameraPosition;
+        //transform.position = newCameraPosition;
     }
 
     public void ResetFocus()
@@ -77,7 +82,7 @@ public class CameraManager : MonoBehaviour {
         focus = null;
         Vector3 newCameraPosition = (player1.position + player2.position) * 0.5f;
         newCameraPosition.z = -10;
-        transform.position = newCameraPosition;
+        //transform.position = newCameraPosition;
     }
 
     public void FocusOn(Vector3 position)
@@ -89,7 +94,7 @@ public class CameraManager : MonoBehaviour {
                 left.position.x + Camera.main.orthographicSize * Camera.main.aspect,
                 right.position.x - Camera.main.orthographicSize * Camera.main.aspect);
 
-            y = Mathf.Clamp(position.x,
+            y = Mathf.Clamp(position.y,
                 bottom.position.y + Camera.main.orthographicSize,
                 top.position.y - Camera.main.orthographicSize);
         }
@@ -99,6 +104,9 @@ public class CameraManager : MonoBehaviour {
             y = position.y;
         }
 
-        transform.position = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, -10f), new Vector3(x, y, -10f), lerpValue * Time.deltaTime);
+        x = Damp(transform.position.x, x, 0.07f, Time.deltaTime);
+        y = Damp(transform.position.y, y, 0.07f, Time.deltaTime);
+
+        transform.position = new Vector3(x, y, -10f);
     }
 }

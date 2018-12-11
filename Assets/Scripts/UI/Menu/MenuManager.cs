@@ -26,7 +26,29 @@ public class MenuManager : MonoBehaviour {
     {
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
         player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
-        toggleMenu = false;       
+        toggleMenu = false;
+
+
+
+        masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        soundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
+
+        
+
+        if(PlayerPrefs.GetInt("CurrentResolution1") == 0 && PlayerPrefs.GetInt("CurrentResolution2") == 0)
+        {
+            Screen.SetResolution(1920, 1200, true);
+            Debug.Log("Current res is " + "1920 x 1200");
+        }
+        else
+        {
+            Screen.SetResolution(PlayerPrefs.GetInt("CurrentResolution1"), PlayerPrefs.GetInt("CurrentResolution2"), true);
+            Debug.Log("Current res is " + PlayerPrefs.GetInt("CurrentResolution1") + " x " + PlayerPrefs.GetInt("CurrentResolution2"));
+        }
+
+        
+
     }
 
     void Update()
@@ -49,7 +71,6 @@ public class MenuManager : MonoBehaviour {
                 }
             }
         }
-
     }
 
     public void OpenSettingsMenu()
@@ -61,26 +82,40 @@ public class MenuManager : MonoBehaviour {
         }
     }
 
-    private void ChangeResolution(int curRes)
+    public void ChangeResolution(int curRes)
     {
-        if      (curRes == 1920) Screen.SetResolution(1920, 1200, true);
-        else if (curRes == 1280) Screen.SetResolution(1280, 720, true);
-        Debug.Log("Changed resolution to" + " " + curRes);
+        if (curRes == 1920)
+        {
+            Screen.SetResolution(1920, 1200, true);
+            PlayerPrefs.SetInt("CurrentResolution1", 1920);
+            PlayerPrefs.SetInt("CurrentResolution2", 1200);
+        }
+        else if (curRes == 1280)
+        {
+            Screen.SetResolution(1280, 720, true);
+            PlayerPrefs.SetInt("CurrentResolution1", 1280);
+            PlayerPrefs.SetInt("CurrentResolution2", 720);
+        }
+
+        
     }
 
     public void ChangeMasterVolume()
     {
         mixer.SetFloat("MasterVol", masterVolumeSlider.value);
+        PlayerPrefs.SetFloat("MasterVolume", masterVolumeSlider.value);
     }
 
     public void ChangeSFXVolume()
     {
         mixer.SetFloat("SFXVol", soundEffectsVolumeSlider.value);
+        PlayerPrefs.SetFloat("SoundEffectsVolume", soundEffectsVolumeSlider.value);
     }
 
     public void ChangeMusicVolume()
     {
         mixer.SetFloat("MusicVol", musicVolumeSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolumeSlider.value);
     }
 
     public void QuitGame()
@@ -109,6 +144,20 @@ public class MenuManager : MonoBehaviour {
                 }
             }
         }
+
+
+    }
+
+
+
+    public void saveSettings()
+    {
+       
+    }
+
+    public void loadSettings()
+    {
+
     }
 
 }

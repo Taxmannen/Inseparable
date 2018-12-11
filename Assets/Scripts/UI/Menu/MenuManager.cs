@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 /* Script made by Michael */
 public class MenuManager : MonoBehaviour {
@@ -19,6 +21,12 @@ public class MenuManager : MonoBehaviour {
     string player2Button;
     int curRes;
 
+    public EventSystem eventSystem;
+    GameObject firstObject;
+
+    bool isInMenu;
+
+
     void Start()
     {
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
@@ -34,6 +42,7 @@ public class MenuManager : MonoBehaviour {
             {
                 toggleMenu = !toggleMenu;
                 mainMenu.SetActive(toggleMenu);
+                OnMenuChange();
                 if (!toggleMenu)
                 {
                     for (var i = 0; i < menus.Count; i++)
@@ -43,6 +52,7 @@ public class MenuManager : MonoBehaviour {
                 }
             }
         }
+
     }
 
     public void OpenSettingsMenu()
@@ -83,4 +93,25 @@ public class MenuManager : MonoBehaviour {
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
+
+    public void OnMenuChange()
+    {
+        eventSystem.SetSelectedGameObject(null);
+        foreach (GameObject menu in menus)
+        {
+            if (menu.activeSelf)
+            {
+                foreach (Transform button in menu.transform)
+                {
+                    if (button.GetComponent<Button>() != null || button.GetComponent<Slider>() != null)
+                    {
+                        firstObject = button.gameObject;
+                        eventSystem.SetSelectedGameObject(firstObject);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -7,13 +7,14 @@ using UnityEngine.UI;
 /* Script made by Michael */
 public class MenuManager : MonoBehaviour {
     public List<GameObject> menus = new List<GameObject>();
-    public GameObject menu;
+    public GameObject mainMenu;
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
     public Slider soundEffectsVolumeSlider;
     public AudioMixer mixer;
     public bool toggleMenu;
 
+    GameObject selectedButton;
     string player1Button;
     string player2Button;
     int curRes;
@@ -22,7 +23,7 @@ public class MenuManager : MonoBehaviour {
     {
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
         player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
-        toggleMenu = false;
+        toggleMenu = false;       
     }
 
     void Update()
@@ -32,8 +33,7 @@ public class MenuManager : MonoBehaviour {
             if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button))
             {
                 toggleMenu = !toggleMenu;
-                menu.SetActive(toggleMenu);
-
+                mainMenu.SetActive(toggleMenu);
                 if (!toggleMenu)
                 {
                     for (var i = 0; i < menus.Count; i++)

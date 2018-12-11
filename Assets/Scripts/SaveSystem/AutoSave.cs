@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 /* Script made by Daniel */
 public class AutoSave : MonoBehaviour {
+    GameSettings gs;
     Image icon;
     bool autoSave;
     float alpha = 1;
@@ -14,6 +15,7 @@ public class AutoSave : MonoBehaviour {
     {
         GetComponent<SpriteRenderer>().enabled = false;
         icon = GameObject.Find("Auto Save Icon").GetComponent<Image>();
+        gs = GameObject.Find("Main").GetComponent<GameSettings>();
     }
 
     private void Update()
@@ -37,7 +39,7 @@ public class AutoSave : MonoBehaviour {
     {
         if (!autoSave && other.tag == "Player")
         {
-            //CREATE SAVE FILE!
+            gs.Save();
             autoSave = true;
         }
     }

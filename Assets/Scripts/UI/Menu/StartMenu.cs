@@ -1,38 +1,44 @@
 ﻿using UnityEngine;
 
-/* Script made by Michael */
+/* Script made by Daniel */
 public class StartMenu : MonoBehaviour {
-    public GameObject settingsPanel;
-    public GameObject helpPanel;
-    public MenuManager menuScript;
-    public GameObject backButton;
+    GameSettings gs;
+    bool enter;
 
-    /*private void OnTriggerEnter2D(Collider2D col)
+    private void Start()
     {
-       if (col.tag == "Player")
-       {
-            if (gameObject.name == "Settings")
-            {
-                settingsPanel.SetActive(true);
-                backButton.SetActive(false);
-                menuScript.toggleMenu = true;
-            }
+        gs = GameObject.Find("Main").GetComponent<GameSettings>();
+    }
 
-            else if (gameObject.name == "Continue")
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!enter && other.isTrigger)
+        {
+            if (other.name == "Settings Button")
             {
-                Debug.Log("Continue");
+                Debug.Log("Setings - Enter");
             }
-
-            else if (gameObject.name == "Exit")
+            else if (other.name == "Continue Button")
             {
-                Debug.Log("Exit");
+                gs.Load();
             }
-
-            else if (gameObject.name == "Help")
+            else if (other.name == "Exit Button")
             {
-                helpPanel.SetActive(true);
-                menuScript.toggleMenu = true;
+                Application.Quit();
+                #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                #endif
             }
+            if (other.name == "Settings Button") enter = true;
         }
-    }*/
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name == "Settings Button")
+        {
+            Debug.Log("Setings - Exit");
+        }
+        if (other.name == "Settings Button") enter = false;        
+    }
 }

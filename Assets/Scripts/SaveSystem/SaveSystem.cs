@@ -2,40 +2,38 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public static class SaveSystem
-{
+/* Script made by Michael */
+public static class SaveSystem {
 
-    /*public static void SavePlayer(PlayerController player)
+    public static void Save(GameSettings gs)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.megaman";
+        string path = Application.persistentDataPath + "/inseparable.save";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(player);
+        SaveData data = new SaveData(gs);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
-    public static PlayerData LoadPlayer()
+    public static SaveData Load()
     {
-        string path = Application.persistentDataPath + "/player.megaman";
-        if(File.Exists(path))
+        string path = Application.persistentDataPath + "/inseparable.save";
+        if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
 
             return data;
-            
         }
         else
         {
             Debug.LogError("Save file not found in " + path);
             return null;
         }
-    }*/
-
+    }
 }

@@ -64,7 +64,7 @@ public class RopeCreator : MonoBehaviour{
             Rigidbody2D rb = g.AddComponent<Rigidbody2D>();
             if (i == 0 || i == size - 1) rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Tas bort?
             rb.mass = mass;
-            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            //rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
             SpriteRenderer sr = g.AddComponent<SpriteRenderer>();
             sr.sprite = ropeSprite;

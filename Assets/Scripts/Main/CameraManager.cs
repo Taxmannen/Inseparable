@@ -48,19 +48,19 @@ public class CameraManager : MonoBehaviour {
         return Mathf.Lerp(source, target, 1 - Mathf.Pow(smoothing, dt));
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        foreach(ScrollingBackground b in backgrounds)
-        {
-            if (b!= null) b.UpdatePosition();
-        }
-
         if (player1 == null || player2 == null) FindPlayers();
 
         if (focus == null)
             FocusOn((player1.position + player2.position) * 0.5f);
         else
             FocusOn(focus.position + focusOffset);
+
+        foreach (ScrollingBackground b in backgrounds)
+        {
+            if (b != null) b.UpdatePosition();
+        }
     }
 
     public void ChangeFocusTo(Transform tf)

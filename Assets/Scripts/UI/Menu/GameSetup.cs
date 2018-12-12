@@ -57,7 +57,7 @@ public class GameSetup : MonoBehaviour { //DÅLIGT NAMN BYT!
         if (other.tag == "Player") Invoke("EnableHud", 0.25f);
     }
 
-    void EnableHud()
+    public void EnableHud()
     {
         player1UI.SetActive(true);
         player2UI.SetActive(true);

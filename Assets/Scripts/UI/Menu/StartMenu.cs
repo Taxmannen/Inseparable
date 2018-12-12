@@ -2,6 +2,7 @@
 
 /* Script made by Daniel */
 public class StartMenu : MonoBehaviour {
+    public GameSetup gameSetup;
     MenuManager menuManager;
     GameSettings gs;
     bool enter;
@@ -23,7 +24,9 @@ public class StartMenu : MonoBehaviour {
             }
             else if (other.name == "Continue Button")
             {
+                gameSetup.Invoke("EnableHud", 0.25f);
                 gs.Load();
+
             }
             else if (other.name == "Exit Button")
             {

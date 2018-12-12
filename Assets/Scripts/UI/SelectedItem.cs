@@ -15,7 +15,6 @@ public class SelectedItem : MonoBehaviour {
     public void SwapSprite(Sprite s)
     {
         selectedItem.sprite = s;
-        //CheckUsebleItem(item.name);
     }
 
     public void CheckUsebleItem(string s)

@@ -7,9 +7,7 @@ public class Inventory : MonoBehaviour {
     public SelectedItem selectedItem;
     public GameObject[] items;
     public Sprite empty;
-
     public string player; //FIXA!!!
-    //string switchItemButtonStr;
 
     bool setFadeEffect;
     public bool SwitchItemBool { get; private set; }
@@ -24,7 +22,6 @@ public class Inventory : MonoBehaviour {
         images = new Image[numberOfItems];
         SetAlpha(0);
         InventorySetup();
-        //switchItemButtonStr = "Seperate Player" + " " + player + " " + "XBOX";
     }
 
     private void Update()
@@ -35,10 +32,46 @@ public class Inventory : MonoBehaviour {
             if (Input.GetAxisRaw("Change Item Player " + player) > 0) NegativeItemSwap();
             if (Input.GetAxisRaw("Change Item Player " + player) < 0) PositiveItemSwap();
         }
+    }
 
-        //if (Input.GetButtonDown(switchItemButtonStr)) SwitchItemBool = true;
-        //else SwitchItemBool = false;
-        
+
+    public bool PickupItem(GameObject item)
+    {
+        for (int i = 0; i < numberOfItems; i++)
+        {
+            if (items[i] == null)
+            {
+                items[i] = item;
+                InventorySetup();
+                //SÄTT NYA ITEMET TILL SELECTED!?!?
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void DropItem(GameObject item)
+    {
+        item.transform.SetParent(null);
+        item.GetComponent<ItemInteract>().DropItem();
+    }
+
+    public void SwitchItem(GameObject item)
+    {
+        DropItem(items[1]);
+        items[1] = item;
+        InventorySetup();
+    }
+
+    void InventorySetup()
+    {
+        for (int i = 0; i < numberOfItems; i++)
+        {
+            images[i] = transform.GetChild(0).GetChild(i).GetChild(0).GetComponent<Image>();
+            if (items[i] != null) images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
+            else                  images[i].sprite = empty;
+        }
+        selectedItem.SwapSprite(images[1].GetComponent<Image>().sprite);
     }
 
     private void PositiveItemSwap()
@@ -59,33 +92,6 @@ public class Inventory : MonoBehaviour {
         items[1] = items[2];
         items[2] = tmp;
         InventorySetup();
-    }
-
-    public bool PickupItem(GameObject item)
-    {
-        GameObject newItem = item;
-        for (int i = 0; i < numberOfItems; i++)
-        {
-            if (items[i] == null)
-            {
-                items[i] = newItem;
-                InventorySetup();
-                //SÄTT NYA ITEMET TILL SELECTED???
-                return true;
-            }
-        }
-        return false;
-    }
-
-    void InventorySetup()
-    {
-        for (int i = 0; i < numberOfItems; i++)
-        {
-            images[i] = transform.GetChild(0).GetChild(i).GetChild(0).GetComponent<Image>();
-            if (items[i] != null) images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
-            else                  images[i].sprite = empty;
-        }
-        selectedItem.SwapSprite(images[1].GetComponent<Image>().sprite);
     }
 
     public void SetAlpha(float alpha)
@@ -117,14 +123,4 @@ public class Inventory : MonoBehaviour {
             SetAlpha(timer * fadeSpeed);
         }
     }
-
-    /*public void SwitchItem(GameObject item)
-    {
-        if (SwitchItemBool)
-        {
-            images[1].sprite = item.GetComponent<SpriteRenderer>().sprite; //Glöm Ej
-            selectedItem.SwapItem(item);
-        }
-
-    }*/
 }

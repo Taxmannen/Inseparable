@@ -7,13 +7,14 @@ public class UseItems : MonoBehaviour {
 
     PlayerStats playerStats;
     PlayerStats otherPlayer;
+    Inventory inventory;
     SelectedItem selectedItem;
 
     private void Start()
     {
         GameObject UI = GameObject.Find(gameObject.name + " " + "UI");
         selectedItem = UI.GetComponentInChildren<SelectedItem>();
-
+        inventory = UI.GetComponentInChildren<Inventory>();
         playerStats = GetComponent<PlayerStats>();
         if (gameObject.name == "Player 1") otherPlayer = GameObject.Find("Player 2").GetComponent<PlayerStats>();
         if (gameObject.name == "Player 2") otherPlayer = GameObject.Find("Player 1").GetComponent<PlayerStats>();
@@ -28,11 +29,20 @@ public class UseItems : MonoBehaviour {
     { 
         if (Input.GetButtonDown("Use Item" + " " + gameObject.name))
         {
-            if (selectedItem.GetHealthPot() && playerStats.GetUsePotion()) playerStats.RestoreHealth(healAmount);
-            else if (selectedItem.GetReviveStone() && otherPlayer.GetDead()) otherPlayer.Revive(healAmount);
+            
+            if (selectedItem.GetHealthPotion() && playerStats.GetUsePotion())
+            {
+                playerStats.RestoreHealth(healAmount);
+                inventory.DestroyItem();
+                inventory.InventorySetup();
+            }
 
-            selectedItem.SwapSprite(transparent);
-            //TA BORT FRÅN LISTAN!
+            if (selectedItem.GetReviveStone() && otherPlayer.GetDead())
+            {
+                otherPlayer.Revive(healAmount);
+                inventory.DestroyItem();
+                inventory.InventorySetup();
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 //Made by Jocke
 public class SelectedItem : MonoBehaviour {
     public Image selectedItem;
-    bool healthPot;
+    bool healthPotion;
     bool reviveStone;
 
     void Start ()
@@ -14,18 +14,19 @@ public class SelectedItem : MonoBehaviour {
     
     public void SwapSprite(Sprite s)
     {
-        if (selectedItem != null) selectedItem.sprite = s;
+        selectedItem.sprite = s;
+        CheckUsebleItem(s.name);
     }
 
     public void CheckUsebleItem(string s)
     {
-       healthPot = s == "Potion" ? true : false;
+       healthPotion = s == "Potion" ? true : false;
        reviveStone = s == "Revive" ? true : false;
     }
 
-    public bool GetHealthPot()
+    public bool GetHealthPotion()
     {
-        return healthPot;
+        return healthPotion;
     }
 
     public bool GetReviveStone()

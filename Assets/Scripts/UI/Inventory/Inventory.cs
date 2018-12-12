@@ -56,6 +56,12 @@ public class Inventory : MonoBehaviour {
         item.GetComponent<ItemInteract>().DropItem();
     }
 
+    public void DestroyItem()
+    {
+        images[1].sprite = empty;
+        items[1] = null;
+    }
+
     public void SwitchItem(GameObject item)
     {
         DropItem(items[1]);
@@ -63,13 +69,15 @@ public class Inventory : MonoBehaviour {
         InventorySetup();
     }
 
-    void InventorySetup()
+    public void InventorySetup()
     {
         for (int i = 0; i < numberOfItems; i++)
         {
             images[i] = transform.GetChild(0).GetChild(i).GetChild(0).GetComponent<Image>();
-            if (items[i] != null) images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
-            else                  images[i].sprite = empty;
+            if (items[i] != null)
+                images[i].sprite = items[i].GetComponent<SpriteRenderer>().sprite;
+            else
+                images[i].sprite = empty;
         }
         selectedItem.SwapSprite(images[1].GetComponent<Image>().sprite);
     }

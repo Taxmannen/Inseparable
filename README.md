@@ -14,5 +14,7 @@ The controls are available the game's settings.
 
 Since the game is not final, and the controls being a part of the game, we can't say there isn't a bug or unexpected interaction in the game.
 
+Little MVP notice: `Throw mechanic does not work for second player in build, but works in editor.`
+
 ## Goal
 The goal is to use the mechanics available to get you and your friend to the end of the course.

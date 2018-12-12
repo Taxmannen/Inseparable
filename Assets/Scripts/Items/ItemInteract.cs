@@ -15,8 +15,8 @@ public class ItemInteract : MonoBehaviour
         if (other.CompareTag("Player") && other.isTrigger)
         {
             playerUI = GameObject.Find(other.name + " " + "UI");
-            Inventory inventory = playerUI.GetComponentInChildren<Inventory>();
-            if (inventory.PickupItem(gameObject));
+            //Inventory inventory = playerUI.GetComponentInChildren<Inventory>();
+            // if (inventory.PickupItem(gameObject));
         }
     }
 }

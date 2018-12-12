@@ -9,13 +9,12 @@ public class Inventory : MonoBehaviour {
     public Sprite empty;
 
     public string player; //FIXA!!!
-    string switchItemButtonStr;
+    //string switchItemButtonStr;
 
-    bool isItemSlotEmpty;
     bool setFadeEffect;
     public bool SwitchItemBool { get; private set; }
 
-    Image[] images;
+    Image[] images = new Image[3];
     CanvasRenderer bg;
     float timer;
     readonly int numberOfItems = 3;
@@ -25,7 +24,7 @@ public class Inventory : MonoBehaviour {
         images = new Image[numberOfItems];
         SetAlpha(0);
         InventorySetup();
-        switchItemButtonStr = "Seperate Player" + " " + player + " " + "XBOX";
+        //switchItemButtonStr = "Seperate Player" + " " + player + " " + "XBOX";
     }
 
     private void Update()
@@ -70,7 +69,6 @@ public class Inventory : MonoBehaviour {
             if (items[i] == null)
             {
                 items[i] = newItem;
-                Destroy(item);
                 InventorySetup();
                 return true;
             }
@@ -98,10 +96,7 @@ public class Inventory : MonoBehaviour {
         bg.SetAlpha(alpha);
         if (alpha > 0.75f) bg.SetAlpha(0.75f);
     }
-    public bool GetIsItemSlotEmpty()
-    {
-        return isItemSlotEmpty;
-    }
+
     public void CalculateFadeEffect()
     {
         if (timer > 2)

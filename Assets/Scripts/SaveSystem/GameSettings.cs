@@ -15,8 +15,8 @@ public class GameSettings : MonoBehaviour {
     public void Load()
     {
         string[] settingsStr  = SaveSystem.Load().settingsStr;
-        float[] settingsFloat = SaveSystem.Load().settingsFloat;
-        int[] settingsInt     = SaveSystem.Load().settingsInt;
+        //float[] settingsFloat = SaveSystem.Load().settingsFloat;
+        //int[] settingsInt     = SaveSystem.Load().settingsInt;
 
         level = settingsStr[0];
 

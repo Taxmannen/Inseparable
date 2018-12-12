@@ -2,12 +2,14 @@
 
 /* Script made by Daniel */
 public class StartMenu : MonoBehaviour {
+    MenuManager menuManager;
     GameSettings gs;
     bool enter;
 
     private void Start()
     {
         gs = GameObject.Find("Main").GetComponent<GameSettings>();
+        menuManager = FindObjectOfType<MenuManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -16,7 +18,8 @@ public class StartMenu : MonoBehaviour {
         {
             if (other.name == "Settings Button")
             {
-                Debug.Log("Setings - Enter");
+                menuManager.OpenSettingsMenu();
+                //Time.timeScale = 0;
             }
             else if (other.name == "Continue Button")
             {

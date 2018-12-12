@@ -70,6 +70,7 @@ public class Inventory : MonoBehaviour {
             {
                 items[i] = newItem;
                 InventorySetup();
+                //SÄTT NYA ITEMET TILL SELECTED???
                 return true;
             }
         }

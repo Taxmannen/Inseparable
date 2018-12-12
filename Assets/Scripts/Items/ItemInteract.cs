@@ -1,22 +1,18 @@
 ﻿using UnityEngine;
 
 //Made by Jocke
-public class ItemInteract : MonoBehaviour
-{
+public class ItemInteract : MonoBehaviour {
     GameObject playerUI;
-    public GameObject[] items;
-    private void Start()
-    {
-        
-    }
+    bool pickedUp;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.isTrigger)
+        if (other.CompareTag("Player") && !pickedUp)
         {
             playerUI = GameObject.Find(other.name + " " + "UI");
-            //Inventory inventory = playerUI.GetComponentInChildren<Inventory>();
-            // if (inventory.PickupItem(gameObject));
+            Inventory inventory = playerUI.GetComponentInChildren<Inventory>();
+            if (inventory.PickupItem(gameObject)) transform.SetParent(other.transform.GetChild(1));
+            pickedUp = true;
         }
     }
 }

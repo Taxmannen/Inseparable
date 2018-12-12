@@ -14,7 +14,6 @@ public class SelectedItem : MonoBehaviour {
     
     public void SwapSprite(Sprite s)
     {
-        Debug.Log(selectedItem);
         selectedItem.sprite = s;
         //CheckUsebleItem(item.name);
     }

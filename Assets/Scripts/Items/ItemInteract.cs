@@ -4,19 +4,19 @@
 public class ItemInteract : MonoBehaviour
 {
     GameObject playerUI;
-    //public Sprite item;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public GameObject[] items;
+    private void Start()
     {
-        if (other.CompareTag("Player"))
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && other.isTrigger)
         {
             playerUI = GameObject.Find(other.name + " " + "UI");
-            playerUI.GetComponentInChildren<Inventory>().CheckItemSlot();
-            if (playerUI.GetComponentInChildren<Inventory>().GetIsItemSlotEmpty())
-            {
-                playerUI.GetComponentInChildren<Inventory>().PickupItem(GetComponent<SpriteRenderer>().sprite);
-                Destroy(gameObject);
-            }
+            Inventory inventory = playerUI.GetComponentInChildren<Inventory>();
+            if (inventory.PickupItem(gameObject));
         }
     }
 }

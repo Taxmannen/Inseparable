@@ -34,7 +34,7 @@ public class UseItems : MonoBehaviour {
             else if (selectedItem.GetReviveStone() && otherPlayer.GetDead()) otherPlayer.Revive(healAmount);
 
             selectedItem.SwapSprite(transparent);
-            inventory.SetSpriteInImages(transparent);
+            //TA BORT FRÅN LISTAN!
         }
     }
 }

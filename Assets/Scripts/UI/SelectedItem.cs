@@ -12,10 +12,11 @@ public class SelectedItem : MonoBehaviour {
         selectedItem = transform.GetChild(0).GetComponent<Image>();
     }
     
-    public void SwapSprite(Sprite sprite)
+    public void SwapSprite(Sprite s)
     {
-        if (selectedItem != null) selectedItem.sprite = sprite;
-        CheckUsebleItem(sprite.name);
+        Debug.Log(selectedItem);
+        selectedItem.sprite = s;
+        //CheckUsebleItem(item.name);
     }
 
     public void CheckUsebleItem(string s)

@@ -51,10 +51,17 @@ public class CameraManager : MonoBehaviour {
 
     void FindPlayers()
     {
-        player1 = GameObject.Find("Player 1").transform;
-        player2 = GameObject.Find("Player 2").transform;
-        player1stats = player1.GetComponent<PlayerStats>();
-        player2stats = player2.GetComponent<PlayerStats>();
+        if(GameObject.Find("Player 1"))
+        {
+            player1 = GameObject.Find("Player 1").transform;
+            player2stats = player2.GetComponent<PlayerStats>();
+        }
+
+        if (GameObject.Find("Player 2"))
+        {
+            player2 = GameObject.Find("Player 2").transform;
+            player1stats = player1.GetComponent<PlayerStats>();
+        }
     }
 
     public static float Damp(float source, float target, float smoothing, float dt)
@@ -64,7 +71,8 @@ public class CameraManager : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (player1 == null || player2 == null) FindPlayers();
+        if (player1 == null || player2 == null)
+            FindPlayers();
 
         if (focus == null)
             FocusOn(getPlayerPosition());
@@ -105,11 +113,14 @@ public class CameraManager : MonoBehaviour {
     }
 
     public Vector3 getPlayerPosition() {
-        if (!player1stats.GetDead() && !player2stats.GetDead())
+        if ((!player1stats.GetDead() && !player2stats.GetDead()) && (player1 != null && player2 != null))
             return (player1.position + player2.position) * 0.5f;
-        else if (!player1stats.GetDead())
+        else if (!player1stats.GetDead() && player1 != null)
             return player1.position;
-        return player2.position;
+        else if (player2 != null)
+            return player2.position;
+        else
+            return new Vector3(0, 0, 0);
     }
     
     public Vector3 getFocusPosition() {

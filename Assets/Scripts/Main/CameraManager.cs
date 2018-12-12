@@ -113,14 +113,14 @@ public class CameraManager : MonoBehaviour {
     }
 
     public Vector3 getPlayerPosition() {
-        if ((player1 != null && player2 != null) && (!player1stats.GetDead() && !player2stats.GetDead()))
-            return (player1.position + player2.position) * 0.5f;
+        if (player1 != null && player2 != null)
+            if (!player1stats.GetDead() && !player2stats.GetDead())
+                return (player1.position + player2.position) * 0.5f;
         else if (!player1stats.GetDead() && player1 != null)
             return player1.position;
         else if (player2 != null)
             return player2.position;
-        else
-            return new Vector3(0, 0, 0);
+        return new Vector3(0, 0, 0);
     }
     
     public Vector3 getFocusPosition() {

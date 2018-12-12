@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum LockState {
+    NoLock,
+    XAxis,
+    YAxis,
+    YAxisAndXAxis
+}
+
 /* Script made by Adam */
 public class CameraManager : MonoBehaviour {
     public Transform left;
@@ -11,9 +18,12 @@ public class CameraManager : MonoBehaviour {
 
     Transform player1;
     Transform player2;
+    PlayerStats player1stats;
+    PlayerStats player2stats;
 
     Transform focus = null;
     Vector3 focusOffset = new Vector3(0, 0, 0);
+    LockState focusLock;
 
     List<ScrollingBackground> backgrounds;
     
@@ -21,10 +31,12 @@ public class CameraManager : MonoBehaviour {
     public float lerpValue;
 
     public static CameraManager instance;
-
+    
     void Start()
     {
         FindPlayers();
+
+        focusLock = LockState.NoLock;
 
         backgrounds = new List<ScrollingBackground>();
         Transform bg = GameObject.Find("Scrolling Background").transform;
@@ -41,6 +53,8 @@ public class CameraManager : MonoBehaviour {
     {
         player1 = GameObject.Find("Player 1").transform;
         player2 = GameObject.Find("Player 2").transform;
+        player1stats = player1.GetComponent<PlayerStats>();
+        player2stats = player2.GetComponent<PlayerStats>();
     }
 
     public static float Damp(float source, float target, float smoothing, float dt)
@@ -53,9 +67,9 @@ public class CameraManager : MonoBehaviour {
         if (player1 == null || player2 == null) FindPlayers();
 
         if (focus == null)
-            FocusOn((player1.position + player2.position) * 0.5f);
+            FocusOn(getPlayerPosition());
         else
-            FocusOn(focus.position + focusOffset);
+            FocusOn(getFocusPosition());
 
         foreach (ScrollingBackground b in backgrounds)
         {
@@ -70,11 +84,16 @@ public class CameraManager : MonoBehaviour {
 
     public void ChangeFocusTo(Transform tf, Vector3 offset)
     {
+        ChangeFocusTo(tf, offset, LockState.YAxisAndXAxis);
+    }
+
+    public void ChangeFocusTo(Transform tf, Vector3 offset, LockState axisLock)
+    {
         focus = tf;
         focusOffset = offset;
         Vector3 newCameraPosition = tf.position + offset;
         newCameraPosition.z = -10;
-        //transform.position = newCameraPosition;
+        this.focusLock = axisLock;
     }
 
     public void ResetFocus()
@@ -85,24 +104,37 @@ public class CameraManager : MonoBehaviour {
         //transform.position = newCameraPosition;
     }
 
-    public void FocusOn(Vector3 position)
-    {
-        float x, y;
-        if (!limitLess)
-        {
-            x = Mathf.Clamp(position.x,
-                left.position.x + Camera.main.orthographicSize * Camera.main.aspect,
-                right.position.x - Camera.main.orthographicSize * Camera.main.aspect);
+    public Vector3 getPlayerPosition() {
+        if (!player1stats.GetDead() && !player2stats.GetDead())
+            return (player1.position + player2.position) * 0.5f;
+        else if (!player1stats.GetDead())
+            return player1.position;
+        return player2.position;
+    }
+    
+    public Vector3 getFocusPosition() {
+        Vector3 originalVector = focus.position + focusOffset;
+        if (focusLock == LockState.XAxis)
+           originalVector.y = getPlayerPosition().y;
+        else if (focusLock == LockState.XAxis)
+            originalVector.x = getPlayerPosition().x;
+        return originalVector;
+    }
 
-            y = Mathf.Clamp(position.y,
-                bottom.position.y + Camera.main.orthographicSize,
-                top.position.y - Camera.main.orthographicSize);
-        }
-        else
-        {
-            x = position.x;
-            y = position.y;
-        }
+    public float ClampValue(float source, float max, float min) {
+        if (limitLess)
+            return source;
+        return Mathf.Clamp(source, max, min);
+    }
+
+    public void FocusOn(Vector3 position)
+    {   
+        float x = ClampValue(position.x,
+            left.position.x + Camera.main.orthographicSize * Camera.main.aspect,
+            right.position.x - Camera.main.orthographicSize * Camera.main.aspect);
+        float y = ClampValue(position.y,
+            bottom.position.y + Camera.main.orthographicSize,
+            top.position.y - Camera.main.orthographicSize);
 
         x = Damp(transform.position.x, x, 0.07f, Time.deltaTime);
         y = Damp(transform.position.y, y, 0.07f, Time.deltaTime);

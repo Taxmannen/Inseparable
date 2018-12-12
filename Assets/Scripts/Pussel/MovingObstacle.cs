@@ -77,7 +77,7 @@ public class MovingObstacle : MonoBehaviour {
     {
         on = true;
         cameraManager = Camera.main.GetComponent<CameraManager>();
-        cameraManager.ChangeFocusTo(transform, offset);
+        cameraManager.ChangeFocusTo(transform, offset, LockState.XAxis);
     }
 
     void TurnOff()

@@ -19,7 +19,7 @@ public class StartMenu : MonoBehaviour {
             if (other.name == "Settings Button")
             {
                 menuManager.OpenSettingsMenu();
-                //Time.timeScale = 0;
+                menuManager.OnMenuChange();
             }
             else if (other.name == "Continue Button")
             {

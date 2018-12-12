@@ -6,7 +6,8 @@ using UnityEngine.UI;
 /* Script made by Daniel */
 public class LevelManager : MonoBehaviour {
     public float speed = 0.01f;
-  
+    public GameSettings gs;
+
     Image loadingImage;
     Color tmp;
     bool start;
@@ -39,10 +40,9 @@ public class LevelManager : MonoBehaviour {
     private IEnumerator LoadLevel(string scene)
     {
         /*AsyncOperation asyncLoad = */ SceneManager.LoadSceneAsync(scene);
-
         //while (!asyncLoad.isDone) yield return null;
         yield return new WaitForSeconds(1);
-
+        Startup();
         start = false;
     }
 
@@ -56,6 +56,15 @@ public class LevelManager : MonoBehaviour {
         tmp = loadingImage.color;
         tmp.a = alpha;
         loadingImage.color = tmp;
+    }
+    
+    private void Startup()
+    {
+        GameObject.Find("Player 1").transform.position = new Vector2(gs.player1PosX, gs.player1PosY);
+        GameObject.Find("Player 2").transform.position = new Vector2(gs.player1PosX + 2, gs.player1PosY);
+        GameObject.Find("Rope").transform.position     = new Vector2(gs.player1PosX + 1, gs.player1PosY);
+
+        Camera.main.transform.position = new Vector3(gs.player1PosX, gs.player1PosY , -10);
     }
 }
     

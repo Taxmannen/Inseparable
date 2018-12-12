@@ -43,7 +43,7 @@ public class StartMenu : MonoBehaviour {
     {
         if (other.name == "Settings Button")
         {
-            Debug.Log("Setings - Exit");
+            Debug.Log("Settings - Exit");
         }
         if (other.name == "Settings Button") enter = false;        
     }

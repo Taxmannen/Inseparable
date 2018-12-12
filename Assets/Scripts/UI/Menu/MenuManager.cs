@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
 /* Script made by Michael */
 public class MenuManager : MonoBehaviour {
     public List<GameObject> menus = new List<GameObject>();
@@ -45,21 +44,7 @@ public class MenuManager : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
-            if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button))
-            {
-                toggleMenu = !toggleMenu;
-                mainMenu.SetActive(toggleMenu);
-                OnMenuChange();
-                if (toggleMenu) Time.timeScale = 0;
-                else
-                {
-                    Time.timeScale = 1;
-                    for (var i = 0; i < menus.Count; i++)
-                    {
-                        menus[i].SetActive(false);
-                    }
-                }
-            }
+            if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button)) SetMenuState();
         }
     }
 
@@ -130,6 +115,22 @@ public class MenuManager : MonoBehaviour {
                         return;
                     }
                 }
+            }
+        }
+    }
+
+    public void SetMenuState()
+    {
+        toggleMenu = !toggleMenu;
+        mainMenu.SetActive(toggleMenu);
+        OnMenuChange();
+        if (toggleMenu) Time.timeScale = 0;
+        else
+        {
+            Time.timeScale = 1;
+            for (var i = 0; i < menus.Count; i++)
+            {
+                menus[i].SetActive(false);
             }
         }
     }

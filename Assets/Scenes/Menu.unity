@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c312f6a88950a4fb50bf3812589a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 120
+  jumpForce: 140
   jumpTime: 0.1
   jumpTimeCounter: 0
   jumpForceReduction: 12.4
@@ -15766,6 +15766,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameRate: 60
   cursor: 1
+--- !u!114 &634343464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114763520558979606, guid: 7f2bdeaca485908499d15a082ff4693a,
+    type: 2}
+  m_PrefabInternal: {fileID: 692599089}
+  m_Script: {fileID: 11500000, guid: f31dfab4072c3434bab96a279b6122e0, type: 3}
 --- !u!1 &646412052
 GameObject:
   m_ObjectHideFlags: 0
@@ -15858,6 +15864,29 @@ Prefab:
     - target: {fileID: 4704475583708954, guid: 7f2bdeaca485908499d15a082ff4693a, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974764175349510, guid: 7f2bdeaca485908499d15a082ff4693a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748670615600386, guid: 7f2bdeaca485908499d15a082ff4693a, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869725605645536, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 634343464}
+    - target: {fileID: 114869725605645536, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMenuState
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869725605645536, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f2bdeaca485908499d15a082ff4693a, type: 2}
@@ -17380,7 +17409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c312f6a88950a4fb50bf3812589a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 120
+  jumpForce: 140
   jumpTime: 0.1
   jumpTimeCounter: 0
   jumpForceReduction: 12.4

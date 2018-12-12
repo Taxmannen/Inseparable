@@ -8,7 +8,10 @@ public class MovingObstacle : MonoBehaviour {
     public float speed;
     public bool on;
     public bool drawGizmos;
+    public Vector2 offset;
 
+    Vector2 endPos;
+    CameraManager cameraManager;
     SpriteRenderer sr;
     BoxCollider2D col;
     PlayerStats player1Stats;
@@ -27,17 +30,19 @@ public class MovingObstacle : MonoBehaviour {
 
         sr.enabled = false;
         col.enabled = false;
+
+        endPos = new Vector2(endPosX, transform.position.y);
     }
 
     void FixedUpdate()
     {
         if (on)
         {
-            if (!sr.enabled)  sr.enabled = true;
+            if (!sr.enabled) sr.enabled = true;
             if (!col.enabled) col.enabled = true;
 
             timer -= Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector2(endPosX, transform.position.y), speed / 100);
+            transform.position = Vector3.MoveTowards(transform.position, endPos, speed / 100);
 
             if (player1 || player2)
             {
@@ -48,8 +53,8 @@ public class MovingObstacle : MonoBehaviour {
                     timer = damageRate;
                 }
             }
+            if (Vector3.Distance(transform.position, endPos) < 0.1f) TurnOff();
         }
-
         else if (!on && player1Stats.transform.position.x > transform.position.x + (transform.localScale.x / 2) && player2Stats.transform.position.x > transform.position.x + (transform.localScale.x / 2))
         {
             Invoke("TurnOn", 1);
@@ -68,9 +73,21 @@ public class MovingObstacle : MonoBehaviour {
         if (other.name == "Player 2") player2 = false;
     }
 
+    void TurnOn()
+    {
+        on = true;
+        cameraManager = Camera.main.GetComponent<CameraManager>();
+        cameraManager.ChangeFocusTo(transform, offset);
+    }
+
+    void TurnOff()
+    {
+        cameraManager.ResetFocus();
+        Destroy(this);
+    }
+
     private void OnDrawGizmos()
     {
         if (drawGizmos) Gizmos.DrawCube(new Vector2(endPosX, transform.position.y), transform.localScale);
     }
-    void TurnOn() { on = true; }
 }

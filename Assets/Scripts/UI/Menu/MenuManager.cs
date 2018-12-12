@@ -53,7 +53,7 @@ public class MenuManager : MonoBehaviour {
         for (var i = 0; i < menus.Count; i++)
         {
             toggleMenu = !toggleMenu;
-            menus[1].SetActive(toggleMenu);
+            menus[1].SetActive(true);
         }
     }
 

@@ -8,13 +8,11 @@ public class UseItems : MonoBehaviour {
     PlayerStats playerStats;
     PlayerStats otherPlayer;
     SelectedItem selectedItem;
-    Inventory inventory;
 
     private void Start()
     {
         GameObject UI = GameObject.Find(gameObject.name + " " + "UI");
         selectedItem = UI.GetComponentInChildren<SelectedItem>();
-        inventory    = UI.GetComponentInChildren<Inventory>();
 
         playerStats = GetComponent<PlayerStats>();
         if (gameObject.name == "Player 1") otherPlayer = GameObject.Find("Player 2").GetComponent<PlayerStats>();
@@ -34,7 +32,7 @@ public class UseItems : MonoBehaviour {
             else if (selectedItem.GetReviveStone() && otherPlayer.GetDead()) otherPlayer.Revive(healAmount);
 
             selectedItem.SwapSprite(transparent);
-            inventory.SetSpriteInImages(transparent);
+            //TA BORT FRÅN LISTAN!
         }
     }
 }

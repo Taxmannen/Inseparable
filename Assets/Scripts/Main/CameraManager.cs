@@ -54,13 +54,13 @@ public class CameraManager : MonoBehaviour {
         if(GameObject.Find("Player 1"))
         {
             player1 = GameObject.Find("Player 1").transform;
-            player2stats = player2.GetComponent<PlayerStats>();
+            player1stats = player1.GetComponent<PlayerStats>();
         }
 
         if (GameObject.Find("Player 2"))
         {
             player2 = GameObject.Find("Player 2").transform;
-            player1stats = player1.GetComponent<PlayerStats>();
+            player2stats = player2.GetComponent<PlayerStats>();
         }
     }
 

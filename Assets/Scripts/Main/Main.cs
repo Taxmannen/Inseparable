@@ -21,7 +21,6 @@ public class Main : MonoBehaviour {
             if (names.Length > x && names[x].Length == 19) controllers[x] = "PS4";
             else                                           controllers[x] = "XBOX";
         }
-
         Image saveIcon = GameObject.Find("Auto Save Icon").GetComponent<Image>();
         saveIcon.CrossFadeAlpha(0, 0, false);
     }

@@ -91,6 +91,6 @@ public class PlayerStats : MonoBehaviour {
 
     public bool GetDead()
     {
-        return dead;
+        return dead || !gameObject.activeSelf;
     }
 }

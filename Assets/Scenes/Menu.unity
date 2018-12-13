@@ -15563,6 +15563,26 @@ Prefab:
       propertyPath: m_Spacing
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114718048301245988, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_SubmitButton
+      value: Submit Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718048301245988, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_CancelButton
+      value: Cancel Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114991368520174782, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_SubmitButton
+      value: Submit Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114991368520174782, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 2}
+      propertyPath: m_CancelButton
+      value: Cancel Player 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f2bdeaca485908499d15a082ff4693a, type: 2}
   m_IsPrefabAsset: 0

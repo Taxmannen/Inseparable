@@ -6,6 +6,7 @@ public class LoadLevel : MonoBehaviour {
 
     LevelManager levelManager;
     bool loading;
+
     private void Start()
     {
         GetComponent<SpriteRenderer>().enabled = false;

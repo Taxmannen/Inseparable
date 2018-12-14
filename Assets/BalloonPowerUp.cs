@@ -6,14 +6,19 @@ public class BalloonPowerUp : MonoBehaviour {
     public float gravityScale;
 
     Rigidbody2D rb;
+    string button;
 
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
+        button = "Seperate" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
     }
 	
 	void Update ()
     {
+        float x = Input.GetAxisRaw("Horizontal" + " " + gameObject.name); 
+        float y = Input.GetAxisRaw("Horizontal" + " " + gameObject.name); 
+        if (Input.GetButtonDown(button)) on = !on;
         if (on)
         {
             if (transform.localScale.x < 7)
@@ -21,7 +26,8 @@ public class BalloonPowerUp : MonoBehaviour {
                 transform.localScale = new Vector2(transform.localScale.x + 0.025f, transform.localScale.y + 0.025f);
             }
             rb.gravityScale = gravityScale;
-            rb.AddForce(force, ForceMode2D.Impulse);
+            Debug.Log(force.x + x + " " + force.y + y);
+            rb.AddForce(new Vector2(force.x + x, force.y + y), ForceMode2D.Impulse);
         }
         else
         {

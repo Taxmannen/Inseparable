@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour {
     private void Update()
     {
         SetAlpha(start);
+
+        if (Input.GetButtonDown("Restart")) Load(SceneManager.GetActiveScene().name);
     }
 
     public void Load(string scene)

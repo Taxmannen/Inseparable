@@ -6,11 +6,12 @@ public class SawBlades : MonoBehaviour {
     public int damage;
     public float damageRate;
     float timer;
+    float rotation;
     PlayerStats player1Stats;
     PlayerStats player2Stats;
     bool player1;
     bool player2;
-
+    public float rotationSpeed;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class SawBlades : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        Rotation();
         DamageToPlayer();
 
     }
@@ -36,6 +38,17 @@ public class SawBlades : MonoBehaviour {
                 timer = damageRate;
             }
         }
+    }
+
+    public void Rotation()
+    {
+        rotation += Time.deltaTime * rotationSpeed;
+
+        if (rotation >= 360)
+        {
+            rotation %= 360;
+        }
+        transform.eulerAngles = new Vector3(0, 0, rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

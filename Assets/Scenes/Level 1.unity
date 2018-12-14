@@ -919,7 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   on: 0
-  force: {x: 0, y: 0.38}
+  force: {x: 0, y: 0.4}
   gravityScale: 0
 --- !u!1 &336699608
 GameObject:
@@ -30977,13 +30977,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d50c72e4edad3b46aac1921d053419a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: {x: 0.2, y: 0.2}
+  scale: {x: 0.2, y: 0.15}
   placement: {x: 0.2, y: 0}
   ropeSprite: {fileID: 21300000, guid: c8bdbb862016e5144b9edaf92cb8f49d, type: 3}
   material: {fileID: 2100000, guid: dc7e653fba96bae4fbb9b01d2213d26d, type: 2}
   mass: 0.03
   size: 40
-  colliderSize: {x: 1.8, y: 1}
+  colliderSize: {x: 1.5, y: 1.5}
   hingePosition: {x: 0.2, y: 0}
   hingeOn: 1
   hingeAutoConfigureAnchor: 0

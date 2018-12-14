@@ -16,8 +16,9 @@ public class BalloonPowerUp : MonoBehaviour {
 	
 	void Update ()
     {
-        float x = Input.GetAxisRaw("Horizontal" + " " + gameObject.name); 
-        float y = Input.GetAxisRaw("Horizontal" + " " + gameObject.name); 
+        float x = Input.GetAxis("Horizontal" + " " + gameObject.name)/8; 
+        float y = Input.GetAxis("Vertical"   + " " + gameObject.name)/10; 
+
         if (Input.GetButtonDown(button)) on = !on;
         if (on)
         {
@@ -26,8 +27,10 @@ public class BalloonPowerUp : MonoBehaviour {
                 transform.localScale = new Vector2(transform.localScale.x + 0.025f, transform.localScale.y + 0.025f);
             }
             rb.gravityScale = gravityScale;
-            Debug.Log(force.x + x + " " + force.y + y);
             rb.AddForce(new Vector2(force.x + x, force.y + y), ForceMode2D.Impulse);
+
+            //Debug.Log("Force X" + " " + (force.x + x));
+            //Debug.Log("Force Y" + " " + (force.y + y));
         }
         else
         {

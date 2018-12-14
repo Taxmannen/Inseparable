@@ -133,7 +133,7 @@ public class RopeCreator : MonoBehaviour{
             {
                 LineController lc = transform.GetChild(i).gameObject.AddComponent<LineController>();
                 if (i == 0) lc.Setup(player1, material, 0.2f);
-                else        lc.Setup(transform.GetChild(i-1), material, 0.2f);
+                else        lc.Setup(transform.GetChild(i-1), material, scale.y);
             }
         }
         if (lineOn) player2.gameObject.AddComponent<LineController>().Setup(gameObjects[gameObjects.Count -1].transform, material, 0.2f);

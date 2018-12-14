@@ -15,9 +15,7 @@ public class CameraManager : MonoBehaviour {
     public Transform right;
     public Transform top;
     public Transform bottom;
-
-    Transform player1;
-    Transform player2;
+    
     PlayerStats player1stats;
     PlayerStats player2stats;
 
@@ -34,8 +32,6 @@ public class CameraManager : MonoBehaviour {
     
     void Start()
     {
-        FindPlayers();
-
         focusLock = LockState.NoLock;
 
         backgrounds = new List<ScrollingBackground>();
@@ -49,21 +45,6 @@ public class CameraManager : MonoBehaviour {
             Destroy(this);
     }
 
-    void FindPlayers()
-    {
-        if(GameObject.Find("Player 1"))
-        {
-            player1 = GameObject.Find("Player 1").transform;
-            player2stats = player2.GetComponent<PlayerStats>();
-        }
-
-        if (GameObject.Find("Player 2"))
-        {
-            player2 = GameObject.Find("Player 2").transform;
-            player1stats = player1.GetComponent<PlayerStats>();
-        }
-    }
-
     public static float Damp(float source, float target, float smoothing, float dt)
     {
         return Mathf.Lerp(source, target, 1 - Mathf.Pow(smoothing, dt));
@@ -71,8 +52,8 @@ public class CameraManager : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (player1 == null || player2 == null)
-            FindPlayers();
+        if (!GetPlayer.player1Ready() || !GetPlayer.player2Ready())
+            GetPlayer.FindPlayers();
 
         if (focus == null)
             FocusOn(getPlayerPosition());
@@ -107,19 +88,20 @@ public class CameraManager : MonoBehaviour {
     public void ResetFocus()
     {
         focus = null;
-        Vector3 newCameraPosition = (player1.position + player2.position) * 0.5f;
+        Vector3 newCameraPosition = (GetPlayer.player1.position + GetPlayer.player2.position) * 0.5f;
         newCameraPosition.z = -10;
         //transform.position = newCameraPosition;
     }
 
     public Vector3 getPlayerPosition() {
-        if (player1 != null && player2 != null)
-            if (!player1stats.GetDead() && !player2stats.GetDead())
-                return (player1.position + player2.position) * 0.5f;
-        else if (!player1stats.GetDead() && player1 != null)
-            return player1.position;
-        else if (player2 != null)
-            return player2.position;
+        if (GetPlayer.player1Ready() && GetPlayer.player2Ready())
+            if (!GetPlayer.player1.GetComponent<PlayerStats>().GetDead() && 
+                !GetPlayer.player2.GetComponent<PlayerStats>().GetDead())
+                return (GetPlayer.player1.position + GetPlayer.player2.position) * 0.5f;
+        else if (!GetPlayer.player1.GetComponent<PlayerStats>().GetDead() && GetPlayer.player1Ready())
+            return GetPlayer.player1.position;
+        else if (GetPlayer.player2Ready())
+            return GetPlayer.player2.position;
         return new Vector3(0, 0, 0);
     }
     

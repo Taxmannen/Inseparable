@@ -19,7 +19,7 @@ public class JumpController : MovementScript
 
     public LayerMask groundLayer;
     public LayerMask playerLayer;
-    public JumpController otherPlayer;
+    public JumpController otherPlayerJumpController;
     private Rigidbody2D rb;
 
     string jumpButtonStr;
@@ -27,28 +27,21 @@ public class JumpController : MovementScript
     void Start()
     {
         jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
-
+        
         rb = GetComponent<Rigidbody2D>();
         jumpTimeCounter = jumpTime;
     }
 
     void Update()
     {
-        grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer);
-        if(otherPlayer == null)
+        grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer);
+        if(otherPlayerJumpController == null)
         {
-            string otherName;
-            if (this.gameObject.name == "Player 1")
-                otherName = "Player 2";
-            else
-                otherName = "Player 1";
-
-            GameObject otherPlayerObject = GameObject.Find(otherName);
-            if (!(otherPlayerObject == null))
-                otherPlayer = otherPlayerObject.GetComponent<JumpController>();
+            if (GetPlayer.otherPlayerReady(gameObject.name))
+                otherPlayerJumpController = GetPlayer.getOtherPlayerByName(gameObject.name).GetComponent<JumpController>();
         }
         else
-            if (!grounded && Physics2D.OverlapBox(new Vector2(otherPlayer.transform.position.x, otherPlayer.transform.position.y - 0.35f), new Vector2(0.5f, 0.1f), 0, groundLayer))
+            if (!grounded && GetPlayer.getOtherPlayerGroundedByName(gameObject.name, groundLayer))
             {
                 Collider2D[] collisions = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.5f), 0, playerLayer);
                 foreach(Collider2D collision in collisions){

@@ -16,7 +16,7 @@ public class PressurePlate : MonoBehaviour {
     {
         foreach (string tag in affectedTags)
         {
-            if (other.tag == tag)
+            if (other.tag == tag && !other.isTrigger)
             {
                 on = true;
                 transform.localScale = new Vector3(transform.localScale.x, endScaleY, transform.localScale.z);
@@ -28,7 +28,7 @@ public class PressurePlate : MonoBehaviour {
     {
         foreach (string tag in affectedTags)
         {
-            if (other.tag == tag)
+            if (other.tag == tag && !other.isTrigger)
             {
                 on = false;
                 transform.localScale = new Vector3(transform.localScale.x, startScaleY, transform.localScale.z);

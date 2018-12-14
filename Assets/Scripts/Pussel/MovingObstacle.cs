@@ -13,7 +13,6 @@ public class MovingObstacle : MonoBehaviour {
     Vector2 endPos;
     CameraManager cameraManager;
     SpriteRenderer sr;
-    BoxCollider2D col;
     PlayerStats player1Stats;
     PlayerStats player2Stats;
     bool player1;
@@ -26,10 +25,8 @@ public class MovingObstacle : MonoBehaviour {
         player2Stats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
 
         sr  = GetComponent<SpriteRenderer>();
-        col = GetComponent<BoxCollider2D>(); 
-
+   
         sr.enabled = false;
-        col.enabled = false;
 
         endPos = new Vector2(endPosX, transform.position.y);
     }
@@ -39,10 +36,15 @@ public class MovingObstacle : MonoBehaviour {
         if (on)
         {
             if (!sr.enabled) sr.enabled = true;
-            if (!col.enabled) col.enabled = true;
 
             timer -= Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed / 100);
+
+            if (player1Stats.transform.position.x < transform.position.x + (transform.localScale.x/2)) player1 = true;
+            else player1 = false;
+
+            if (player2Stats.transform.position.x < transform.position.x + (transform.localScale.x/2)) player2 = true;
+            else player2 = false;
 
             if (player1 || player2)
             {
@@ -60,18 +62,6 @@ public class MovingObstacle : MonoBehaviour {
             Invoke("TurnOn", 1);
         }
 	}
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "Player 1") player1 = true;
-        if (other.name == "Player 2") player2 = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.name == "Player 1") player1 = false;
-        if (other.name == "Player 2") player2 = false;
-    }
 
     void TurnOn()
     {

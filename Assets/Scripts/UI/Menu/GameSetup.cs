@@ -36,17 +36,20 @@ public class GameSetup : MonoBehaviour { //DÅLIGT NAMN BYT!
         {
             player1Ready = true;
             player1Text.SetActive(false);
+            if (player2.activeSelf) player1.transform.position = new Vector2(player2.transform.position.x - 2, player1.transform.position.y);
             player1.SetActive(true);
         }
         else if (!player2Ready && Input.GetButtonDown(player2Button))
         {
             player2Ready = true;
             player2Text.SetActive(false);
+            if (player1.activeSelf) player2.transform.position = new Vector2(player1.transform.position.x + 2, player1.transform.position.y);
             player2.SetActive(true);
         }
 
-        if (player1Ready && player2Ready)
+        if (player1Ready && player2Ready && !rope.activeSelf)
         {
+            rope.transform.position = new Vector2((player1.transform.position.x + player2.transform.position.x) / 2, rope.transform.position.y);
             rope.SetActive(true);
             player2Line.enabled = true;
         }

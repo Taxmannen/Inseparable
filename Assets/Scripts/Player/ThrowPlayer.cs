@@ -3,6 +3,10 @@
 /* Script made by Daniel */
 public class ThrowPlayer : MovementScript {
     public Vector2 power = new Vector2(20, 25);
+    public AudioClip pickupSound;
+    public AudioClip throwSound;
+
+    AudioSource audioSource;
 
     MovementController movementController;
     Transform player;
@@ -26,6 +30,7 @@ public class ThrowPlayer : MovementScript {
         player = GameObject.Find(otherPlayer).transform;
         movementController = GetComponent<MovementController>();
         rb = player.GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update ()
@@ -42,6 +47,9 @@ public class ThrowPlayer : MovementScript {
                 else if (direction > 0) rb.AddForce(new Vector2(power.x,  power.y), ForceMode2D.Impulse);
                 pickUp = false;
                 buttonUpThrow = false;
+                audioSource.clip = throwSound;
+                audioSource.pitch = 0.9f;
+                audioSource.Play();
             }
             if      (!movementController.grounded && rb.gravityScale == 0) rb.gravityScale = 1;
             else if (movementController.grounded  && rb.gravityScale == 1) rb.gravityScale = 0;
@@ -67,6 +75,9 @@ public class ThrowPlayer : MovementScript {
                 {
                     pickUp = true;
                     rb.gravityScale = 0;
+                    audioSource.clip = pickupSound;
+                    audioSource.pitch = 1.2f;
+                    audioSource.Play();
                 }
                 else if (pickUp)
                 {

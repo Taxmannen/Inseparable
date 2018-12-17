@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 /* Script made by Daniel */
 public class AutoSave : MonoBehaviour {
+    AudioSource audioSource;
     GameSettings gs;
     Image icon;
     bool autoSave;
@@ -16,6 +17,7 @@ public class AutoSave : MonoBehaviour {
         GetComponent<SpriteRenderer>().enabled = false;
         icon = GameObject.Find("Auto Save Icon").GetComponent<Image>();
         gs = GameObject.Find("Main").GetComponent<GameSettings>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -40,6 +42,7 @@ public class AutoSave : MonoBehaviour {
         if (!autoSave && other.tag == "Player")
         {
             gs.Save();
+            audioSource.Play();
             autoSave = true;
         }
     }

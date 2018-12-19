@@ -62,6 +62,11 @@ public class JumpController : MovementScript
     {
         if (jumpButton && jumpTimeCounter > 0)
         {
+            if (jumpTimeCounter == jumpTime)
+            {
+                //Play sound;
+            }
+
             rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
             jumpTimeCounter -= Time.deltaTime;
             if (jumpTimeCounter < 0) jumpTimeCounter = 0;

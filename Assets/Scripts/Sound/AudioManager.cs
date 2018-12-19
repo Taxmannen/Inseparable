@@ -30,4 +30,15 @@ public class AudioManager : MonoBehaviour {
         }
         s.source.Play();
     }
+
+    public static void Stop(string name)
+    {
+        Sound s = Array.Find(finalSounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogError("Could not find" + " " + name);
+            return;
+        }
+        s.source.Stop();
+    }
 }

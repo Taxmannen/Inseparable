@@ -32,6 +32,18 @@ public class PressurePlate : MonoBehaviour {
             {
                 on = false;
                 transform.localScale = new Vector3(transform.localScale.x, startScaleY, transform.localScale.z);
+                AudioManager.Play("PressurePlateOff");
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        foreach (string tag in affectedTags)
+        {
+            if (other.tag == tag && !other.isTrigger)
+            {
+                AudioManager.Play("PressurePlateOn");
             }
         }
     }

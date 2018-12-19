@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /* Script made by Adam */
@@ -35,7 +33,7 @@ public class JumpController : MovementScript
     void Update()
     {
         grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer);
-        if(otherPlayerJumpController == null)
+        if (otherPlayerJumpController == null)
         {
             if (GetPlayer.otherPlayerReady(gameObject.name))
                 otherPlayerJumpController = GetPlayer.getOtherPlayerByName(gameObject.name).GetComponent<JumpController>();

@@ -4,10 +4,11 @@
 public class Bridge : MonoBehaviour
 {
     float speed = 0.0001f;
-    public bool isOpen = false;
+    bool isOpen = false;
     public Quaternion open;
     Quaternion closed;
     PressurePlate pressurePlate;
+    
 
     private void Start()
     {
@@ -20,6 +21,9 @@ public class Bridge : MonoBehaviour
     {
         isOpen = pressurePlate.on;
         if (!isOpen) transform.rotation = Quaternion.Slerp(transform.rotation, closed, speed);
-        if (isOpen) transform.rotation = Quaternion.Slerp(transform.rotation, open, speed);
+        if (isOpen)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, open, speed);            
+        }
     }
 }

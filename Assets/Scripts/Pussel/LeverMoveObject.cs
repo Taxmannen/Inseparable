@@ -10,7 +10,8 @@ public class LeverMoveObject : Action
     public Vector3 leverOffPosition;
     public bool leverState;
     public bool drawGizmos;
-    
+    public GameObject gameObjectToMove;
+
     [Header("Speed")]
     [Tooltip("0 for constant, 1 for lerping.")]
     [Range(0, 1)]
@@ -81,7 +82,7 @@ public class LeverMoveObject : Action
             Vector3 movement;
             if (constantOrLerping == 1)
             { 
-                movement = Vector3.Lerp(transform.position, pos, lerpSpeed) - transform.position;
+                movement = Vector3.Lerp(transform.position, pos, lerpSpeed) * Time.timeScale - transform.position;
             }
             else
             {
@@ -92,7 +93,11 @@ public class LeverMoveObject : Action
                 movement = differenceVector * percentageOfDistancePerTick;
             }
 
-            transform.position += movement;
+            movement *= Time.timeScale;
+            if (gameObjectToMove != null)
+                gameObjectToMove.transform.position += movement;
+            else
+                transform.position += movement;
             if (checkPlayer(player1) && checkPlayer(player2))
             {
                 player1.position += movement;

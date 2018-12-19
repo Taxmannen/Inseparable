@@ -111,7 +111,7 @@ public class GrowingBridgeController : Action {
             else differenceVector = startPosition - endPosition;
 
             Vector3 movement = differenceVector * percentageOfDistancePerTick;
-            movingObjects.transform.position += movement;
+            movingObjects.transform.position += movement * Time.timeScale;
 
             for (float i=0f; i < (width + 6) * (height + 2); i++)
             {

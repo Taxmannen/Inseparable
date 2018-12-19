@@ -37,9 +37,20 @@ public class ThrowPlayer : MovementScript {
         {
             if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUpThrow)
             {
+                float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
+                float y = Input.GetAxisRaw("Vertical " + gameObject.name);
+                if(new Vector2(x, y).sqrMagnitude < 0.01f)
+                {
+                    rb.gravityScale = 1;
+                    pickUp = false;
+                    buttonUpThrow = false;
+                    return;
+                }
+
+                Vector2 directionVector = new Vector2(x, y).normalized;
+                
                 rb.gravityScale = 1;
-                if      (direction < 0) rb.AddForce(new Vector2(-power.x, power.y), ForceMode2D.Impulse);
-                else if (direction > 0) rb.AddForce(new Vector2(power.x,  power.y), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(power.x * directionVector.x, power.y * Mathf.Clamp(directionVector.y, 0f, 1f)), ForceMode2D.Impulse);
                 pickUp = false;
                 buttonUpThrow = false;
                 AudioManager.Play("Throw");

@@ -29492,6 +29492,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< Updated upstream
+=======
 --- !u!4 &573749345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5860852413967630819, guid: a079094ed9c316a4fb6191431ab17b04,
@@ -29547,6 +29549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   open: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> Stashed changes
 --- !u!1 &599662224
 GameObject:
   m_ObjectHideFlags: 0
@@ -29783,6 +29786,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 777044271}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &825266239
 GameObject:
   m_ObjectHideFlags: 0
@@ -29878,6 +29882,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
 --- !u!1001 &835188843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29919,6 +29924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73b247d493abe2f479b18bb19ef697ba, type: 3}
+>>>>>>> Stashed changes
 --- !u!1001 &913901716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32026,11 +32032,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 608631946}
     m_Modifications:
-    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
       propertyPath: m_Name
       value: Island (1)
@@ -32039,6 +32041,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> Stashed changes
     - target: {fileID: 114567364031934626, guid: e7eb1f6c57078474288fedd353f0d724,
         type: 3}
       propertyPath: lerpSpeed
@@ -32106,6 +32110,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
+      propertyPath: m_Name
+      value: Island (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
 --- !u!4 &1688383982 stripped

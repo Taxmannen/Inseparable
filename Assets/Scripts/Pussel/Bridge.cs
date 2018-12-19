@@ -19,11 +19,11 @@ public class Bridge : MonoBehaviour
 
     private void Update()
     {
-        isOpen = pressurePlate.on;
-        if (!isOpen) transform.rotation = Quaternion.Slerp(transform.rotation, closed, speed);
-        if (isOpen)
+        if (Time.timeScale == 1)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, open, speed);            
+            isOpen = pressurePlate.on;
+            if (!isOpen) transform.rotation = Quaternion.Slerp(transform.rotation, closed, speed);
+            if (isOpen) transform.rotation = Quaternion.Slerp(transform.rotation, open, speed);
         }
     }
 }

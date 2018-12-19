@@ -47,7 +47,7 @@ public class ThrowPlayer : MovementScript {
                     return;
                 }
 
-                Vector2 directionVector = new Vector2(x, y).normalized;
+                Vector2 directionVector = new Vector2(x, y);
                 
                 rb.gravityScale = 1;
                 rb.AddForce(new Vector2(power.x * directionVector.x, power.y * Mathf.Clamp(directionVector.y, 0f, 1f)), ForceMode2D.Impulse);

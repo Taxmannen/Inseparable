@@ -483,18 +483,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 835188843}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &254935129 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114567364031934626, guid: e7eb1f6c57078474288fedd353f0d724,
-    type: 3}
-  m_PrefabInstance: {fileID: 702670482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f322fdfa584b47348936e258dfa957c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &272414005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,7 +536,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leverActions.Array.data[0]
       value: 
-      objectReference: {fileID: 254935129}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 3}
 --- !u!4 &272414006 stripped
@@ -739,7 +727,7 @@ MonoBehaviour:
   flatAirMultiplier: 30
   maxGroundSpeed: 35
   flatGroundMultiplier: 40
-  pushPower: 0
+  pushPower: 12.5
 --- !u!114 &324465630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29963,7 +29951,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
 --- !u!4 &702670483 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4628014722330126, guid: e7eb1f6c57078474288fedd353f0d724,
+  m_CorrespondingSourceObject: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
     type: 3}
   m_PrefabInstance: {fileID: 702670482}
   m_PrefabAsset: {fileID: 0}
@@ -30406,18 +30394,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &934472945 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114567364031934626, guid: e7eb1f6c57078474288fedd353f0d724,
-    type: 3}
-  m_PrefabInstance: {fileID: 1114540478}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f322fdfa584b47348936e258dfa957c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &968698647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30808,7 +30784,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
 --- !u!4 &1114540479 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4628014722330126, guid: e7eb1f6c57078474288fedd353f0d724,
+  m_CorrespondingSourceObject: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
     type: 3}
   m_PrefabInstance: {fileID: 1114540478}
   m_PrefabAsset: {fileID: 0}
@@ -31549,7 +31525,7 @@ MonoBehaviour:
   flatAirMultiplier: 30
   maxGroundSpeed: 35
   flatGroundMultiplier: 40
-  pushPower: 0
+  pushPower: 12.5
 --- !u!114 &1437946131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31903,17 +31879,17 @@ PrefabInstance:
         type: 3}
       propertyPath: leverAction
       value: 
-      objectReference: {fileID: 934472945}
+      objectReference: {fileID: 0}
     - target: {fileID: 114295890855550006, guid: 7639f88f8840a8e4a8699dfae1eda396,
         type: 3}
       propertyPath: leverActions.Array.data[1]
       value: 
-      objectReference: {fileID: 1750292182}
+      objectReference: {fileID: 0}
     - target: {fileID: 114295890855550006, guid: 7639f88f8840a8e4a8699dfae1eda396,
         type: 3}
       propertyPath: leverActions.Array.data[0]
       value: 
-      objectReference: {fileID: 934472945}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 3}
 --- !u!4 &1601430939 stripped
@@ -32724,11 +32700,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
 --- !u!4 &1688383982 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4628014722330126, guid: e7eb1f6c57078474288fedd353f0d724,
+  m_CorrespondingSourceObject: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
     type: 3}
   m_PrefabInstance: {fileID: 1688383981}
   m_PrefabAsset: {fileID: 0}
@@ -32824,18 +32805,6 @@ Transform:
   m_Father: {fileID: 1359864056}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1750292182 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114567364031934626, guid: e7eb1f6c57078474288fedd353f0d724,
-    type: 3}
-  m_PrefabInstance: {fileID: 1688383981}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f322fdfa584b47348936e258dfa957c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1786523334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4788171827537374, guid: d14516489eb362745ae645bdd9548069,
@@ -33907,6 +33876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Resurrection Platform Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706896133554168254, guid: 006141bbfa260f34183964cccdf1ac42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5706896133554168251, guid: 006141bbfa260f34183964cccdf1ac42,
         type: 3}

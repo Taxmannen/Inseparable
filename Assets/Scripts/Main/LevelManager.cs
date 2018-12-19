@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
     {
         SetAlpha(start);
 
-        if (Input.GetButtonDown("Restart")) Load(SceneManager.GetActiveScene().name);
+        //if (Input.GetButtonDown("Restart")) Load(SceneManager.GetActiveScene().name);
     }
 
     public void Load(string scene)

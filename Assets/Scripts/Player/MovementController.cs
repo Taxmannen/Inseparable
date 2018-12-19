@@ -19,6 +19,7 @@ public class MovementController : MovementScript
     public float flatGroundMultiplier;
     public float pushPower;
 
+    public ParticleSystem particleSystem;
     Rigidbody2D rb;
 
     float xInput;
@@ -37,6 +38,10 @@ public class MovementController : MovementScript
     {
         grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer); 
         if (grounded) {
+            if (!particleSystem.isPlaying && rb.velocity.sqrMagnitude > 1f)
+                particleSystem.Play();
+            else if (particleSystem.isPlaying && rb.velocity.sqrMagnitude <= 1f)
+                particleSystem.Stop();
             rb.AddForce(new Vector2((maxGroundSpeed - Mathf.Abs(rb.velocity.x)) * xInput * Time.deltaTime * flatGroundMultiplier, 0));
             if(GetPlayer.otherPlayerReady(gameObject.name) && !GetPlayer.getOtherPlayerGroundedStrictByName(gameObject.name, groundLayer))
             {
@@ -54,7 +59,10 @@ public class MovementController : MovementScript
             }
 
         }
-        else {
+        else
+        {
+            if (particleSystem.isPlaying)
+                particleSystem.Stop();
             rb.AddForce(new Vector2((maxAirSpeed - Mathf.Abs(rb.velocity.x)) * xInput * Time.deltaTime * flatAirMultiplier, 0));
         }
     }

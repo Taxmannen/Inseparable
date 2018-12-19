@@ -19,6 +19,7 @@ public class GrowingBridgeController : Action {
     public float percentageOfDistancePerTick;
 
     public GameObject movingObjects;
+    public GameObject movingDestoryableObjects;
     public GameObject staticObjects;
     
     public bool drawGizmos;
@@ -28,13 +29,14 @@ public class GrowingBridgeController : Action {
     public Vector2 cutsceneOffset;
     public bool freezePlayers;
     public List<ScriptController> playerScriptControllers;
+    public ParticleSystem particleSystem;
 
     Vector3 startPosition;
     Vector3 endPosition;
 
     GameObject[] staticTiles;
     List<GameObject> movingTiles;
-
+    
     bool leverState;
     bool moving;
 
@@ -81,14 +83,14 @@ public class GrowingBridgeController : Action {
 
         if (movingTiles.Count == 0)
         {
-            movingTiles.Add(this.spawnTile(0, 0, topTiles[0], movingObjects.transform, sortingOrderStatic + 1));
+            movingTiles.Add(this.spawnTile(0, 0, topTiles[0], movingDestoryableObjects.transform, sortingOrderStatic + 1));
             for(int i=0; i < height; i++)
-            movingTiles.Add(this.spawnTile(0, -(1 + i), midTiles[0], movingObjects.transform, sortingOrderStatic + 1));
+            movingTiles.Add(this.spawnTile(0, -(1 + i), midTiles[0], movingDestoryableObjects.transform, sortingOrderStatic + 1));
 
             if (previousLeverState)
-                movingTiles.Add(this.spawnTile(0, -(1 + height), topRightInvertedTile, movingObjects.transform, sortingOrderStatic + 1));
+                movingTiles.Add(this.spawnTile(0, -(1 + height), topRightInvertedTile, movingDestoryableObjects.transform, sortingOrderStatic + 1));
             else
-                movingTiles.Add(this.spawnTile(0, -(1 + height), topLeftInvertedTile, movingObjects.transform, sortingOrderStatic + 1));
+                movingTiles.Add(this.spawnTile(0, -(1 + height), topLeftInvertedTile, movingDestoryableObjects.transform, sortingOrderStatic + 1));
         }
 
     }
@@ -116,6 +118,11 @@ public class GrowingBridgeController : Action {
             for (float i=0f; i < (width + 6) * (height + 2); i++)
             {
                 float y = (int)(i % (height + 2));
+                if(y == 0)
+                {
+                    particleSystem.Play();
+                }
+                
                 float x = (int)(i / (height + 2));
                 if (x <= movingObjects.transform.localPosition.x)
                 {
@@ -148,11 +155,13 @@ public class GrowingBridgeController : Action {
 
             if(leverState && movingObjects.transform.localPosition.x >= endPosition.x)
             {
+                particleSystem.Stop();
                 moving = false;
                 destroyMoving();
             }
             else if(!leverState && movingObjects.transform.localPosition.x <= startPosition.x)
             {
+                particleSystem.Stop();
                 moving = false;
                 destroyMoving();
             }

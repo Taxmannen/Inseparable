@@ -11,14 +11,18 @@ public class JumpController : MovementScript
     public float jumpTime;
     public float jumpTimeCounter;
 
+    public bool playedAnimation = false;
+
     //[Range(0f, 150f)]
     public float jumpForceReduction;
 
     bool jumpButton;
     public bool grounded;
+    public bool hasPlayedAnimation = false;
 
     public LayerMask groundLayer;
     public LayerMask playerLayer;
+    public ParticleSystem particleSystem;
     public JumpController otherPlayerJumpController;
     private Rigidbody2D rb;
 
@@ -35,6 +39,12 @@ public class JumpController : MovementScript
     void Update()
     {
         grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer);
+        if(rb.velocity.y < -0.1f && grounded && !hasPlayedAnimation)
+        {
+            hasPlayedAnimation = true;
+            particleSystem.Play();
+        }
+        
         if(otherPlayerJumpController == null)
         {
             if (GetPlayer.otherPlayerReady(gameObject.name))
@@ -55,7 +65,11 @@ public class JumpController : MovementScript
          
         if (!jumpButton)
         {
-            if (grounded) jumpTimeCounter = jumpTime;
+            if (grounded)
+            {
+                hasPlayedAnimation = false;
+                jumpTimeCounter = jumpTime;
+            }
             else          jumpTimeCounter = 0;
         }
     }

@@ -25,8 +25,8 @@ public class LeverController : MonoBehaviour {
         if (tempState ^ leverState)
         {
             foreach (Action la in leverActions)
-                //la.onStateChange(tempState);
-                Debug.Log("HÄR");
+                la.onStateChange(tempState);
+
         }
 
         leverState = tempState;

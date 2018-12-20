@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23853390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 48.37, y: 6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 324465622}
@@ -559,6 +559,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddeeb3f6dca5afa4e8fba3eba81f6f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &177646993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5672054949119812902, guid: e7eb1f6c57078474288fedd353f0d724,
+    type: 3}
+  m_PrefabInstance: {fileID: 1688383981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &177646994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+    type: 3}
+  m_PrefabInstance: {fileID: 1688383981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177646993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f322fdfa584b47348936e258dfa957c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224109295
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +987,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.583, y: 0.429}
+  m_ConnectedAnchor: {x: 46.787, y: 7.329}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -989,7 +1007,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.583, y: 0.429}
+  m_ConnectedAnchor: {x: 46.787, y: 7.329}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -30815,6 +30833,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14516489eb362745ae645bdd9548069, type: 3}
+--- !u!1 &1047440460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5672054949119812902, guid: e7eb1f6c57078474288fedd353f0d724,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114540478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1047440461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114540478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047440460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f322fdfa584b47348936e258dfa957c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1114540478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30939,9 +30975,59 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOffPosition.x
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOnPosition.x
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOnPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: gameObjectToMove
+      value: 
+      objectReference: {fileID: 1047440460}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: percentageOfDistancePerTick
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: constantOrLerping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: lerpSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOffPosition.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
@@ -31527,7 +31613,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1, y: 0.3}
+  m_ConnectedAnchor: {x: 49.37, y: 7.2000003}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -31547,7 +31633,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1, y: 0.3}
+  m_ConnectedAnchor: {x: 49.37, y: 7.2000003}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -31760,12 +31846,12 @@ PrefabInstance:
         type: 3}
       propertyPath: leverActions.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 177646994}
     - target: {fileID: 114295890855550006, guid: 7639f88f8840a8e4a8699dfae1eda396,
         type: 3}
       propertyPath: leverActions.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1047440461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7639f88f8840a8e4a8699dfae1eda396, type: 3}
 --- !u!4 &1601430939 stripped
@@ -32502,6 +32588,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812903, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9
+      objectReference: {fileID: 0}
     - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
       propertyPath: m_Name
       value: Island (1)
@@ -32509,6 +32605,41 @@ PrefabInstance:
     - target: {fileID: 1712621380439710, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOffPosition.x
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOffPosition.y
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: leverOnPosition.x
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: gameObjectToMove
+      value: 
+      objectReference: {fileID: 177646993}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: percentageOfDistancePerTick
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: constantOrLerping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672054949119812900, guid: e7eb1f6c57078474288fedd353f0d724,
+        type: 3}
+      propertyPath: lerpSpeed
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eb1f6c57078474288fedd353f0d724, type: 3}
@@ -33773,30 +33904,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3878734185747108439, guid: 0e2b6a081f6b47541aea23228b58687f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878734185747108439, guid: 0e2b6a081f6b47541aea23228b58687f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878734186485758305, guid: 0e2b6a081f6b47541aea23228b58687f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878734186485758305, guid: 0e2b6a081f6b47541aea23228b58687f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3878734185770547443, guid: 0e2b6a081f6b47541aea23228b58687f,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878734185747108439, guid: 0e2b6a081f6b47541aea23228b58687f,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878734185747108439, guid: 0e2b6a081f6b47541aea23228b58687f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878734186485758305, guid: 0e2b6a081f6b47541aea23228b58687f,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878734186485758305, guid: 0e2b6a081f6b47541aea23228b58687f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2b6a081f6b47541aea23228b58687f, type: 3}

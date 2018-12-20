@@ -54,6 +54,7 @@ public class GrowingBridgeController : Action {
         GameObject gameObject = new GameObject();
         gameObject.transform.SetParent(parent);
         SpriteRenderer sr = gameObject.AddComponent<SpriteRenderer>();
+        sr.color = new Color32(128, 123, 123, 255);
         BoxCollider2D bc2d = gameObject.AddComponent<BoxCollider2D>();
         bc2d.size = new Vector2(1, 1);
         gameObject.transform.localPosition = new Vector3(x + sprite.bounds.size.x / 2, y - sprite.bounds.size.x / 2);

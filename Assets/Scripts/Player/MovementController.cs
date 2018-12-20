@@ -20,7 +20,6 @@ public class MovementController : MovementScript
     public float pushPower;
 
     Rigidbody2D rb;
-
     float xInput;
 
     void Start()

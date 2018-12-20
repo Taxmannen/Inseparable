@@ -12,7 +12,7 @@ public class MovingObstacle : MonoBehaviour {
 
     Vector2 endPos;
     CameraManager cameraManager;
-    SpriteRenderer sr;
+    MeshRenderer sr;
     PlayerStats player1Stats;
     PlayerStats player2Stats;
     bool player1;
@@ -24,7 +24,7 @@ public class MovingObstacle : MonoBehaviour {
         player1Stats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
         player2Stats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
 
-        sr  = GetComponent<SpriteRenderer>();
+        sr  = GetComponent<MeshRenderer>();
    
         sr.enabled = false;
 

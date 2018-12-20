@@ -138,14 +138,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23853390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135, y: 5, z: 0}
+  m_LocalPosition: {x: 127.1, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 324465622}
   - {fileID: 1437946124}
   - {fileID: 1181335966}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &99566132
 PrefabInstance:
@@ -322,7 +322,7 @@ PrefabInstance:
     - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
         type: 3}
       propertyPath: sounds.Array.data[5].pitch
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
         type: 3}
@@ -861,7 +861,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 134, y: 5.3}
+  m_ConnectedAnchor: {x: 126.1, y: 7.3}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -881,7 +881,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 134, y: 5.3}
+  m_ConnectedAnchor: {x: 126.1, y: 7.3}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -31486,6 +31486,7 @@ Transform:
   - {fileID: 777044272}
   - {fileID: 1726755037}
   - {fileID: 1053795541}
+  - {fileID: 2001460672}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31682,7 +31683,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 136, y: 5.3}
+  m_ConnectedAnchor: {x: 128.1, y: 7.3}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 1
@@ -31702,7 +31703,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 136, y: 5.3}
+  m_ConnectedAnchor: {x: 128.1, y: 7.3}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -33547,6 +33548,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1489035493}
+--- !u!1001 &2001460671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1359864056}
+    m_Modifications:
+    - target: {fileID: 839899059, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_Name
+      value: Puzzel Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 142.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805017435861099167, guid: 744ea07268fa6034588345d31f6a9dcf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.085
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 744ea07268fa6034588345d31f6a9dcf, type: 3}
+--- !u!4 &2001460672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1445351343, guid: 744ea07268fa6034588345d31f6a9dcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2001460671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2023173703
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@
 /* Script made by Jocke*/
 public class Bridge : MonoBehaviour
 {
-    float speed = 0.0001f;
+    float speed = 0.00015f;
     bool isOpen = false;
     public Quaternion open;
     Quaternion closed;

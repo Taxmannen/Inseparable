@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4129107875730268}
   - component: {fileID: 212608645809174222}
   - component: {fileID: 61924435072855444}
+  - component: {fileID: 7858281907462269520}
   - component: {fileID: 114200479673867210}
   m_Layer: 8
   m_Name: Pressure Plate
@@ -107,6 +108,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2774181}
   m_EdgeRadius: 0
+--- !u!95 &7858281907462269520
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101010830024274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1c7c40389904c34780d9fcb2cb36e66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114200479673867210
 MonoBehaviour:
   m_ObjectHideFlags: 0

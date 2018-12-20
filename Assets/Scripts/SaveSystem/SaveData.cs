@@ -17,7 +17,5 @@ public class SaveData
 
         settingsFloat[0] = gs.player1PosX;
         settingsFloat[1] = gs.player1PosY;
-        Debug.LogError(gs.player1PosX);
-        Debug.LogError(gs.player1PosY);
     }
 }

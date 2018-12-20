@@ -15689,6 +15689,11 @@ PrefabInstance:
       propertyPath: m_CancelButton
       value: Cancel Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114213332814221144, guid: 7f2bdeaca485908499d15a082ff4693a,
+        type: 3}
+      propertyPath: settingsBackButton
+      value: 
+      objectReference: {fileID: 1542734512}
     - target: {fileID: 114647164913773150, guid: 7f2bdeaca485908499d15a082ff4693a,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -17618,7 +17623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48399dca7dd4dfa46b7bc2fffc976b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSetup: {fileID: 0}
+  gameSetup: {fileID: 1858070298}
 --- !u!1 &1515156502
 GameObject:
   m_ObjectHideFlags: 0
@@ -17876,6 +17881,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533050194}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1542734512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1028363179482964, guid: 7f2bdeaca485908499d15a082ff4693a,
+    type: 3}
+  m_PrefabInstance: {fileID: 677437535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554226375
 GameObject:
   m_ObjectHideFlags: 0
@@ -24272,7 +24283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48399dca7dd4dfa46b7bc2fffc976b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSetup: {fileID: 0}
+  gameSetup: {fileID: 1858070298}
 --- !u!1 &2127161734
 GameObject:
   m_ObjectHideFlags: 0

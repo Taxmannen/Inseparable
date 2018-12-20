@@ -13,11 +13,10 @@ public class SmokeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grounded = transform.parent.gameObject.GetComponent<MovementController>().grounded;
+        //grounded = transform.parent.gameObject.GetComponent<MovementController>().grounded;
     }
 
-    // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if(GetPlayer.playerReady(transform.parent.gameObject.name))
             
@@ -26,5 +25,5 @@ public class SmokeScript : MonoBehaviour
                 Debug.Log(grounded);
                 Instantiate(transform.gameObject, new Vector2(transform.parent.position.x, transform.parent.position.y), transform.parent.transform.localRotation);
             }
-    }
+    }*/
 }

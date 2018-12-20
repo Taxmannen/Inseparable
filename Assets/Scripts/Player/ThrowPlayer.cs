@@ -8,7 +8,6 @@ public class ThrowPlayer : MovementScript {
     MovementController movementController;
     Transform player;
     Rigidbody2D rb;
-    float direction;
 
     bool buttonUpThrow;
     string throwButtonStr;
@@ -31,7 +30,6 @@ public class ThrowPlayer : MovementScript {
 
     void Update ()
     {
-        if (Input.GetAxisRaw("Horizontal" + " " + gameObject.name) != 0) direction = Input.GetAxisRaw("Horizontal" + " " + gameObject.name);
         if (Input.GetAxisRaw(throwButtonStr)  == 0) buttonUpThrow  = true;
 
         if (pickup)

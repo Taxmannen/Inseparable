@@ -364,6 +364,12 @@ PrefabInstance:
       propertyPath: sounds.Array.data[7].pitch
       value: -0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
+        type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 243553202717861890, guid: 63433b44deabe4a428b98a91475e498a,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a079094ed9c316a4fb6191431ab17b04, type: 3}
 --- !u!1 &115085895

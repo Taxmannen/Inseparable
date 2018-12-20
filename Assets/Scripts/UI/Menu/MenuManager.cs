@@ -20,12 +20,14 @@ public class MenuManager : MonoBehaviour {
     string player2Button;
     GameObject firstButton;
 
+    public GameObject settingsBackButton;
+
     void Start()
     {
+
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
         player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
         toggleMenu = false;
-  
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         soundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
@@ -45,6 +47,15 @@ public class MenuManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button)) SetMenuState();
+            settingsBackButton.SetActive(true);
+        }
+        else
+        {
+            if (mainMenu.activeSelf)
+            {
+                mainMenu.SetActive(false);
+                toggleMenu = false;          
+            }
         }
     }
 
@@ -55,6 +66,11 @@ public class MenuManager : MonoBehaviour {
             toggleMenu = !toggleMenu;
             menus[1].SetActive(true);
         }
+        if (SceneManager.GetActiveScene().name.Contains("Level")) settingsBackButton.SetActive(true);
+        else settingsBackButton.SetActive(false);
+
+
+
     }
 
     public void ChangeResolution(int curRes)

@@ -5,13 +5,15 @@ public class PlayerStats : MonoBehaviour {
     public int maxHealth;
     public int currentHealth;
     public bool dead;
-    bool usePotion;
 
+    bool usePotion;
+    Animator anim;
     MonoBehaviour[] scripts;
 
     void Start ()
     {
         scripts = gameObject.GetComponents<MonoBehaviour>();
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;	
 	}
 
@@ -66,6 +68,7 @@ public class PlayerStats : MonoBehaviour {
     {
         dead = true;
         SetScripts(false);
+        anim.Play("Death");
     }
 
     public void Revive(int startHealth)
@@ -73,6 +76,7 @@ public class PlayerStats : MonoBehaviour {
         dead = false;
         currentHealth = startHealth;
         SetScripts(true);
+        anim.Play("Idle");
     }
 
     void SetScripts(bool state)

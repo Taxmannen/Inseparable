@@ -5,25 +5,30 @@ using UnityEngine;
 public class SmokeScript : MonoBehaviour
 {
     public LayerMask ground;
-
+    private ParticleSystem ps;
     Rigidbody2D rb;
-    float velX, velY;
-    bool grounded;
 
-    // Start is called before the first frame update
     void Start()
     {
         //grounded = transform.parent.gameObject.GetComponent<MovementController>().grounded;
+        ps = gameObject.GetComponent<ParticleSystem>();
+        rb = GetComponentInParent<Rigidbody2D>();
     }
 
-    /*void Update()
+    void Update()
     {
-        if(GetPlayer.playerReady(transform.parent.gameObject.name))
-            
-            if(GetPlayer.getPlayerGroundedByName(transform.parent.gameObject.name, ground))
-            {
-                Debug.Log(grounded);
-                Instantiate(transform.gameObject, new Vector2(transform.parent.position.x, transform.parent.position.y), transform.parent.transform.localRotation);
-            }
-    }*/
+        var emission = ps.emission;
+        emission.rateOverTime = 10f;
+        if (GetPlayer.playerReady(transform.parent.gameObject.name))
+        if (GetPlayer.getPlayerGroundedByName(transform.parent.gameObject.name, ground) && (Input.GetButton("Horizontal " + transform.parent.gameObject.name)))
+        {
+            emission.enabled = true;
+        }
+        else
+            emission.enabled = false;
+    }
+
+
+
 }
+

@@ -24,7 +24,7 @@ public class MovingObstacle : MonoBehaviour {
         player1Stats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
         player2Stats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
 
-        sr  = GetComponent<MeshRenderer>();
+        sr  = GetComponentInChildren<MeshRenderer>();
    
         sr.enabled = false;
 

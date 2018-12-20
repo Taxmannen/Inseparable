@@ -5,6 +5,7 @@ public class ScrollingBackground : MonoBehaviour {
     public float scrollSpeed;
     public float flat;
     public bool moveWithTime;
+    public bool lockOffset;
 
     Renderer rend;
     Transform cam;
@@ -22,7 +23,7 @@ public class ScrollingBackground : MonoBehaviour {
 
     public void UpdatePosition()
     {
-        if (rend != null)
+        if (rend != null && !lockOffset)
         {
             oldX = Mathf.Lerp(oldX, cam.position.x, 5f);
             if (moveWithTime) timeOffset += Time.deltaTime * flat * this.scrollSpeed;

@@ -1,5 +1,10 @@
 using UnityEngine;
 
+enum JumpState
+{
+    CanJump, IsJumping, HasJumped
+}
+
 /* Script made by Adam */
 public class JumpController : MovementScript
 {
@@ -20,14 +25,22 @@ public class JumpController : MovementScript
     public JumpController otherPlayerJumpController;
     private Rigidbody2D rb;
 
+    JumpState state;
+
     string jumpButtonStr;
 
     void Start()
     {
+        state = JumpState.CanJump;
         jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
         
         rb = GetComponent<Rigidbody2D>();
         jumpTimeCounter = jumpTime;
+    }
+
+    void onJumpStart()
+    {
+
     }
 
     void Update()
@@ -50,11 +63,23 @@ public class JumpController : MovementScript
             }
 
         jumpButton = Input.GetButton(jumpButtonStr);
-         
-        if (!jumpButton)
+
+        if (jumpButton && state == JumpState.CanJump)
         {
-            if (grounded) jumpTimeCounter = jumpTime;
-            else          jumpTimeCounter = 0;
+            AudioManager.Play("Jump");
+            state = JumpState.IsJumping;
+        }
+
+        if (!jumpButton && state == JumpState.IsJumping)
+        {
+            if (grounded)
+            {
+                jumpTimeCounter = jumpTime;
+                state = JumpState.CanJump;
+                AudioManager.Play("Land");
+            }
+            else
+                jumpTimeCounter = 0;
         }
     }
 
@@ -62,11 +87,6 @@ public class JumpController : MovementScript
     {
         if (jumpButton && jumpTimeCounter > 0)
         {
-            if (jumpTimeCounter == jumpTime)
-            {
-                //Play sound;
-            }
-
             rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
             jumpTimeCounter -= Time.deltaTime;
             if (jumpTimeCounter < 0) jumpTimeCounter = 0;

@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour {
     public void Load(string scene)
     {
         StartCoroutine(LoadingScreen(scene));
+        Main.loading = true;
     }
 
     private IEnumerator LoadingScreen(string scene)
@@ -62,11 +63,13 @@ public class LevelManager : MonoBehaviour {
     
     private void Startup()
     {
+        SaveSystem.Load();
         GameObject.Find("Player 1").transform.position = new Vector2(gs.player1PosX, gs.player1PosY);
         GameObject.Find("Player 2").transform.position = new Vector2(gs.player1PosX + 2, gs.player1PosY);
         GameObject.Find("Rope").transform.position     = new Vector2(gs.player1PosX + 1, gs.player1PosY);
 
         Camera.main.transform.position = new Vector3(gs.player1PosX, gs.player1PosY , -10);
+        Main.loading = false;
     }
 }
     

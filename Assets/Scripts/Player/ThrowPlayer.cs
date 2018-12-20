@@ -3,12 +3,13 @@
 /* Script made by Daniel */
 public class ThrowPlayer : MovementScript {
     public Vector2 power = new Vector2(20, 25);
+    public bool pickup;
 
     MovementController movementController;
     Transform player;
     Rigidbody2D rb;
     float direction;
-    bool pickUp;
+
     bool buttonUpThrow;
     string throwButtonStr;
     string pickupButtonStr;
@@ -33,7 +34,7 @@ public class ThrowPlayer : MovementScript {
         if (Input.GetAxisRaw("Horizontal" + " " + gameObject.name) != 0) direction = Input.GetAxisRaw("Horizontal" + " " + gameObject.name);
         if (Input.GetAxisRaw(throwButtonStr)  == 0) buttonUpThrow  = true;
 
-        if (pickUp)
+        if (pickup)
         {
             if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUpThrow)
             {
@@ -42,7 +43,7 @@ public class ThrowPlayer : MovementScript {
                 if(new Vector2(x, y).sqrMagnitude < 0.01f)
                 {
                     rb.gravityScale = 1;
-                    pickUp = false;
+                    pickup = false;
                     buttonUpThrow = false;
                     return;
                 }
@@ -51,7 +52,7 @@ public class ThrowPlayer : MovementScript {
                 
                 rb.gravityScale = 1;
                 rb.AddForce(new Vector2(power.x * directionVector.x, power.y * Mathf.Clamp(directionVector.y, 0f, 1f)), ForceMode2D.Impulse);
-                pickUp = false;
+                pickup = false;
                 buttonUpThrow = false;
                 AudioManager.Play("Throw");
             }
@@ -66,7 +67,7 @@ public class ThrowPlayer : MovementScript {
 
     private void FixedUpdate()
     {
-        if (pickUp) player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
+        if (pickup) player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -75,15 +76,15 @@ public class ThrowPlayer : MovementScript {
         {
             if (Input.GetAxisRaw(pickupButtonStr) != 0 && Time.time - pickupTime > 0.3f)
             {
-                if (!pickUp && movementController.grounded)
+                if (!pickup && movementController.grounded)
                 {
-                    pickUp = true;
+                    pickup = true;
                     rb.gravityScale = 0;
                     AudioManager.Play("Pickup");
                 }
-                else if (pickUp)
+                else if (pickup)
                 {
-                    pickUp = false;
+                    pickup = false;
                     rb.gravityScale = 1;
                 }
                 pickupTime = Time.time;

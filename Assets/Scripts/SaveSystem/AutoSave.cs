@@ -37,7 +37,7 @@ public class AutoSave : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!autoSave && other.tag == "Player")
+        if (!autoSave && !Main.loading && other.tag == "Player")
         {
             gs.Save();
             AudioManager.Play("Autosave");

@@ -5,6 +5,7 @@ public class Main : MonoBehaviour {
     public int frameRate = 60;
     public bool cursor = true;
     public static string[] controllers;
+    public static bool loading;
 
     bool testButtons = false;
 

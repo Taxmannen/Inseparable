@@ -61,12 +61,12 @@ MonoBehaviour:
     pitch: 0.9
     source: {fileID: 0}
   - name: Jump
-    clip: {fileID: 8300000, guid: e361ef5547dd35649a7343eb502d0928, type: 3}
+    clip: {fileID: 8300000, guid: f79664f69d3cfd4408bebef01ebdde9c, type: 3}
     volume: 1
     pitch: 1.2
     source: {fileID: 0}
   - name: Land
-    clip: {fileID: 8300000, guid: f71c36ff65641424b8d503b60ddfc10b, type: 3}
+    clip: {fileID: 8300000, guid: f79664f69d3cfd4408bebef01ebdde9c, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
@@ -84,4 +84,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
     volume: 1
     pitch: -0.8
+    source: {fileID: 0}
+  - name: MovingIsland
+    clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
+    volume: 1
+    pitch: 3
+    source: {fileID: 0}
+  - name: ObjectCollision
+    clip: {fileID: 8300000, guid: 75a0393f8bab91b4d8bfce7252f5ab42, type: 3}
+    volume: 1
+    pitch: 0.41
+    source: {fileID: 0}
+  - name: GateOpen
+    clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
+    volume: 1
+    pitch: -1.72
     source: {fileID: 0}

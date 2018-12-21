@@ -24,6 +24,7 @@ public class JumpController : MovementScript
     public LayerMask playerLayer;
     public JumpController otherPlayerJumpController;
     private Rigidbody2D rb;
+    Animator anim;
 
     JumpState state;
 
@@ -35,6 +36,7 @@ public class JumpController : MovementScript
         jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
         
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
     }
 
@@ -67,6 +69,7 @@ public class JumpController : MovementScript
         if (jumpButton && state == JumpState.CanJump)
         {
             AudioManager.Play("Jump");
+            anim.Play("Jump");
             state = JumpState.IsJumping;
         }
 
@@ -77,9 +80,11 @@ public class JumpController : MovementScript
                 jumpTimeCounter = jumpTime;
                 state = JumpState.CanJump;
                 AudioManager.Play("Land");
+                anim.Play("Idle");
+                //Anim JUMP!
+
             }
-            else
-                jumpTimeCounter = 0;
+            else jumpTimeCounter = 0;
         }
     }
 

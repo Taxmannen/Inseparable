@@ -18,21 +18,22 @@ public class GameSetup : MonoBehaviour { //DÅLIGT NAMN BYT!
 
 	void Start ()
     {
-        player2Line = player2.GetComponent<LineRenderer>();
+        //player2Line = player2.GetComponent<LineRenderer>();
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
         player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
 
-        rope.SetActive(false);
-        player1.SetActive(false);
-        player2.SetActive(false);
         player1UI.SetActive(false);
         player2UI.SetActive(false);
-        player2Line.enabled = false;
+        //player2Line.enabled = false;
+
+        /*rope.SetActive(false);
+        player1.SetActive(false);
+        player2.SetActive(false);*/
     }
 
     private void Update()
     {
-        if (!player1Ready && Input.GetButtonDown(player1Button))
+        /*if (!player1Ready && Input.GetButtonDown(player1Button))
         {
             player1Ready = true;
             player1Text.SetActive(false);
@@ -46,13 +47,13 @@ public class GameSetup : MonoBehaviour { //DÅLIGT NAMN BYT!
             if (player1.activeSelf) player2.transform.position = new Vector2(player1.transform.position.x + 2, player1.transform.position.y);
             player2.SetActive(true);
         }
-
         if (player1Ready && player2Ready && !rope.activeSelf)
         {
             rope.transform.position = new Vector2((player1.transform.position.x + player2.transform.position.x) / 2, rope.transform.position.y);
             rope.SetActive(true);
             player2Line.enabled = true;
-        }
+        }*/
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

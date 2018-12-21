@@ -19,6 +19,7 @@ public class MovementController : MovementScript
     public float flatGroundMultiplier;
     public float pushPower;
 
+    bool facingRight;
     Rigidbody2D rb;
     float xInput;
 
@@ -56,6 +57,8 @@ public class MovementController : MovementScript
         else {
             rb.AddForce(new Vector2((maxAirSpeed - Mathf.Abs(rb.velocity.x)) * xInput * Time.deltaTime * flatAirMultiplier, 0));
         }
+        if      (xInput > 0 && !facingRight) facingRight = Flip();
+        else if (xInput < 0 && facingRight)  facingRight = Flip();
     }
 
     void OnDrawGizmos()
@@ -63,5 +66,15 @@ public class MovementController : MovementScript
         Gizmos.DrawCube(new Vector2(transform.position.x - 0.35f, transform.position.y), new Vector2(0.1f, 0.5f));
         Gizmos.DrawCube(new Vector2(transform.position.x + 0.35f, transform.position.y), new Vector2(0.1f, 0.5f));
         Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f));
+    }
+
+    bool Flip()
+    {
+        bool facingRight = false;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        if (theScale.x > 0) facingRight = true;
+        transform.localScale = theScale;
+        return facingRight;
     }
 }

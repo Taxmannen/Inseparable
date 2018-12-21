@@ -8,11 +8,11 @@ public class RespawnableObject : MonoBehaviour
     public bool touchedByPlayer;
     Vector2 speed;
 
-    Rigidbody2D rb;
+    //Rigidbody2D rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 
     void OnTriggerEnter2D(Collider2D other)

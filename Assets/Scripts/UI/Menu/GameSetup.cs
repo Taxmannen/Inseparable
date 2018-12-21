@@ -11,16 +11,16 @@ public class GameSetup : MonoBehaviour { //DÅLIGT NAMN BYT!
     public GameObject player2Text;
     LineRenderer player2Line;
 
-    bool player1Ready;
-    bool player2Ready;
-    string player1Button;
-    string player2Button;
+    //bool player1Ready;
+    //bool player2Ready;
+    //string player1Button;
+    //string player2Button;
 
 	void Start ()
     {
         //player2Line = player2.GetComponent<LineRenderer>();
-        player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
-        player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
+        //player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
+        //player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
 
         player1UI.SetActive(false);
         player2UI.SetActive(false);

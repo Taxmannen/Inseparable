@@ -25,7 +25,7 @@ public class ItemInteract : MonoBehaviour {
 
     void Pickup(Transform other)
     {
-        transform.SetParent(other.GetChild(1));
+        transform.SetParent(other.GetChild(0));
         pickedUp = true;
     }
 

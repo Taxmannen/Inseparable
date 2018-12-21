@@ -9,7 +9,6 @@ public class PressurePlate : MonoBehaviour {
     private void Start()
     {
         anim = GetComponent<Animator>();
-        Debug.Log(anim);
     }
 
     private void OnTriggerStay2D(Collider2D other)

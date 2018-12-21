@@ -36,7 +36,6 @@ public class RespawnableObject : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             AudioManager.Play("ObjectCollision");
-            Debug.Log("Collided with ground");
         }
     }
 

@@ -62,28 +62,28 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: f79664f69d3cfd4408bebef01ebdde9c, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1.2
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: f79664f69d3cfd4408bebef01ebdde9c, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
   - name: Bridge
     clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
-    volume: 2
+    volume: 0.5
     pitch: 0.5
     source: {fileID: 0}
   - name: PressurePlateOn
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 0.8
     source: {fileID: 0}
   - name: PressurePlateOff
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 1
-    pitch: -0.8
+    volume: 0.3
+    pitch: 0.4
     source: {fileID: 0}
   - name: MovingIsland
     clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}

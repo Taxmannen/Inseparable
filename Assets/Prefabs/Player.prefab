@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 6889416302079305818}
   - component: {fileID: 6889416302079305819}
   - component: {fileID: 6889416302079305830}
-  - component: {fileID: 6889416302079305817}
   - component: {fileID: 6889416302079305812}
   m_Layer: 9
   m_Name: Player 1
@@ -283,7 +282,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  otherPlayerJumpController: {fileID: 0}
+  otherPlayerJumpController: {fileID: 6889416303197244050}
 --- !u!114 &6889416302079305816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,23 +349,6 @@ MonoBehaviour:
   on: 0
   force: {x: 0, y: 0.4}
   gravityScale: 0
---- !u!114 &6889416302079305817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114630484049988502, guid: 4c1fff40bd7e21f448a8f68998aeb630,
-    type: 2}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6889416302079305814}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b089e0a2e6fea134cb8b44a7ddfdf051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &6889416302079305812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +620,6 @@ GameObject:
   - component: {fileID: 6889416303197244051}
   - component: {fileID: 6889416303197244045}
   - component: {fileID: 6889416303197244046}
-  - component: {fileID: 6889416303197244044}
   m_Layer: 9
   m_Name: Player 2
   m_TagString: Player
@@ -896,7 +877,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  otherPlayerJumpController: {fileID: 0}
+  otherPlayerJumpController: {fileID: 6889416302079305823}
 --- !u!114 &6889416303197244051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,23 +929,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transparent: {fileID: 21300000, guid: 534192e4ababfdf4b93c3fb6903780fa, type: 3}
   healAmount: 100
---- !u!114 &6889416303197244044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114158901941993528, guid: 4c1fff40bd7e21f448a8f68998aeb630,
-    type: 2}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6889416303197244040}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b089e0a2e6fea134cb8b44a7ddfdf051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &6889416303464054990
 GameObject:
   m_ObjectHideFlags: 0

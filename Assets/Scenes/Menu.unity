@@ -15233,7 +15233,9 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6889416302079305819, guid: e4ed662f6ea61af488e8bf4611a9793e, type: 3}
+    - {fileID: 6889416303197244046, guid: e4ed662f6ea61af488e8bf4611a9793e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e4ed662f6ea61af488e8bf4611a9793e, type: 3}
 --- !u!1 &1905928031 stripped
 GameObject:

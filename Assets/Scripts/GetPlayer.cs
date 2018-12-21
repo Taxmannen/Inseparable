@@ -5,7 +5,10 @@ using UnityEngine;
 public class GetPlayer : MonoBehaviour {
 
     public static Transform player1, player2;
-    
+
+    public bool drawGizmo;
+    public Transform p1, p2;
+
     static string player1String = "Player 1", player2String = "Player 2";
 
     public static bool player1Ready() { return player1 != null; }
@@ -60,8 +63,7 @@ public class GetPlayer : MonoBehaviour {
     public static bool getPlayerGrounded(Transform player, LayerMask groundLayer)
     {
         return Physics2D.OverlapBox(
-            new Vector2(player.position.x, player.position.y - 0.35f),
-            new Vector2(0.5f, 0.1f),
+            new Vector2(player.position.x, player.position.y - 0.5f), new Vector2(0.7f, 0.1f),
             0,
             groundLayer);
     }
@@ -79,7 +81,7 @@ public class GetPlayer : MonoBehaviour {
     public static bool getPlayerGroundedStrict(Transform player, LayerMask groundLayer)
     {
         return Physics2D.OverlapBox(
-            new Vector2(player.position.x, player.position.y - 0.35f),
+            new Vector2(player.position.x, player.position.y - 0.5f),
             new Vector2(0.05f, 0.1f),
             0,
             groundLayer);
@@ -119,4 +121,10 @@ public class GetPlayer : MonoBehaviour {
 	void FixedUpdate() {
         FindPlayers();	
 	}
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(new Vector2(p1.position.x, p1.position.y - 0.5f), new Vector2(0.7f, 0.1f));
+        Gizmos.DrawCube(new Vector2(p2.position.x, p2.position.y - 0.5f), new Vector2(0.7f, 0.1f));
+    }
 }

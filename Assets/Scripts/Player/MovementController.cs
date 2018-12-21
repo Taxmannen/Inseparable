@@ -36,7 +36,7 @@ public class MovementController : MovementScript
 
     void FixedUpdate()
     {
-        grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer); 
+        grounded = GetPlayer.getPlayerGrounded(transform, groundLayer); 
         if (grounded) {
             rb.AddForce(new Vector2((maxGroundSpeed - Mathf.Abs(rb.velocity.x)) * xInput * Time.deltaTime * flatGroundMultiplier, 0));
             if(GetPlayer.otherPlayerReady(gameObject.name) && !GetPlayer.getOtherPlayerGroundedStrictByName(gameObject.name, groundLayer))

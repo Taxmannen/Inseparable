@@ -26,6 +26,7 @@ public class LeverController : MonoBehaviour {
         {
             foreach (Action la in leverActions)
                 la.onStateChange(tempState);
+
         }
 
         leverState = tempState;

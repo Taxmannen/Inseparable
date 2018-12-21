@@ -48,8 +48,10 @@ public class LeverMoveObject : Action
 
     public override void onStateChange(bool state)
     {
-        if(cutscene)
+        AudioManager.Play("MovingIsland");
+        if (cutscene)
         {
+            
             CameraManager.instance.ChangeFocusTo(transform, cutsceneOffset);
 
             if (freezePlayers)

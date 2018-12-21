@@ -43,9 +43,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209fdb64f7a908c4eb5fc2f7d1d1ea7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 243553202717861890, guid: 63433b44deabe4a428b98a91475e498a, type: 2}
   sounds:
   - name: Autosave
     clip: {fileID: 8300000, guid: 66a212df9b1e2d642aa8b9d9a410645e, type: 3}
-    volume: 0.1
+    volume: 0.2
     pitch: 1
+    source: {fileID: 0}
+  - name: Pickup
+    clip: {fileID: 8300000, guid: 15e0afa317b9d754888c471b599593dc, type: 3}
+    volume: 1
+    pitch: 1.2
+    source: {fileID: 0}
+  - name: Throw
+    clip: {fileID: 8300000, guid: 79d3e5e4f2721e24ba43ee382c14311d, type: 3}
+    volume: 1
+    pitch: 0.9
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: f79664f69d3cfd4408bebef01ebdde9c, type: 3}
+    volume: 1
+    pitch: 1.2
+    source: {fileID: 0}
+  - name: Land
+    clip: {fileID: 8300000, guid: f79664f69d3cfd4408bebef01ebdde9c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Bridge
+    clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
+    volume: 2
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: PressurePlateOn
+    clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
+    volume: 1
+    pitch: 0.8
+    source: {fileID: 0}
+  - name: PressurePlateOff
+    clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
+    volume: 1
+    pitch: -0.8
+    source: {fileID: 0}
+  - name: MovingIsland
+    clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
+    volume: 1
+    pitch: 3
+    source: {fileID: 0}
+  - name: ObjectCollision
+    clip: {fileID: 8300000, guid: 75a0393f8bab91b4d8bfce7252f5ab42, type: 3}
+    volume: 1
+    pitch: 0.41
+    source: {fileID: 0}
+  - name: GateOpen
+    clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
+    volume: 1
+    pitch: -1.72
     source: {fileID: 0}

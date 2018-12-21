@@ -22,6 +22,7 @@ public class MovementController : MovementScript
     bool facingRight;
     Rigidbody2D rb;
     float xInput;
+    public Transform aim;
 
     void Start()
     {
@@ -75,6 +76,7 @@ public class MovementController : MovementScript
         theScale.x *= -1;
         if (theScale.x > 0) facingRight = true;
         transform.localScale = theScale;
+        aim.localScale = aim.localScale *= -1;
         return facingRight;
     }
 }

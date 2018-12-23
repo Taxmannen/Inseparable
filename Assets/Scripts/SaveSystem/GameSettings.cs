@@ -7,12 +7,11 @@ public class GameSettings : MonoBehaviour {
     public float player1PosX;
     public float player1PosY;
 
-    public void Save()
+    public void Save(Vector2 loadPosition)
     {
         level = SceneManager.GetActiveScene().name;
-        player1PosX = GameObject.Find("Player 1").transform.position.x;
-        player1PosY = GameObject.Find("Player 1").transform.position.y;
-
+        player1PosX = loadPosition.x;
+        player1PosY = loadPosition.y;
         SaveSystem.Save(this);
     }
 

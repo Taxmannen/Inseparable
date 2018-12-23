@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndingScript : MonoBehaviour
+public class Ending : MonoBehaviour
 {
     public Rigidbody2D player1;
     public Rigidbody2D player2;

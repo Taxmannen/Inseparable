@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /* Script made by Adam */
 public class MovementController : MovementScript
@@ -71,12 +72,13 @@ public class MovementController : MovementScript
 
     bool Flip()
     {
-        bool facingRight = false;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
-        if (theScale.x > 0) facingRight = true;
         transform.localScale = theScale;
         aim.localScale = aim.localScale *= -1;
+
+        bool facingRight = false;
+        if (theScale.x > 0) facingRight = true;
         return facingRight;
     }
 }

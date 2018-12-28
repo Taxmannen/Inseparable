@@ -96,9 +96,6 @@ public class ThrowPlayer : MovementScript {
                 //float radiansAngle = Mathf.Deg2Rad * Vector3.Angle(transform.forward, (otherPlayer.transform.position - transform.position));
                 float a = 90f + radiansAngle * Mathf.Rad2Deg;
 
-                Debug.Log("a = " + a);
-                Debug.Log("radiansAngle = " + radiansAngle);
-
                 Vector3 position = rightArm.transform.localPosition;
                 position.y = Mathf.Sin(radiansAngle) * 0.5f;
                 position.x = Mathf.Cos(radiansAngle) * 0.5f;

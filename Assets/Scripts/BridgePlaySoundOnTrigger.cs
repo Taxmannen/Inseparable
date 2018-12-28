@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/* Script made by Jocke */
 public class BridgePlaySoundOnTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
@@ -10,7 +9,6 @@ public class BridgePlaySoundOnTrigger : MonoBehaviour
         {
             AudioManager.Play("Bridge");
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D other)

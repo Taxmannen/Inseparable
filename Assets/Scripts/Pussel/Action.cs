@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-/* Made by Adam */
+/* Script made by Adam */
 public class Action : MonoBehaviour
 {
     public virtual void onStateChange(bool state){}

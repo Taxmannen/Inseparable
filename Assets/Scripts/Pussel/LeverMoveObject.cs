@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-/* Made by Adam */
+/* Script made by Adam */
 public class LeverMoveObject : Action
 {
     [Header("Positions")]

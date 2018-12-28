@@ -37,7 +37,7 @@ public class ThrowPlayer : MovementScript {
             if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUpThrow)
             {
                 float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
-                float y = Input.GetAxisRaw("Vertical " + gameObject.name);
+                float y = Input.GetAxisRaw("Vertical "  + gameObject.name);
                 if(new Vector2(x, y).sqrMagnitude < 0.01f)
                 {
                     rb.gravityScale = 1;

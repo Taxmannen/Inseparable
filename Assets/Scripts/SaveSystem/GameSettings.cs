@@ -7,6 +7,8 @@ public class GameSettings : MonoBehaviour {
     public float player1PosX;
     public float player1PosY;
 
+    public bool growingBridge;
+
     public void Save(Vector2 loadPosition)
     {
         level = SceneManager.GetActiveScene().name;
@@ -19,12 +21,14 @@ public class GameSettings : MonoBehaviour {
     {
         string[] settingsStr  = SaveSystem.Load().settingsStr;
         float[] settingsFloat = SaveSystem.Load().settingsFloat;
-        //int[] settingsInt     = SaveSystem.Load().settingsInt;
+        bool[] setingsBool    = SaveSystem.Load().settingsBool;
 
         level = settingsStr[0];
 
         player1PosX = settingsFloat[0];
         player1PosY = settingsFloat[1];
+
+        growingBridge = setingsBool[0];
 
         LevelManager levelManager = GameObject.Find("Loading Screen").GetComponent<LevelManager>();
         levelManager.Load(level);

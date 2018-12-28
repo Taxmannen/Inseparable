@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+/* Script made by Daniel */
 public class DamageToPlayer : MonoBehaviour {
     public int damage;
     public float damageRate;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+/* Script made by Daniel*/
 public class PlayerAim : MonoBehaviour {
     ThrowPlayer throwPlayer;
     SpriteRenderer spriteRenderer;

@@ -20,7 +20,7 @@ public class MovementController : MovementScript
     public float flatGroundMultiplier;
     public float pushPower;
 
-    bool facingRight;
+    public bool facingRight;
     Rigidbody2D rb;
     float xInput;
     public Transform aim;
@@ -28,6 +28,7 @@ public class MovementController : MovementScript
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        facingRight = true;
     }
 
     void Update()
@@ -77,8 +78,8 @@ public class MovementController : MovementScript
         transform.localScale = theScale;
         aim.localScale = aim.localScale *= -1;
 
-        bool facingRight = false;
-        if (theScale.x > 0) facingRight = true;
-        return facingRight;
+        bool currentFacingRight = false;
+        if (theScale.x > 0) currentFacingRight = true;
+        return currentFacingRight;
     }
 }

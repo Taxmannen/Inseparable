@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-//Made by Jocke
+﻿using UnityEngine;
+
+// Script made by Jocke
 public class Rotation : MonoBehaviour {
     public float rotation;
 

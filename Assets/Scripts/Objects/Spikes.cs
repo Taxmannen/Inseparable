@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Script made by Jocke
 public class Spikes : MonoBehaviour
 {
     float timer;

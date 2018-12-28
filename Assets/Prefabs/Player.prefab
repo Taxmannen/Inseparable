@@ -257,6 +257,7 @@ MonoBehaviour:
   maxGroundSpeed: 35
   flatGroundMultiplier: 40
   pushPower: 12.5
+  facingRight: 0
   aim: {fileID: 6889416302464848896}
 --- !u!114 &6889416302079305823
 MonoBehaviour:
@@ -348,7 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   on: 0
   force: {x: 0, y: 0.4}
-  gravityScale: 0
 --- !u!114 &6889416302079305812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +852,7 @@ MonoBehaviour:
   maxGroundSpeed: 35
   flatGroundMultiplier: 40
   pushPower: 12.5
+  facingRight: 0
   aim: {fileID: 6889416302877937214}
 --- !u!114 &6889416303197244050
 MonoBehaviour:

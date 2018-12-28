@@ -15,31 +15,26 @@ public class MenuManager : MonoBehaviour {
     public EventSystem eventSystem;
     public AudioMixer mixer;
     public bool toggleMenu;
+    public GameObject settingsBackButton;
 
     string player1Button;
     string player2Button;
     GameObject firstButton;
 
-    public GameObject settingsBackButton;
-
     void Start()
     {
-
         player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
         player2Button = "Menu" + " " + "Player 2" + " " + Main.controllers[1];
         toggleMenu = false;
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-        musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        musicVolumeSlider.value  = PlayerPrefs.GetFloat("MusicVolume");
         soundEffectsVolumeSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume");
 
         if (PlayerPrefs.GetInt("CurrentResolution1") == 0 && PlayerPrefs.GetInt("CurrentResolution2") == 0)
         {
             Screen.SetResolution(1920, 1200, true);
         }
-        else
-        {
-            Screen.SetResolution(PlayerPrefs.GetInt("CurrentResolution1"), PlayerPrefs.GetInt("CurrentResolution2"), true);
-        }
+        else Screen.SetResolution(PlayerPrefs.GetInt("CurrentResolution1"), PlayerPrefs.GetInt("CurrentResolution2"), true);
     }
 
     void Update()
@@ -67,10 +62,11 @@ public class MenuManager : MonoBehaviour {
             menus[1].SetActive(true);
         }
         if (SceneManager.GetActiveScene().name.Contains("Level")) settingsBackButton.SetActive(true);
-        else settingsBackButton.SetActive(false);
-
-
-
+        else
+        {
+            settingsBackButton.SetActive(false);
+            Time.timeScale = 0;
+        }
     }
 
     public void ChangeResolution(int curRes)
@@ -140,14 +136,19 @@ public class MenuManager : MonoBehaviour {
         toggleMenu = !toggleMenu;
         mainMenu.SetActive(toggleMenu);
         OnMenuChange();
-        if (toggleMenu) Time.timeScale = 0;
-        else
+        if (!toggleMenu)
         {
-            Time.timeScale = 1;
             for (var i = 0; i < menus.Count; i++)
             {
                 menus[i].SetActive(false);
             }
         }
+        if (toggleMenu) Time.timeScale = 0;
+        else            Time.timeScale = 1;
+    }
+
+    public void SetTimeScale()
+    {
+        Time.timeScale = 1;
     }
 }

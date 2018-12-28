@@ -64,9 +64,9 @@ public class MovementController : MovementScript
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawCube(new Vector2(transform.position.x - 0.35f, transform.position.y), new Vector2(0.1f, 0.5f));
-        Gizmos.DrawCube(new Vector2(transform.position.x + 0.35f, transform.position.y), new Vector2(0.1f, 0.5f));
-        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f));
+        //Gizmos.DrawCube(new Vector2(transform.position.x - 0.35f, transform.position.y), new Vector2(0.1f, 0.5f));
+        //Gizmos.DrawCube(new Vector2(transform.position.x + 0.35f, transform.position.y), new Vector2(0.1f, 0.5f));
+        //Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y - 0.35f), new Vector2(0.5f, 0.1f));
     }
 
     bool Flip()

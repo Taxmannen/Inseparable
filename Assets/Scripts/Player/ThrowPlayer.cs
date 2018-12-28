@@ -14,6 +14,10 @@ public class ThrowPlayer : MovementScript {
     string pickupButtonStr;
     float pickupTime;
 
+    public GameObject leftArm;
+    public GameObject rightArm;
+    public float i=0;
+
     void Start ()
     {
         throwButtonStr = "Throw"   + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
@@ -30,7 +34,10 @@ public class ThrowPlayer : MovementScript {
 
     void Update ()
     {
-        if (Input.GetAxisRaw(throwButtonStr)  == 0) buttonUpThrow  = true;
+        if (Input.GetAxisRaw(throwButtonStr) == 0)
+        {
+            buttonUpThrow = true;
+        }
 
         if (pickup)
         {
@@ -65,7 +72,48 @@ public class ThrowPlayer : MovementScript {
 
     private void FixedUpdate()
     {
-        if (pickup) player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
+        if (pickup)
+        {
+            player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
+
+            float max = 3;
+            if (i < max)
+            {
+                rightArm.transform.localPosition = new Vector3(
+                0.55f * (i + 1) / max,
+                rightArm.transform.localPosition.y,
+                rightArm.transform.localPosition.z);
+                SpriteRenderer rightSr = rightArm.GetComponent<SpriteRenderer>();
+                rightSr.color = new Color(rightSr.color.r, rightSr.color.g, rightSr.color.b, Mathf.Clamp(1f * (i + 1) / max, 0f, 1f));
+                i++;
+            }
+            else
+            {
+                Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
+                Vector3 eulerAngle = rightArm.transform.localEulerAngles;
+                Vector3 localOtherPlayer = (otherPlayer.transform.position - transform.position);
+                float radiansAngle = Mathf.Asin(localOtherPlayer.y / localOtherPlayer.magnitude);
+                //float radiansAngle = Mathf.Deg2Rad * Vector3.Angle(transform.forward, (otherPlayer.transform.position - transform.position));
+                float a = 90f + radiansAngle * Mathf.Rad2Deg;
+
+                Debug.Log("a = " + a);
+                Debug.Log("radiansAngle = " + radiansAngle);
+
+                Vector3 position = rightArm.transform.localPosition;
+                position.y = Mathf.Sin(radiansAngle) * 0.5f;
+                position.x = Mathf.Cos(radiansAngle) * 0.5f;
+                rightArm.transform.localPosition = position;
+
+                eulerAngle.z = a;
+                rightArm.transform.localEulerAngles = eulerAngle;
+            }
+        }
+        else
+        {
+            i = 0;
+            rightArm.transform.localPosition = Vector3.zero;
+            rightArm.transform.eulerAngles = Vector3.zero;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)

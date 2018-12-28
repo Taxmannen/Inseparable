@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-//Made by Jocke
+// Script made by Jocke
 public class PlayerStats : MonoBehaviour {
     public int maxHealth;
     public int currentHealth;

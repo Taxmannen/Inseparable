@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 /* Script made by Daniel */
 public class AutoSave : MonoBehaviour {
+    public Vector2 loadPosition;
     GameSettings gs;
     Image icon;
     bool autoSave;
@@ -39,7 +40,7 @@ public class AutoSave : MonoBehaviour {
     {
         if (!autoSave && !Main.loading && other.tag == "Player")
         {
-            gs.Save();
+            gs.Save(loadPosition);
             AudioManager.Play("Autosave");
             autoSave = true;
         }

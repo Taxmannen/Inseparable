@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-//Made by Jocke
+// Script made by Jocke
 public class UseItems : MonoBehaviour {
     [HideInInspector] public Sprite transparent;
     public int healAmount = 100;

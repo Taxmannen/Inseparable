@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/* Script made by Adam */
 public class GetPlayer : MonoBehaviour {
 
     public static Transform player1, player2;

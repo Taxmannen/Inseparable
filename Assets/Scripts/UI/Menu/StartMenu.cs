@@ -41,10 +41,6 @@ public class StartMenu : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.name == "Settings Button")
-        {
-            Debug.Log("Settings - Exit");
-        }
         if (other.name == "Settings Button") enter = false;        
     }
 }

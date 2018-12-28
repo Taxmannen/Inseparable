@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-//Made by Jocke
+// Script made by Jocke
 public class ItemInteract : MonoBehaviour {
     GameObject playerUI;
     bool pickedUp;

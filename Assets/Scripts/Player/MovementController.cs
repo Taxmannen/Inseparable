@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /* Script made by Adam */
 public class MovementController : MovementScript
@@ -19,7 +20,7 @@ public class MovementController : MovementScript
     public float flatGroundMultiplier;
     public float pushPower;
 
-    bool facingRight;
+    public bool facingRight;
     Rigidbody2D rb;
     float xInput;
     public Transform aim;
@@ -27,6 +28,7 @@ public class MovementController : MovementScript
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        facingRight = true;
     }
 
     void Update()
@@ -71,12 +73,13 @@ public class MovementController : MovementScript
 
     bool Flip()
     {
-        bool facingRight = false;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
-        if (theScale.x > 0) facingRight = true;
         transform.localScale = theScale;
         aim.localScale = aim.localScale *= -1;
-        return facingRight;
+
+        bool currentFacingRight = false;
+        if (theScale.x > 0) currentFacingRight = true;
+        return currentFacingRight;
     }
 }

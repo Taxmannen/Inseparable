@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-//Made by Jocke
+// Script made by Jocke
 public class SelectedItem : MonoBehaviour {
     public Image selectedItem;
     bool healthPotion;

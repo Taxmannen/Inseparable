@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-/* Made by Adam */
+/* Script made by Adam */
 [RequireComponent(typeof(LineRenderer))]
 public class LineController : MonoBehaviour {
     public Transform previous;

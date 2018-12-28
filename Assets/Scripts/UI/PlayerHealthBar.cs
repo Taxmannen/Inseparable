@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-// Made by Jocke
+// Script made by Jocke
 public class PlayerHealthBar : MonoBehaviour {
     public Slider healthBar;
 

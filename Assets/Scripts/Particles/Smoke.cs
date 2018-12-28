@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SmokeScript : MonoBehaviour
+/* Script made by Michael */
+public class Smoke : MonoBehaviour
 {
     public LayerMask ground;
     private ParticleSystem ps;
-    Rigidbody2D rb;
 
     void Start()
     {
-        //grounded = transform.parent.gameObject.GetComponent<MovementController>().grounded;
         ps = gameObject.GetComponent<ParticleSystem>();
-        rb = GetComponentInParent<Rigidbody2D>();
     }
 
     void Update()
@@ -24,11 +20,7 @@ public class SmokeScript : MonoBehaviour
         {
             emission.enabled = true;
         }
-        else
-            emission.enabled = false;
+        else emission.enabled = false;
     }
-
-
-
 }
 

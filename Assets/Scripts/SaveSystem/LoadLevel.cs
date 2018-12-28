@@ -3,7 +3,7 @@
 /* Script made by Daniel */
 public class LoadLevel : MonoBehaviour {
     public string sceneName;
-
+    public Vector2 startPos;
     LevelManager levelManager;
     bool loading;
 
@@ -17,8 +17,11 @@ public class LoadLevel : MonoBehaviour {
     {
         if (other.tag == "Player" && !loading)
         {
-            levelManager.Load(sceneName);
             loading = true;
+            GameSettings gs = GameObject.Find("Main").GetComponent<GameSettings>();
+            gs.player1PosX = startPos.x;
+            gs.player1PosY = startPos.y;
+            levelManager.Load(sceneName);
         }
     }
 }

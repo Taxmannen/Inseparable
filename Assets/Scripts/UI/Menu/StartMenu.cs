@@ -6,6 +6,7 @@ public class StartMenu : MonoBehaviour {
     MenuManager menuManager;
     GameSettings gs;
     bool enter;
+    bool loading;
 
     private void Start()
     {
@@ -22,11 +23,11 @@ public class StartMenu : MonoBehaviour {
                 menuManager.OpenSettingsMenu();
                 menuManager.OnMenuChange();
             }
-            else if (other.name == "Continue Button")
+            else if (other.name == "Continue Button" && !loading)
             {
+                loading = true;
                 gameSetup.Invoke("EnableHud", 0.25f);
                 gs.Load();
-
             }
             else if (other.name == "Exit Button")
             {

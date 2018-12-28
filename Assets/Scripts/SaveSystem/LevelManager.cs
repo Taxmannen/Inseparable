@@ -61,6 +61,7 @@ public class LevelManager : MonoBehaviour {
     
     private void Startup()
     {
+        Debug.Log(gs.player1PosX);
         SaveSystem.Load();
         GameObject.Find("Player 1").transform.position = new Vector2(gs.player1PosX, gs.player1PosY);
         GameObject.Find("Player 2").transform.position = new Vector2(gs.player1PosX + 2, gs.player1PosY);

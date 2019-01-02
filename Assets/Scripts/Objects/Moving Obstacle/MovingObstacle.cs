@@ -9,6 +9,7 @@ public class MovingObstacle : MonoBehaviour {
     public bool on;
     public bool drawGizmos;
     public Vector2 offset;
+    public GameObject blades;
 
     Vector2 endPos;
     CameraManager cameraManager;
@@ -68,6 +69,7 @@ public class MovingObstacle : MonoBehaviour {
         on = true;
         cameraManager = Camera.main.GetComponent<CameraManager>();
         cameraManager.ChangeFocusTo(transform, offset, LockState.XAxis);
+        blades.SetActive(true);
     }
 
     void TurnOff()
@@ -81,6 +83,6 @@ public class MovingObstacle : MonoBehaviour {
         if (drawGizmos) Gizmos.DrawCube(new Vector2(endPosX, transform.position.y), transform.localScale);
         Transform c = transform.GetChild(0);
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(new Vector2(transform.position.x + 0.25f, transform.position.y), new Vector2(c.localScale.x, c.localScale.z*10));
+        Gizmos.DrawCube(new Vector2(transform.position.x + 0.55f, transform.position.y), new Vector2(c.localScale.x, c.localScale.z*10));
     }
 }

@@ -7,8 +7,6 @@ public class Main : MonoBehaviour {
     public static string[] controllers;
     public static bool loading;
 
-    bool testButtons = false;
-
     void Start()
     {
         controllers = new string[2];
@@ -24,20 +22,5 @@ public class Main : MonoBehaviour {
         }
         Image saveIcon = GameObject.Find("Auto Save Icon").GetComponent<Image>();
         saveIcon.CrossFadeAlpha(0, 0, false);
-    }
-
-    private void Update()
-    {
-        if (testButtons)
-        {
-            string player1 = "Player 1" + " " + controllers[0];
-            string player2 = "Player 2" + " " + controllers[1];
-
-            if (Input.GetButtonDown("Seperate" + " " + player1)) Debug.Log("Player 1 Seperate");
-            if (Input.GetButtonDown("Seperate" + " " + player2)) Debug.Log("Player 2 Seperate");
-
-            if (Input.GetButtonDown("Attack" + " " + player1)) Debug.Log("Player 1 Attack");
-            if (Input.GetButtonDown("Attack" + " " + player2)) Debug.Log("Player 2 Attack");
-        }  
     }
 }

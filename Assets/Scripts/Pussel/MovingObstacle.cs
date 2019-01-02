@@ -79,5 +79,8 @@ public class MovingObstacle : MonoBehaviour {
     private void OnDrawGizmos()
     {
         if (drawGizmos) Gizmos.DrawCube(new Vector2(endPosX, transform.position.y), transform.localScale);
+        Transform c = transform.GetChild(0);
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(new Vector2(transform.position.x + 0.25f, transform.position.y), new Vector2(c.localScale.x, c.localScale.z*10));
     }
 }

@@ -40,11 +40,10 @@ public class LevelManager : MonoBehaviour {
 
     private IEnumerator LoadLevel(string scene)
     {
-        /*AsyncOperation asyncLoad = */ SceneManager.LoadSceneAsync(scene);
-        //while (!asyncLoad.isDone) yield return null;
-        yield return new WaitForSeconds(1);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        while (!asyncLoad.isDone) yield return null;
         Startup();
-        start = false;
+        Invoke("SetStartFalse", 0.5f);
     }
 
     private void SetAlpha(bool load)
@@ -58,13 +57,18 @@ public class LevelManager : MonoBehaviour {
         tmp.a = alpha;
         loadingImage.color = tmp;
     }
-    
+    void SetStartFalse()
+    {
+        start = false;
+    }
+
     private void Startup()
     {
         SaveSystem.Load();
         GameObject.Find("Player 1").transform.position = new Vector2(gs.player1PosX, gs.player1PosY);
         GameObject.Find("Player 2").transform.position = new Vector2(gs.player1PosX + 2, gs.player1PosY);
-        GameObject.Find("Rope").transform.position     = new Vector2(gs.player1PosX + 1, gs.player1PosY);
+        GameObject rope = GameObject.Find("Rope");
+        rope.transform.position = new Vector2(gs.player1PosX + 1, gs.player1PosY);
         Camera.main.transform.position = new Vector3(gs.player1PosX, gs.player1PosY , -10);
 
         Main.loading = false;

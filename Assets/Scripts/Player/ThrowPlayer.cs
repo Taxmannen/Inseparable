@@ -14,7 +14,9 @@ public class ThrowPlayer : MovementScript {
     string pickupButtonStr;
     float pickupTime;
 
+    public Transform leftArmParent;
     public GameObject leftArm;
+    public Transform rightArmParent;
     public GameObject rightArm;
     public float i=0;
 
@@ -74,35 +76,69 @@ public class ThrowPlayer : MovementScript {
     {
         if (pickup)
         {
-            player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
+            player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.05f);
 
-            float max = 3;
+            float max = 4;
+
+            Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
+            if (Mathf.Abs(otherPlayer.position.x - transform.position.x) > 0.05)
+                if (otherPlayer.position.x - transform.position.x < 0f)
+                {
+                    if (transform.localScale.x == 1f && rightArmParent.transform.localScale.x == 1)
+                    {
+                        Vector3 scale = rightArmParent.transform.localScale;
+                        scale.x = -1f;
+                        rightArmParent.transform.localScale = scale;
+                    }
+                    else if(transform.localScale.x == -1f)
+                    {
+                        Vector3 scale = rightArmParent.transform.localScale;
+                        scale.x = 1f;
+                        rightArmParent.transform.localScale = scale;
+                    }
+                }
+                else if(otherPlayer.position.x - transform.position.x > 0f)
+                {
+                    if(transform.localScale.x == -1f && rightArmParent.transform.localScale.x == 1f)
+                    {
+                        Vector3 scale = rightArmParent.transform.localScale;
+                        scale.x = -1f;
+                        rightArmParent.transform.localScale = scale;
+                    }
+                    else if(transform.localScale.x == 1f)
+                    {
+                        Vector3 scale = rightArmParent.transform.localScale;
+                        scale.x = 1f;
+                        rightArmParent.transform.localScale = scale;
+                    }
+                }
+
+
+            Debug.Log(transform.localScale.x);
+
+            Vector3 eulerAngle = rightArm.transform.localEulerAngles;
+            Vector3 localOtherPlayer = (otherPlayer.transform.position - transform.position);
+            float radiansAngle = Mathf.Asin(localOtherPlayer.y / localOtherPlayer.magnitude);
+            //float radiansAngle = Mathf.Deg2Rad * Vector3.Angle(transform.forward, (otherPlayer.transform.position - transform.position));
+            float a = 90f + radiansAngle * Mathf.Rad2Deg;
+
+            Vector3 position = rightArm.transform.localPosition;
+            position.y = Mathf.Sin(radiansAngle) * 0.47f * (i + 1) / max;
+            position.x = Mathf.Cos(radiansAngle) * 0.47f * (i + 1) / max;
+            rightArm.transform.localPosition = position;
+
+            eulerAngle.z = a;
+            rightArm.transform.localEulerAngles = eulerAngle;
+
             if (i < max)
             {
                 rightArm.transform.localPosition = new Vector3(
-                0.55f * (i + 1) / max,
+                0.47f * (i + 1) / max,
                 rightArm.transform.localPosition.y,
                 rightArm.transform.localPosition.z);
                 SpriteRenderer rightSr = rightArm.GetComponent<SpriteRenderer>();
                 rightSr.color = new Color(rightSr.color.r, rightSr.color.g, rightSr.color.b, Mathf.Clamp(1f * (i + 1) / max, 0f, 1f));
                 i++;
-            }
-            else
-            {
-                Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
-                Vector3 eulerAngle = rightArm.transform.localEulerAngles;
-                Vector3 localOtherPlayer = (otherPlayer.transform.position - transform.position);
-                float radiansAngle = Mathf.Asin(localOtherPlayer.y / localOtherPlayer.magnitude);
-                //float radiansAngle = Mathf.Deg2Rad * Vector3.Angle(transform.forward, (otherPlayer.transform.position - transform.position));
-                float a = 90f + radiansAngle * Mathf.Rad2Deg;
-
-                Vector3 position = rightArm.transform.localPosition;
-                position.y = Mathf.Sin(radiansAngle) * 0.5f;
-                position.x = Mathf.Cos(radiansAngle) * 0.5f;
-                rightArm.transform.localPosition = position;
-
-                eulerAngle.z = a;
-                rightArm.transform.localEulerAngles = eulerAngle;
             }
         }
         else

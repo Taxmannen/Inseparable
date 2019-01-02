@@ -35,6 +35,8 @@ public class GrowingBridgeController : Action {
     GameObject[] staticTiles;
     List<GameObject> movingTiles;
 
+    public GameSettings gameSettings;
+
     bool leverState;
     bool moving;
 
@@ -67,6 +69,8 @@ public class GrowingBridgeController : Action {
 
     public override void onStateChange(bool state)
     {
+        gameSettings.growingBridge = state;
+        
         if (cutscene)
         {
             CameraManager.instance.ChangeFocusTo(movingObjects.transform, cutsceneOffset);
@@ -94,12 +98,63 @@ public class GrowingBridgeController : Action {
 
     }
 
+    public override void onForceStateChange(bool state)
+    {
+        if (state)
+            setExtended();
+        else
+        {
+            Vector3 movingVector = movingObjects.transform.localPosition;
+            movingVector.x = startPosition.x;
+            movingObjects.transform.localPosition = movingVector;
+
+            for (float i = 0f; i < (width + 6) * (height + 2); i++)
+            {
+                if (staticTiles[(int)i] != null)
+                {
+                    Destroy(staticTiles[(int)i]);
+                    staticTiles[(int)i] = null;
+                }
+            }
+        }
+
+    }
+
     public void destroyMoving()
     {
         foreach (GameObject go in new List<GameObject>(movingTiles.ToArray()))
         {
             Destroy(go);
             movingTiles.Remove(go);
+        }
+    }
+
+    public void setExtended()
+    {
+        Vector3 movingVector = movingObjects.transform.localPosition;
+        movingVector.x = endPosition.x;
+        movingObjects.transform.localPosition = movingVector;
+
+        for (float i = 0f; i < (width + 6) * (height + 2); i++)
+        {
+            float y = (int)(i % (height + 2));
+            float x = (int)(i / (height + 2));
+            if (staticTiles[(int)i] == null)
+            {
+                if (y == 0)
+                    staticTiles[(int)i] = this.spawnTile(x, -y, topTiles[0], staticObjects.transform, sortingOrderStatic);
+                else if (y > (int)((i + 1) % (height + 2)))
+                    if (x == endPosition.x - 1 || x == endPosition.x || x == startPosition.x + 1 || x == startPosition.x)
+                        staticTiles[(int)i] = this.spawnTile(x, -y, midTiles[0], staticObjects.transform, sortingOrderStatic);
+                    else if (x == startPosition.x + 2)
+                        staticTiles[(int)i] = this.spawnTile(x, -y, topLeftInvertedTile, staticObjects.transform, sortingOrderStatic);
+                    else if (x == endPosition.x - 2)
+                        staticTiles[(int)i] = this.spawnTile(x, -y, topRightInvertedTile, staticObjects.transform, sortingOrderStatic);
+                    else
+                        staticTiles[(int)i] = this.spawnTile(x, -y, botTile, staticObjects.transform, sortingOrderStatic);
+                else
+                    staticTiles[(int)i] = this.spawnTile(x, -y, midTiles[0], staticObjects.transform, sortingOrderStatic);
+            }
         }
     }
 

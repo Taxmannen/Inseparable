@@ -9,6 +9,8 @@ public class LeverController : MonoBehaviour {
     
     public Transform leverHandle;
     public bool leverState;
+    public bool testForce;
+    bool disabled = false;
 
 	void Start () {
         leverState = false;
@@ -21,13 +23,46 @@ public class LeverController : MonoBehaviour {
         else
             tempState = false;
 
-        if (tempState ^ leverState)
+        if ((tempState ^ leverState) && !disabled)
         {
             foreach (Action la in leverActions)
                 la.onStateChange(tempState);
-
         }
 
         leverState = tempState;
+
+        if (testForce)
+        {
+            setState(true);
+            testForce = false;
+        }
+
+    }
+
+    void setState(bool tempState)
+    {
+        if (tempState ^ leverState)
+        {
+            disabled = true;
+
+            Transform handle = transform.Find("Handle");
+            if(tempState)
+                handle.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(-1000f, 1000f));
+            else
+                handle.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(1000f, 1000f));
+
+            Invoke("reEnable", 0.5f);
+            
+            foreach (Action la in leverActions)
+                la.onForceStateChange(tempState);
+            
+        }
+
+        leverState = tempState;
+    }
+
+    void reEnable()
+    {
+        disabled = false;
     }
 }

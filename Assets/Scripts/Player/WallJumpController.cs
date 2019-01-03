@@ -3,14 +3,10 @@ using UnityEngine;
 /* Script made by Adam */
 public class WallJumpController : MovementScript
 {
-    //[Range(1f, 150f)]
-    public float jumpForce;
-    //[Range(0.01f, 0.5f)]
-    public float jumpTime;
-    public float jumpTimeCounter;
-
-    //[Range(0f, 150f)]
-    public float jumpForceReduction;
+    //[Range(50, 100)]
+    public float maxGroundSpeed;
+    //[Range(50, 100)]
+    public float flatGroundMultiplier;
 
     bool jumpButton;
     public bool wallContact;
@@ -26,7 +22,6 @@ public class WallJumpController : MovementScript
 
         jumpButton = false;
         rb = GetComponent<Rigidbody2D>();
-        jumpTimeCounter = jumpTime;
     }
 
     void Update()
@@ -48,12 +43,23 @@ public class WallJumpController : MovementScript
 
     void FixedUpdate()
     {
-        if (jumpButton && jumpTimeCounter > 0)
+        if (jumpButton && wallContact)
         {
+            float maxSpeed = maxGroundSpeed;
+            if (GetPlayer.otherPlayerReady(gameObject.name))
+            {
+                Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
+                WallJumpController otherController = otherPlayer.GetComponent<WallJumpController>();
+
+                if(otherController.jumpButton && otherController.wallContact) {
+                    maxSpeed *= 0.65f;
+                    Debug.Log("Limiting!");
+                }
+            }
             //Debug.Log("Walljumping!");
-            rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
-            jumpTimeCounter -= Time.deltaTime;
-            if (jumpTimeCounter < 0) jumpTimeCounter = 0;
+            //rb.AddForce(-Physics2D.gravity.normalized * jumpForce + Physics2D.gravity.normalized * (jumpForceReduction * (1 - (jumpTimeCounter / jumpTime))));
+            
+            rb.AddForce(-Physics2D.gravity.normalized * (maxGroundSpeed - Mathf.Abs(rb.velocity.y)) * Time.deltaTime * flatGroundMultiplier, 0);
         }
     }
 }

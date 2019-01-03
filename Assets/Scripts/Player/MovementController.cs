@@ -4,7 +4,8 @@ using UnityEngine;
 /* Script made by Adam */
 public class MovementController : MovementScript
 {
-    [HideInInspector] public bool grounded;
+    [HideInInspector]
+    public bool grounded;
 
     [Header("Air Variables")]
     public LayerMask groundLayer;
@@ -77,9 +78,16 @@ public class MovementController : MovementScript
         theScale.x *= -1;
         transform.localScale = theScale;
         aim.localScale = aim.localScale *= -1;
-
+        
         bool currentFacingRight = false;
         if (theScale.x > 0) currentFacingRight = true;
+        
+        ThrowPlayer throwPlayer = transform.GetComponent<ThrowPlayer>();
+        if (!(throwPlayer == null))
+            if (throwPlayer.pickup) {
+                throwPlayer.updateArms();
+            }
+
         return currentFacingRight;
     }
 }

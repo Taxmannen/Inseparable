@@ -105,3 +105,8 @@ MonoBehaviour:
     volume: 0.05
     pitch: 1
     source: {fileID: 0}
+  - name: GrowingBridge
+    clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
+    volume: 1
+    pitch: 1.15
+    source: {fileID: 0}

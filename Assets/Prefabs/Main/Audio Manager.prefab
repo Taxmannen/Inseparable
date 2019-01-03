@@ -130,3 +130,8 @@ MonoBehaviour:
     volume: 0.1
     pitch: -1
     source: {fileID: 0}
+  - name: CannotUseItem
+    clip: {fileID: 8300000, guid: 1ea410a550becec4781af8e5f02777cb, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}

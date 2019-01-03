@@ -29,7 +29,21 @@ public class UseItems : MonoBehaviour {
     { 
         if (Input.GetButtonDown("Use Item" + " " + gameObject.name))
         {
-            
+            if (!selectedItem.GetHealthPotion() && !selectedItem.GetReviveStone())
+            {
+                AudioManager.Play("CannotUseItem");
+            }
+
+            if (selectedItem.GetHealthPotion() && !playerStats.GetUsePotion())
+            {
+                AudioManager.Play("CannotUseItem");
+            }
+
+            if (selectedItem.GetReviveStone() && !otherPlayer.GetDead())
+            {
+                AudioManager.Play("CannotUseItem");
+            }
+
             if (selectedItem.GetHealthPotion() && playerStats.GetUsePotion())
             {
                 AudioManager.Play("UseItem");

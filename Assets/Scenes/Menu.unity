@@ -924,6 +924,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
+        type: 3}
+      propertyPath: sounds.Array.data[10].pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
+        type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a079094ed9c316a4fb6191431ab17b04, type: 3}
 --- !u!1 &584894481
@@ -15194,7 +15204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48399dca7dd4dfa46b7bc2fffc976b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSetup: {fileID: 1858070298}
 --- !u!114 &1905928034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15207,7 +15216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48399dca7dd4dfa46b7bc2fffc976b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSetup: {fileID: 1858070298}
 --- !u!1 &1948577635
 GameObject:
   m_ObjectHideFlags: 0

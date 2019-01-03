@@ -32,6 +32,8 @@ public class UseItems : MonoBehaviour {
             
             if (selectedItem.GetHealthPotion() && playerStats.GetUsePotion())
             {
+                AudioManager.Play("PressurePlateOn");
+                Debug.Log("Used Health Potion");
                 playerStats.RestoreHealth(healAmount);
                 inventory.DestroyItem();
                 inventory.InventorySetup();
@@ -39,6 +41,8 @@ public class UseItems : MonoBehaviour {
 
             if (selectedItem.GetReviveStone() && otherPlayer.GetDead())
             {
+                AudioManager.Play("PressurePlateOn");
+                Debug.Log("Used Revive Stone");
                 otherPlayer.Revive(healAmount);
                 inventory.DestroyItem();
                 inventory.InventorySetup();

@@ -42,7 +42,9 @@ public class MenuManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button)) SetMenuState();
-            settingsBackButton.SetActive(true);
+            {
+                settingsBackButton.SetActive(true);
+            }
         }
         else
         {
@@ -50,6 +52,28 @@ public class MenuManager : MonoBehaviour {
             {
                 mainMenu.SetActive(false);
                 toggleMenu = false;          
+            }
+        }
+
+        for(int i = 0; i < menus.Count; i++)
+        {
+            if(menus[i].activeSelf)
+            {
+                if (Input.GetButtonDown("Submit Player 1") || Input.GetButtonDown("Submit Player 2"))
+                {
+                    AudioManager.PlayOneShot("PressurePlateOn");
+                    Debug.Log("Submitted");
+                }
+                if (Input.GetButtonDown("Cancel Player 1") || Input.GetButtonDown("Cancel Player 2"))
+                {
+                    AudioManager.Play("PressurePlateOff");
+                    Debug.Log("Cancelled");
+                }
+                if (Input.GetButtonDown("Vertical Player 1") || Input.GetButtonDown("Vertical Player 2"))
+                {
+                    AudioManager.Play("PressurePlateOff");
+                    Debug.Log("Moved up or down");
+                }
             }
         }
     }
@@ -136,15 +160,16 @@ public class MenuManager : MonoBehaviour {
         toggleMenu = !toggleMenu;
         mainMenu.SetActive(toggleMenu);
         OnMenuChange();
+
         if (!toggleMenu)
         {
             for (var i = 0; i < menus.Count; i++)
             {
-                menus[i].SetActive(false);
+                menus[i].SetActive(false);               
             }
         }
         if (toggleMenu) Time.timeScale = 0;
-        else            Time.timeScale = 1;
+        else            Time.timeScale = 1; 
     }
 
     public void SetTimeScale()

@@ -11,6 +11,7 @@ public class Gate : MonoBehaviour
     PressurePlate pressurePlate;
     PressurePlate pressurePlate1;
 
+    public bool soundIsPlaying;
 
     void Start()
     {
@@ -22,13 +23,20 @@ public class Gate : MonoBehaviour
     {
         if (pressurePlate.on && pressurePlate1.on)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector2(transform.position.x + endPos.x, endPos.y), speed / 100);
-            if (transform.position.y < endPos.y)
+            if (transform.position.y < endPos.y && !soundIsPlaying)
+            {
+                AudioManager.PlayOneShot("GateOpen");
                 AudioManager.Play("GateOpen");
-            else
-                AudioManager.Stop("GateOpen");
+                soundIsPlaying = true;
+            }                         
+            transform.position = Vector3.MoveTowards(transform.position, new Vector2(transform.position.x + endPos.x, endPos.y), speed / 100);
         }
 
+        if(!pressurePlate.on || !pressurePlate1.on)
+        {
+            soundIsPlaying = false;
+            AudioManager.Stop("GateOpen");
+        }
 
     }
 

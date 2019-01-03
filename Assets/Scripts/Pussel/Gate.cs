@@ -35,8 +35,8 @@ public class Gate : MonoBehaviour
     private void OnDrawGizmos()
     {
         {
-            if (drawGizmos) Gizmos.DrawCube(new Vector2(transform.position.x + endPos.x, endPos.y), transform.localScale);
+            BoxCollider2D col = GetComponent<BoxCollider2D>();
+            if (drawGizmos) Gizmos.DrawCube(new Vector2(transform.position.x + endPos.x, endPos.y), new Vector2(col.size.x, (col.size.y + transform.localScale.y)));
         }
-
     }
 }

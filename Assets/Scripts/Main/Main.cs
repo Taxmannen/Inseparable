@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
     public int frameRate = 60;
-    public bool cursor = true;
     public static string[] controllers;
     public static bool loading;
 
@@ -12,7 +11,9 @@ public class Main : MonoBehaviour {
         controllers = new string[2];
         Application.targetFrameRate = frameRate;
         QualitySettings.vSyncCount = 0;
-        Cursor.visible = cursor;
+
+        if (!Application.isEditor) Cursor.visible = false;
+        else                       Cursor.visible = true;
 
         string[] names = Input.GetJoystickNames();
         for (int x = 0; x < 2; x++)

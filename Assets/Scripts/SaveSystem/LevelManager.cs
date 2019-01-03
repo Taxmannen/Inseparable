@@ -71,6 +71,7 @@ public class LevelManager : MonoBehaviour {
         rope.transform.position = new Vector2(gs.player1PosX + 1, gs.player1PosY);
         Camera.main.transform.position = new Vector3(gs.player1PosX, gs.player1PosY , -10);
 
+        LeverController.setLeverStates(gs.levers);
         Main.loading = false;
     }
 }

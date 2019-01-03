@@ -27,7 +27,7 @@ public class StartMenu : MonoBehaviour {
             {
                 loading = true;
                 gameSetup.Invoke("EnableHud", 0.25f);
-                gs.Load();
+                gs.LoadOnContinue();
             }
             else if (other.name == "Exit Button")
             {

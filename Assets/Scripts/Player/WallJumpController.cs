@@ -37,7 +37,11 @@ public class WallJumpController : MovementScript
         jumpButton = Input.GetButton(jumpButtonStr);
 
         if (jumpButton && wallContact)
+        {
             jumpTimeCounter = jumpTime;
+            AudioManager.Play("WallJump");
+        }
+            
         else
             jumpTimeCounter = 0;
     }

@@ -31,7 +31,7 @@ public class UseItems : MonoBehaviour {
         {
             if (!selectedItem.GetHealthPotion() && !selectedItem.GetReviveStone())
             {
-                AudioManager.Play("CannotUseItem");
+                AudioManager.Play("NoneItem");
             }
 
             if (selectedItem.GetHealthPotion() && !playerStats.GetUsePotion())

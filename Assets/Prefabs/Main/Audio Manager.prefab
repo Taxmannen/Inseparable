@@ -135,3 +135,13 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
+  - name: NoneItem
+    clip: {fileID: 8300000, guid: 1ea410a550becec4781af8e5f02777cb, type: 3}
+    volume: 0.3
+    pitch: 2.5
+    source: {fileID: 0}
+  - name: WallJump
+    clip: {fileID: 8300000, guid: e361ef5547dd35649a7343eb502d0928, type: 3}
+    volume: 0.4
+    pitch: 1.8
+    source: {fileID: 0}

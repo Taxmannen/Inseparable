@@ -35,8 +35,6 @@ public class GrowingBridgeController : Action {
     GameObject[] staticTiles;
     List<GameObject> movingTiles;
 
-    public GameSettings gameSettings;
-
     bool leverState;
     bool moving;
 
@@ -68,9 +66,7 @@ public class GrowingBridgeController : Action {
     }
 
     public override void onStateChange(bool state)
-    {
-        gameSettings.growingBridge = state;
-        
+    {        
         if (cutscene)
         {
             CameraManager.instance.ChangeFocusTo(movingObjects.transform, cutsceneOffset);

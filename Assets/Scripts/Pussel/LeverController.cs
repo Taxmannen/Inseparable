@@ -13,12 +13,12 @@ public class LeverController : MonoBehaviour {
     
     public int index;
 
-    public static List<LeverController> levers;
-    public GameSettings gameSettings;
+    public static List<LeverController> levers = new List<LeverController>();
     
     public static void setLeverStates(bool[] states) {
         foreach(LeverController leverController in levers) {
             leverController.setState(states[leverController.index]);
+
         }
     }
 
@@ -40,7 +40,7 @@ public class LeverController : MonoBehaviour {
 
         if ((tempState ^ leverState) && !disabled)
         {
-            gameSettings.levers[index] = tempState;
+            GameSettings.gameSettings.levers[index] = tempState;
             foreach (Action la in leverActions)
                 la.onStateChange(tempState);
         }
@@ -65,7 +65,7 @@ public class LeverController : MonoBehaviour {
             foreach (Action la in leverActions)
                 la.onForceStateChange(tempState);
 
-            gameSettings.levers[index] = tempState;
+            GameSettings.gameSettings.levers[index] = tempState;
         }
 
         leverState = tempState;

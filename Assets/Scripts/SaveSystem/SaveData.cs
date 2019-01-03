@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
 public class SaveData
 {
     public string[] settingsStr;
     public float[] settingsFloat;
-    public bool[] settingsBool;
+    public bool[] levers;
 
     public SaveData(GameSettings gs)
     {
@@ -16,7 +17,7 @@ public class SaveData
         settingsFloat[0] = gs.player1PosX;
         settingsFloat[1] = gs.player1PosY;
 
-        settingsBool = new bool[1];
-        settingsBool[0] = gs.growingBridge;
+        //Debug.Log(gs.levers[1]);
+        levers = gs.levers;
     }
 }

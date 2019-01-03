@@ -100,3 +100,48 @@ MonoBehaviour:
     volume: 1
     pitch: -1.72
     source: {fileID: 0}
+  - name: Lever
+    clip: {fileID: 8300000, guid: 3ca06e37311c6b7408f275ee2125dd8d, type: 3}
+    volume: 0.05
+    pitch: 1
+    source: {fileID: 0}
+  - name: GrowingBridge
+    clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
+    volume: 1
+    pitch: 1.15
+    source: {fileID: 0}
+  - name: UseItem
+    clip: {fileID: 8300000, guid: 15e0afa317b9d754888c471b599593dc, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: MenuUpAndDown
+    clip: {fileID: 8300000, guid: 1c94f057c3856fa4d9a3ed459069ae2c, type: 3}
+    volume: 0.5
+    pitch: 1.15
+    source: {fileID: 0}
+  - name: MenuSubmit
+    clip: {fileID: 8300000, guid: 15e0afa317b9d754888c471b599593dc, type: 3}
+    volume: 0.2
+    pitch: 1.5
+    source: {fileID: 0}
+  - name: MenuCancel
+    clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
+    volume: 0.1
+    pitch: -1
+    source: {fileID: 0}
+  - name: CannotUseItem
+    clip: {fileID: 8300000, guid: 1ea410a550becec4781af8e5f02777cb, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - name: NoneItem
+    clip: {fileID: 8300000, guid: 1ea410a550becec4781af8e5f02777cb, type: 3}
+    volume: 0.3
+    pitch: 2.5
+    source: {fileID: 0}
+  - name: WallJump
+    clip: {fileID: 8300000, guid: e361ef5547dd35649a7343eb502d0928, type: 3}
+    volume: 0.4
+    pitch: 1.8
+    source: {fileID: 0}

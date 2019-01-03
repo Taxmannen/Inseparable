@@ -21,7 +21,7 @@ public class SelectedItem : MonoBehaviour {
     public void CheckUsebleItem(string s)
     {
        healthPotion = s == "Potion" ? true : false;
-       reviveStone = s == "Revive" ? true : false;
+       reviveStone = s == "Revive Stone" ? true : false;
     }
 
     public bool GetHealthPotion()

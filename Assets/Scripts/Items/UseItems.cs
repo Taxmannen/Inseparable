@@ -29,9 +29,24 @@ public class UseItems : MonoBehaviour {
     { 
         if (Input.GetButtonDown("Use Item" + " " + gameObject.name))
         {
-            
+            if (!selectedItem.GetHealthPotion() && !selectedItem.GetReviveStone())
+            {
+                AudioManager.Play("NoneItem");
+            }
+
+            if (selectedItem.GetHealthPotion() && !playerStats.GetUsePotion())
+            {
+                AudioManager.Play("CannotUseItem");
+            }
+
+            if (selectedItem.GetReviveStone() && !otherPlayer.GetDead())
+            {
+                AudioManager.Play("CannotUseItem");
+            }
+
             if (selectedItem.GetHealthPotion() && playerStats.GetUsePotion())
             {
+                AudioManager.Play("UseItem");
                 playerStats.RestoreHealth(healAmount);
                 inventory.DestroyItem();
                 inventory.InventorySetup();
@@ -39,6 +54,7 @@ public class UseItems : MonoBehaviour {
 
             if (selectedItem.GetReviveStone() && otherPlayer.GetDead())
             {
+                AudioManager.Play("UseItem");
                 otherPlayer.Revive(healAmount);
                 inventory.DestroyItem();
                 inventory.InventorySetup();

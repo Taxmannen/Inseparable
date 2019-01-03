@@ -70,11 +70,13 @@ public class GrowingBridgeController : Action {
         if (cutscene)
         {
             CameraManager.instance.ChangeFocusTo(movingObjects.transform, cutsceneOffset);
-
+            AudioManager.Play("GrowingBridge");
             if (freezePlayers)
                 foreach (ScriptController sc in playerScriptControllers)
                     sc.freezePlayer();
         }
+
+        if (!cutscene) AudioManager.Stop("GrowingBridge");
 
         bool previousLeverState = this.leverState;
         this.leverState = state;

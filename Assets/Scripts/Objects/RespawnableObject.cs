@@ -25,10 +25,11 @@ public class RespawnableObject : MonoBehaviour
         }
         */
 
-        if (other.gameObject.name == "Player 1" || other.gameObject.name == "Player 2")
+       /* if (other.gameObject.name == "Player 1" || other.gameObject.name == "Player 2")
         {
             AudioManager.Play("ObjectCollision");
         }
+        */
     }
 
 
@@ -36,7 +37,14 @@ public class RespawnableObject : MonoBehaviour
     {
         if (other.gameObject.tag == "Ground")
         {
-            AudioManager.Play("ObjectCollision");
+            if (Vector3.Distance(transform.position, GameObject.Find("Player 1").transform.position) < 30)
+            {
+                if (Vector3.Distance(transform.position, GameObject.Find("Player 2").transform.position) < 30)
+                {
+                    AudioManager.Play("ObjectCollision");
+                    Debug.Log("Close Enough");
+                }
+            }            
         }
     }
 
@@ -48,6 +56,7 @@ public class RespawnableObject : MonoBehaviour
         Debug.Log(speed.y);
         */
     }
+    
 
 }
 

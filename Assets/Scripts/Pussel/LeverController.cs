@@ -9,14 +9,29 @@ public class LeverController : MonoBehaviour {
     
     public Transform leverHandle;
     public bool leverState;
-    public bool testForce;
     bool disabled = false;
+    
+    public int index;
 
-	void Start () {
+    public static List<LeverController> levers;
+    public GameSettings gameSettings;
+    
+    public static void setLeverStates(bool[] states) {
+        foreach(LeverController leverController in levers) {
+            leverController.setState(states[leverController.index]);
+        }
+    }
+
+    public void Start(){
         leverState = false;
-	}
-	
-	void Update () {
+        levers.Add(this);
+    }
+
+    public void OnDestroy(){
+        levers.Remove(this);
+    }
+    
+    void Update () {
         bool tempState;
         if (leverHandle.position.x < transform.position.x)
             tempState = true;
@@ -25,21 +40,15 @@ public class LeverController : MonoBehaviour {
 
         if ((tempState ^ leverState) && !disabled)
         {
+            gameSettings.levers[index] = tempState;
             foreach (Action la in leverActions)
                 la.onStateChange(tempState);
         }
 
         leverState = tempState;
-
-        if (testForce)
-        {
-            setState(true);
-            testForce = false;
-        }
-
     }
 
-    void setState(bool tempState)
+    public void setState(bool tempState)
     {
         if (tempState ^ leverState)
         {
@@ -55,7 +64,8 @@ public class LeverController : MonoBehaviour {
             
             foreach (Action la in leverActions)
                 la.onForceStateChange(tempState);
-            
+
+            gameSettings.levers[index] = tempState;
         }
 
         leverState = tempState;

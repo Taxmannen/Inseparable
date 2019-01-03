@@ -61,18 +61,15 @@ public class MenuManager : MonoBehaviour {
             {
                 if (Input.GetButtonDown("Submit Player 1") || Input.GetButtonDown("Submit Player 2"))
                 {
-                    AudioManager.PlayOneShot("PressurePlateOn");
-                    Debug.Log("Submitted");
+                    AudioManager.PlayOneShot("MenuSubmit");
                 }
                 if (Input.GetButtonDown("Cancel Player 1") || Input.GetButtonDown("Cancel Player 2"))
                 {
-                    AudioManager.Play("PressurePlateOff");
-                    Debug.Log("Cancelled");
+                    AudioManager.Play("MenuCancel");
                 }
                 if (Input.GetButtonDown("Vertical Player 1") || Input.GetButtonDown("Vertical Player 2"))
                 {
-                    AudioManager.Play("PressurePlateOff");
-                    Debug.Log("Moved up or down");
+                    AudioManager.Play("MenuUpAndDown");
                 }
             }
         }

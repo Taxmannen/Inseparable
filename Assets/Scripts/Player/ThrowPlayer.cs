@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /* Script made by Daniel */
 public class ThrowPlayer : MovementScript {
+    public LayerMask playerLayer;
     public Vector2 power = new Vector2(20, 25);
     public bool pickup;
 
@@ -27,9 +29,8 @@ public class ThrowPlayer : MovementScript {
 
     void Start ()
     {
-        throwButtonStr = "Throw"   + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+        throwButtonStr  = "Throw"  + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
         pickupButtonStr = "Pickup" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
-
         string otherPlayer;
 		if      (gameObject.name == "Player 1") otherPlayer = "Player 2";
 		else                                    otherPlayer = "Player 1";
@@ -43,40 +44,63 @@ public class ThrowPlayer : MovementScript {
 
     void Update ()
     {
-        if (Input.GetAxisRaw(throwButtonStr) == 0)
-        {
-            buttonUpThrow = true;
-        }
+        bool canPickup = Physics2D.OverlapCircle(transform.position, 0.8f, playerLayer);
+        if (canPickup) PickupManager();
 
-        if (pickup)
-        {
-            if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUpThrow)
-            {
-                float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
-                float y = Input.GetAxisRaw("Vertical "  + gameObject.name);
-                if(new Vector2(x, y).sqrMagnitude < 0.01f)
-                {
-                    rb.gravityScale = 1;
-                    pickup = false;
-                    buttonUpThrow = false;
-                    return;
-                }
-
-                Vector2 directionVector = new Vector2(x, y);
-                
-                rb.gravityScale = 1;
-                rb.AddForce(new Vector2(power.x * directionVector.x, power.y * Mathf.Clamp(directionVector.y, 0f, 1f)), ForceMode2D.Impulse);
-                pickup = false;
-                buttonUpThrow = false;
-                AudioManager.Play("Throw");
-            }
-            if      (!movementController.grounded && rb.gravityScale == 0) rb.gravityScale = 1;
-            else if (movementController.grounded  && rb.gravityScale == 1) rb.gravityScale = 0;
-        }
+        if (pickup) ThrowManager();
         else
         {
             if (rb.gravityScale == 0) rb.gravityScale = 1;
         }
+    }
+
+    private void PickupManager()
+    {
+        if (Input.GetAxisRaw(pickupButtonStr) != 0 && Time.time - pickupTime > 0.3f)
+        {
+            if (!pickup && movementController.grounded)
+            {
+                pickup = true;
+                rb.gravityScale = 0;
+                AudioManager.Play("Pickup");
+            }
+            else if (pickup)
+            {
+                pickup = false;
+                rb.gravityScale = 1;
+            }
+            pickupTime = Time.time;
+        }
+        if (Input.GetAxisRaw(throwButtonStr) == 0)
+        {
+            buttonUpThrow = true;
+        }
+    }
+
+    private void ThrowManager()
+    {
+        if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUpThrow)
+        {
+            float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
+            float y = Input.GetAxisRaw("Vertical " + gameObject.name);
+            if (new Vector2(x, y).sqrMagnitude < 0.01f)
+            {
+                rb.gravityScale = 1;
+                pickup = false;
+                buttonUpThrow = false;
+                return;
+            }
+
+            Vector2 directionVector = new Vector2(x, y);
+
+            rb.gravityScale = 1;
+            rb.AddForce(new Vector2(power.x * directionVector.x, power.y * Mathf.Clamp(directionVector.y, 0f, 1f)), ForceMode2D.Impulse);
+            pickup = false;
+            buttonUpThrow = false;
+            AudioManager.Play("Throw");
+        }
+        if      (!movementController.grounded && rb.gravityScale == 0) rb.gravityScale = 1;
+        else if (movementController.grounded  && rb.gravityScale == 1) rb.gravityScale = 0;
     }
 
     private void FixedUpdate() {
@@ -157,7 +181,7 @@ public class ThrowPlayer : MovementScript {
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    /*private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -177,5 +201,11 @@ public class ThrowPlayer : MovementScript {
                 pickupTime = Time.time;
             }
         }
+    }*/
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawSphere(transform.position, 0.8f);
     }
 }

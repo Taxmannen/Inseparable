@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour {
     {
         if (!dead)
         {
+            AudioManager.Play("TakeDamage");
             currentHealth -= damage;
             usePotion = true;
             takeDamageEffect.StartFade();

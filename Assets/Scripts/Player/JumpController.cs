@@ -26,6 +26,9 @@ public class JumpController : MovementScript
     private Rigidbody2D rb;
     Animator anim;
 
+    public Transform rightArm;
+    public Transform leftArm;
+
     JumpState state;
 
     string jumpButtonStr;
@@ -66,11 +69,26 @@ public class JumpController : MovementScript
 
         jumpButton = Input.GetButton(jumpButtonStr);
 
-        if (jumpButton && state == JumpState.CanJump)
-        {
+        if (jumpButton && state == JumpState.CanJump) {
             AudioManager.Play("Jump");
             anim.Play("Jump");
             state = JumpState.IsJumping;
+        }
+
+        if (state == JumpState.IsJumping && !grounded)
+        {
+            Vector3 scale = rightArm.localScale;
+            scale.y = 2f;
+            rightArm.localScale = scale;
+            leftArm.localScale = scale;
+            anim.Play("Jump Wiggle");
+        }
+        else
+        {
+            Vector3 scale = rightArm.localScale;
+            scale.y = 1f;
+            rightArm.localScale = scale;
+            leftArm.localScale = scale;
         }
 
         if (!jumpButton && state == JumpState.IsJumping)
@@ -82,7 +100,6 @@ public class JumpController : MovementScript
                 AudioManager.Play("Land");
                 anim.Play("Idle");
                 //Anim JUMP!
-
             }
             else jumpTimeCounter = 0;
         }

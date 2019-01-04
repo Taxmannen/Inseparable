@@ -20,6 +20,11 @@ public class ThrowPlayer : MovementScript {
     public GameObject rightArm;
     public float i=0;
 
+    public Vector3 leftArmStart;
+    public Vector3 rightArmStart;
+    public Vector3 rightArmStartAangles;
+
+
     void Start ()
     {
         throwButtonStr = "Throw"   + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
@@ -28,10 +33,12 @@ public class ThrowPlayer : MovementScript {
         string otherPlayer;
 		if      (gameObject.name == "Player 1") otherPlayer = "Player 2";
 		else                                    otherPlayer = "Player 1";
-
+        
         player = GameObject.Find(otherPlayer).transform;
         movementController = GetComponent<MovementController>();
         rb = player.GetComponent<Rigidbody2D>();
+        leftArmStart = leftArm.transform.localPosition;
+        rightArmStart = rightArm.transform.localPosition;
     }
 
     void Update ()
@@ -82,8 +89,7 @@ public class ThrowPlayer : MovementScript {
         else
         {
             i = 0;
-            rightArm.transform.localPosition = Vector3.zero;
-            rightArm.transform.eulerAngles = Vector3.zero;
+            rightArm.transform.localPosition = rightArmStart;
         }
     }
 
@@ -136,7 +142,7 @@ public class ThrowPlayer : MovementScript {
 
         eulerAngle.z = a;
         rightArm.transform.localEulerAngles = eulerAngle;
-
+        
         if (i < max)
         {
             /*localOtherPlayer = localOtherPlayer.normalized;

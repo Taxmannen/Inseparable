@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 6889416302079305819}
   - component: {fileID: 6889416302079305830}
   - component: {fileID: 6889416302079305812}
+  - component: {fileID: 632029968520627447}
   m_Layer: 9
   m_Name: Player 1
   m_TagString: Player
@@ -342,7 +343,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 25
   m_Sprite: {fileID: 21300000, guid: d0f4cb67fd540f243bdca200f6ade559, type: 3}
-  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
+  m_Color: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -550,10 +551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1625c51fef26e4582d9e823cd6068b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 120
-  jumpTime: 0.1
-  jumpTimeCounter: 0
-  jumpForceReduction: 12.4
+  maxGroundSpeed: 0
+  flatGroundMultiplier: 0
   wallContact: 0
   groundLayer:
     serializedVersion: 2
@@ -621,6 +620,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6889416302079305814}
+--- !u!114 &632029968520627447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889416302079305814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5169d34e4ab1ed149946b02195fa53cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6889416302229000307
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +889,7 @@ GameObject:
   - component: {fileID: 6889416303197244051}
   - component: {fileID: 6889416303197244045}
   - component: {fileID: 6889416303197244046}
+  - component: {fileID: 6791447140236902840}
   m_Layer: 9
   m_Name: Player 2
   m_TagString: Player
@@ -1152,10 +1164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1625c51fef26e4582d9e823cd6068b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 120
-  jumpTime: 0.1
-  jumpTimeCounter: 0
-  jumpForceReduction: 12.4
+  maxGroundSpeed: 0
+  flatGroundMultiplier: 0
   wallContact: 0
   groundLayer:
     serializedVersion: 2
@@ -1195,6 +1205,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transparent: {fileID: 21300000, guid: 534192e4ababfdf4b93c3fb6903780fa, type: 3}
   healAmount: 100
+--- !u!114 &6791447140236902840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889416303197244040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5169d34e4ab1ed149946b02195fa53cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6889416303464054990
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class PlayerStats : MonoBehaviour {
     public int maxHealth;
     public int currentHealth;
     public bool dead;
+    TakeDamageEffect takeDamageEffect;
 
     bool usePotion;
     Animator anim;
@@ -14,7 +15,8 @@ public class PlayerStats : MonoBehaviour {
     {
         scripts = gameObject.GetComponents<MonoBehaviour>();
         anim = GetComponent<Animator>();
-        currentHealth = maxHealth;	
+        currentHealth = maxHealth;
+        takeDamageEffect = GetComponent<TakeDamageEffect>();
 	}
 
     private void FixedUpdate()
@@ -28,6 +30,7 @@ public class PlayerStats : MonoBehaviour {
         {
             currentHealth -= damage;
             usePotion = true;
+            takeDamageEffect.StartFade();
             if (currentHealth <= 0)
             {
                 currentHealth = 0;

@@ -89,7 +89,6 @@ public class PlayerStats : MonoBehaviour {
         {
             if (!(scripts[i] is PlayerStats)) scripts[i].enabled = state;
         }
-        transform.GetChild(0).gameObject.SetActive(!state);
     }
 
     public bool GetUsePotion()

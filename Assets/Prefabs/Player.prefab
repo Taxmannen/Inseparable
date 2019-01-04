@@ -572,6 +572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6110c79aee1e1014087dc5fa726571d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   power: {x: 20, y: 20}
   pickup: 0
   leftArmParent: {fileID: 5541447472961330649}
@@ -1190,6 +1193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6110c79aee1e1014087dc5fa726571d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   power: {x: 20, y: 20}
   pickup: 0
   leftArmParent: {fileID: 7242081411230917809}
@@ -1398,6 +1404,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: dc7e653fba96bae4fbb9b01d2213d26d, type: 2}
   mass: 0.03
   size: 40
+  spriteRendererOn: 0
   colliderSize: {x: 1.5, y: 1.5}
   hingePosition: {x: 0.2, y: 0}
   hingeOn: 1
@@ -1407,6 +1414,11 @@ MonoBehaviour:
   autoConfigureAnchor: 0
   autoConfigureDistance: 0
   maxDistanceOnly: 1
+  springOn: 0
+  autoConfiqureConnectedAnchor: 0
+  autoConfiqureDistance: 0
+  maxDistanceSpring: 0
+  frequency: 0
   lineOn: 1
 --- !u!1 &6889416303735103607
 GameObject:

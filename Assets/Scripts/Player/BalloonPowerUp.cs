@@ -4,6 +4,7 @@
 public class BalloonPowerUp : MonoBehaviour {
     public bool on;
     public Vector2 force;
+    public float timer;
 
     MovementController mc;
     Light characterLight;
@@ -31,9 +32,14 @@ public class BalloonPowerUp : MonoBehaviour {
         float x = Input.GetAxis("Horizontal" + " " + gameObject.name)/8; 
         float y = Input.GetAxis("Vertical"   + " " + gameObject.name)/10;
 
+        timer -= Time.deltaTime;
+        if (timer < 0 && on) on = false;
+
         if (Input.GetButtonDown(button) && !started)
         {
             on = !on;
+            if (on) AudioManager.Play("Balloon Up");
+            else    AudioManager.Play("Balloon Down");
         }
         if (on)
         {

@@ -145,3 +145,8 @@ MonoBehaviour:
     volume: 0.4
     pitch: 1.8
     source: {fileID: 0}
+  - name: TakeDamage
+    clip: {fileID: 8300000, guid: e6dcd542d56237b42b4a6440af53aafd, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

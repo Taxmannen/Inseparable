@@ -312,7 +312,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6889416302079305814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -614,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   on: 0
   force: {x: 0, y: 0.4}
+  timer: 0
 --- !u!114 &6889416302079305812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1405,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: dc7e653fba96bae4fbb9b01d2213d26d, type: 2}
   mass: 0.03
   size: 40
-  spriteRendererOn: 0
   colliderSize: {x: 1.5, y: 1.5}
   hingePosition: {x: 0.2, y: 0}
   hingeOn: 1
@@ -1414,11 +1414,6 @@ MonoBehaviour:
   autoConfigureAnchor: 0
   autoConfigureDistance: 0
   maxDistanceOnly: 1
-  springOn: 0
-  autoConfiqureConnectedAnchor: 0
-  autoConfiqureDistance: 0
-  maxDistanceSpring: 0
-  frequency: 0
   lineOn: 1
 --- !u!1 &6889416303735103607
 GameObject:

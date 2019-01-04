@@ -40,11 +40,9 @@ public class MovingObstacle : MonoBehaviour {
 
             timer -= Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed / 100);
-
-            if (player1Stats.transform.position.x < transform.position.x + (transform.localScale.x/2)) player1 = true;
+            if (player1Stats.transform.position.x - (Mathf.Abs(player1Stats.transform.localScale.x/2)) < transform.position.x + 0.55f) player1 = true;
             else player1 = false;
-
-            if (player2Stats.transform.position.x < transform.position.x + (transform.localScale.x/2)) player2 = true;
+            if (player2Stats.transform.position.x - (Mathf.Abs(player1Stats.transform.localScale.x/2)) < transform.position.x + 0.55f) player2 = true;
             else player2 = false;
 
             if (player1 || player2)
@@ -75,7 +73,6 @@ public class MovingObstacle : MonoBehaviour {
     void TurnOff()
     {
         cameraManager.ResetFocus();
-        Destroy(this);
     }
 
     private void OnDrawGizmos()

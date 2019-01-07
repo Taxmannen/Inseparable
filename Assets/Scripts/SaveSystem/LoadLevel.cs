@@ -21,6 +21,7 @@ public class LoadLevel : MonoBehaviour {
             GameSettings gs = GameObject.Find("Main").GetComponent<GameSettings>();
             gs.player1PosX = startPos.x;
             gs.player1PosY = startPos.y;
+
             levelManager.Load(sceneName);
         }
     }

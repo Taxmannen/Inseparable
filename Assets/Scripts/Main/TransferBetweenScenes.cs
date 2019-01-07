@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* Script made by Daniel */
 public class TransferBetweenScenes : MonoBehaviour {
@@ -12,5 +13,9 @@ public class TransferBetweenScenes : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             Instance = this;
         }
+    }
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "End Screen") Destroy(gameObject);
     }
 }

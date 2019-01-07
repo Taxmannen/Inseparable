@@ -49,11 +49,6 @@ public class JumpController : MovementScript
         throwPlayerScript = GetComponent<ThrowPlayer>();
     }
 
-    void onJumpStart()
-    {
-
-    }
-
     void Update()
     {
         grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer);

@@ -46,11 +46,6 @@ public class JumpController : MovementScript
         jumpTimeCounter = jumpTime;
     }
 
-    void onJumpStart()
-    {
-
-    }
-
     void Update()
     {
         grounded = GetPlayer.getPlayerGroundedByName(gameObject.name, groundLayer);

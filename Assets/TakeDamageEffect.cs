@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Made By Jocke
 public class TakeDamageEffect : MonoBehaviour
 {
     SpriteRenderer rendererPlayer;
@@ -26,27 +26,32 @@ public class TakeDamageEffect : MonoBehaviour
         for (float f = 1f; f >= 0.5; f -= 0.01f)
         {
             Color playerColor = rendererPlayer.color;
-            Color armColor = rendererLeftArm.color;
             playerColor.a = f;
-            armColor.a = f;
             rendererPlayer.color = playerColor;
-            rendererRightArm.color = armColor;
-            rendererLeftArm.color = armColor;
+
+            for (float fArm = 1f; fArm >= 0; fArm -= 0.01f)
+            {
+                Color armColor = rendererLeftArm.color;
+                armColor.a = fArm;
+                rendererRightArm.color = armColor;
+                rendererLeftArm.color = armColor;
+            }
+
             yield return new WaitForSeconds(.005f);
         }
     }
     IEnumerator FadeBack()
     {
+        Color playerColor = rendererPlayer.color;
+        Color armColor = rendererLeftArm.color;
         for (float f = 0.5f; f <= 1; f += 0.01f)
         {
-            Color playerColor = rendererPlayer.color;
-            Color armColor = rendererLeftArm.color;
             playerColor.a = f;
-            armColor.a = f;
             rendererPlayer.color = playerColor;
-            rendererRightArm.color = armColor;
-            rendererLeftArm.color = armColor;
-            yield return new WaitForSeconds(.005f);
+            yield return new WaitForSeconds(.005f); 
         }
+        armColor.a = 1f;
+        rendererRightArm.color = armColor;
+        rendererLeftArm.color = armColor;
     }
 }

@@ -5,6 +5,7 @@ public class Smoke : MonoBehaviour
 {
     public LayerMask ground;
     private ParticleSystem ps;
+    public string player;
 
     void Start()
     {
@@ -15,8 +16,8 @@ public class Smoke : MonoBehaviour
     {
         var emission = ps.emission;
         emission.rateOverTime = 10f;
-        if (GetPlayer.playerReady(transform.parent.gameObject.name))
-        if (GetPlayer.getPlayerGroundedByName(transform.parent.gameObject.name, ground) && (Input.GetButton("Horizontal " + transform.parent.gameObject.name)))
+        if (GetPlayer.playerReady(player))
+        if (GetPlayer.getPlayerGroundedByName(player, ground) && (Input.GetButton("Horizontal " + player)))
         {
             emission.enabled = true;
         }

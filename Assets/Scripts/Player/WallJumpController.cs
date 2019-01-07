@@ -38,6 +38,7 @@ public class WallJumpController : MovementScript
         {
             jumpParticle.Play();
             GameObject g = Instantiate(jumpParticle, transform.position, Quaternion.identity).gameObject;
+            g.name = gameObject.name;
             Destroy(g, 0.5f);
             float maxSpeed = maxGroundSpeed;
             if (GetPlayer.otherPlayerReady(gameObject.name))

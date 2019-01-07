@@ -20,8 +20,8 @@ public class PlayerHealthBar : MonoBehaviour {
     {
         if (playerStats == null)
         {
-            if      (gameObject.name.Contains("1")) playerStats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
-            else if (gameObject.name.Contains("2")) playerStats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
+            if      (gameObject.name.Contains("1") && GameObject.Find("Player 1") != null) playerStats = GameObject.Find("Player 1").GetComponent<PlayerStats>();
+            else if (gameObject.name.Contains("2") && GameObject.Find("Player 2") != null) playerStats = GameObject.Find("Player 2").GetComponent<PlayerStats>();
         }
         healthBar.value = playerStats.currentHealth;
     }

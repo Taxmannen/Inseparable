@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TakeDamageEffect : MonoBehaviour
 {
-    SpriteRenderer sr;
-    Color c;
+    SpriteRenderer rendererPlayer;
+    public SpriteRenderer rendererRightArm;
+    public SpriteRenderer rendererLeftArm;
+    
+
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        sr.color = GetComponent<SpriteRenderer>().color;
+        rendererPlayer = GetComponent<SpriteRenderer>();
+        rendererPlayer.color = GetComponent<SpriteRenderer>().color;
     }
 
     public void StartFade()
@@ -22,9 +25,13 @@ public class TakeDamageEffect : MonoBehaviour
     {
         for (float f = 1f; f >= 0.5; f -= 0.01f)
         {
-            Color c = sr.color;
-            c.a = f;
-            sr.color = c;
+            Color playerColor = rendererPlayer.color;
+            Color armColor = rendererLeftArm.color;
+            playerColor.a = f;
+            armColor.a = f;
+            rendererPlayer.color = playerColor;
+            rendererRightArm.color = armColor;
+            rendererLeftArm.color = armColor;
             yield return new WaitForSeconds(.005f);
         }
     }
@@ -32,9 +39,13 @@ public class TakeDamageEffect : MonoBehaviour
     {
         for (float f = 0.5f; f <= 1; f += 0.01f)
         {
-            Color c = sr.color;
-            c.a = f;
-            sr.color = c;
+            Color playerColor = rendererPlayer.color;
+            Color armColor = rendererLeftArm.color;
+            playerColor.a = f;
+            armColor.a = f;
+            rendererPlayer.color = playerColor;
+            rendererRightArm.color = armColor;
+            rendererLeftArm.color = armColor;
             yield return new WaitForSeconds(.005f);
         }
     }

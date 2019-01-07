@@ -3,9 +3,10 @@
 // Script made by Jocke
 public class Rotation : MonoBehaviour {
     public float rotation;
+    public float speed;
 
     void FixedUpdate () {
-        rotation += Time.deltaTime * 10;
+        rotation += Time.deltaTime * speed;
         
         if (rotation >= 360)
         {

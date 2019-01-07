@@ -14,6 +14,8 @@ public class WallJumpController : MovementScript
 
     string jumpButtonStr;
 
+    public ParticleSystem jumpParticle;
+
     void Start()
     {
         jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
@@ -34,6 +36,9 @@ public class WallJumpController : MovementScript
     {
         if (jumpButton && wallContact)
         {
+            jumpParticle.Play();
+            GameObject g = Instantiate(jumpParticle, transform.position, Quaternion.identity).gameObject;
+            Destroy(g, 0.5f);
             float maxSpeed = maxGroundSpeed;
             if (GetPlayer.otherPlayerReady(gameObject.name))
             {

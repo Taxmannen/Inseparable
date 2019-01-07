@@ -33,6 +33,9 @@ public class JumpController : MovementScript
 
     string jumpButtonStr;
 
+    public ParticleSystem jumpParticle;
+    
+
     void Start()
     {
         state = JumpState.CanJump;
@@ -72,6 +75,9 @@ public class JumpController : MovementScript
         if (jumpButton && state == JumpState.CanJump) {
             AudioManager.Play("Jump");
             anim.Play("Jump");
+            jumpParticle.Play();
+            GameObject g = Instantiate(jumpParticle, transform.position, Quaternion.identity).gameObject;
+            Destroy(g, 0.5f);
             state = JumpState.IsJumping;
         }
 

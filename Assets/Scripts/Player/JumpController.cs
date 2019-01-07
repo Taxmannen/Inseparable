@@ -23,6 +23,7 @@ public class JumpController : MovementScript
     public LayerMask groundLayer;
     public LayerMask playerLayer;
     public JumpController otherPlayerJumpController;
+    private ThrowPlayer throwPlayerScript;
     private Rigidbody2D rb;
     Animator anim;
 
@@ -44,11 +45,8 @@ public class JumpController : MovementScript
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
-    }
 
-    void onJumpStart()
-    {
-
+        throwPlayerScript = GetComponent<ThrowPlayer>();
     }
 
     void Update()
@@ -74,7 +72,7 @@ public class JumpController : MovementScript
 
         if (jumpButton && state == JumpState.CanJump) {
             AudioManager.Play("Jump");
-            anim.Play("Jump");
+            if (!throwPlayerScript.pickup) anim.Play("Jump");
             jumpParticle.Play();
             GameObject g = Instantiate(jumpParticle, transform.position, Quaternion.identity).gameObject;
             Destroy(g, 0.5f);
@@ -104,7 +102,7 @@ public class JumpController : MovementScript
                 jumpTimeCounter = jumpTime;
                 state = JumpState.CanJump;
                 AudioManager.Play("Land");
-                anim.Play("Idle");
+                if (!throwPlayerScript.pickup) anim.Play("Idle");
                 //Anim JUMP!
             }
             else jumpTimeCounter = 0;

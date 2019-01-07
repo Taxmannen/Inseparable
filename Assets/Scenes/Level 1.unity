@@ -33221,11 +33221,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4719134068466161743, guid: b8e426dec71687e439f69d3f2bf78cf5,
         type: 3}
+    - target: {fileID: 2590197611321280628, guid: e4ed662f6ea61af488e8bf4611a9793e,
+        type: 3}
+      propertyPath: jumpParticle
+      value: 
+      objectReference: {fileID: 8837726489180335747, guid: 208e5231f598d6f4daefa2ff4d0d74f7,
+        type: 3}
     - target: {fileID: 2590197612343119026, guid: e4ed662f6ea61af488e8bf4611a9793e,
         type: 3}
       propertyPath: jumpParticle
       value: 
       objectReference: {fileID: 4719134068466161743, guid: b8e426dec71687e439f69d3f2bf78cf5,
+        type: 3}
+    - target: {fileID: 2590197612343119027, guid: e4ed662f6ea61af488e8bf4611a9793e,
+        type: 3}
+      propertyPath: jumpParticle
+      value: 
+      objectReference: {fileID: 8837726489180335747, guid: 208e5231f598d6f4daefa2ff4d0d74f7,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4ed662f6ea61af488e8bf4611a9793e, type: 3}

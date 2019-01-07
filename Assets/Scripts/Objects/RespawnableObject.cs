@@ -56,10 +56,4 @@ public class RespawnableObject : MonoBehaviour
         Debug.Log(speed.y);
         */
     }
-    
-
-}
-
-internal class RigidBody2D
-{
 }

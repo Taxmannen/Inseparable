@@ -22,10 +22,10 @@ public class ThrowPlayer : MovementScript {
     public GameObject rightArm;
     public float i=0;
 
-    public Vector3 leftArmStart;
-    public Vector3 rightArmStart;
-    public Vector3 rightArmStartAangles;
-
+    public Vector3 rightArmStartPosition;
+    public Vector3 rightArmStartAngles;
+    public Vector3 leftArmStartPosition;
+    public Vector3 leftArmStartAngles;
 
     void Start ()
     {
@@ -38,8 +38,10 @@ public class ThrowPlayer : MovementScript {
         player = GameObject.Find(otherPlayer).transform;
         movementController = GetComponent<MovementController>();
         rb = player.GetComponent<Rigidbody2D>();
-        leftArmStart = leftArm.transform.localPosition;
-        rightArmStart = rightArm.transform.localPosition;
+        rightArmStartPosition = rightArm.transform.localPosition;
+        rightArmStartAngles = rightArm.transform.localEulerAngles;
+        leftArmStartPosition = leftArm.transform.localPosition;
+        leftArmStartAngles = leftArm.transform.localEulerAngles;
     }
 
     void Update ()
@@ -56,7 +58,7 @@ public class ThrowPlayer : MovementScript {
 
     private void PickupManager()
     {
-        if (Input.GetAxisRaw(pickupButtonStr) != 0 && Time.time - pickupTime > 0.3f)
+        if (Input.GetAxisRaw(pickupButtonStr) > 0.2f && Time.time - pickupTime > 0.3f)
         {
             if (!pickup && movementController.grounded)
             {
@@ -71,7 +73,7 @@ public class ThrowPlayer : MovementScript {
             }
             pickupTime = Time.time;
         }
-        if (Input.GetAxisRaw(throwButtonStr) == 0)
+        if (Input.GetAxisRaw(throwButtonStr) < 0.2f)
         {
             buttonUpThrow = true;
         }
@@ -79,7 +81,7 @@ public class ThrowPlayer : MovementScript {
 
     private void ThrowManager()
     {
-        if (Input.GetAxisRaw(throwButtonStr) != 0 && buttonUpThrow)
+        if (Input.GetAxisRaw(throwButtonStr) > 0.2f && buttonUpThrow)
         {
             float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
             float y = Input.GetAxisRaw("Vertical " + gameObject.name);
@@ -99,21 +101,25 @@ public class ThrowPlayer : MovementScript {
             buttonUpThrow = false;
             AudioManager.Play("Throw");
         }
+        
         if      (!movementController.grounded && rb.gravityScale == 0) rb.gravityScale = 1;
         else if (movementController.grounded  && rb.gravityScale == 1) rb.gravityScale = 0;
     }
 
     private void FixedUpdate() {
+        Debug.Log(pickup);
         if (pickup)
         {
-            player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.05f);
-
+            player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
             updateArms();
         }
         else
         {
             i = 0;
-            rightArm.transform.localPosition = rightArmStart;
+            rightArm.transform.localPosition = rightArmStartPosition;
+            rightArm.transform.localEulerAngles = rightArmStartAngles;
+            leftArm.transform.localPosition = leftArmStartPosition * player.localScale.x * -1f;
+            leftArm.transform.localEulerAngles = leftArmStartAngles;
         }
     }
 

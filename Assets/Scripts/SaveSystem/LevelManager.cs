@@ -65,10 +65,11 @@ public class LevelManager : MonoBehaviour {
     private void Startup()
     {
         SaveSystem.Load();
-        GameObject.Find("Player 1").transform.position = new Vector2(gs.player1PosX, gs.player1PosY);
-        GameObject.Find("Player 2").transform.position = new Vector2(gs.player1PosX + 2, gs.player1PosY);
+        if (GameObject.Find("Player 1") != null) GameObject.Find("Player 1").transform.position = new Vector2(gs.player1PosX, gs.player1PosY);
+        if (GameObject.Find("Player 2") != null) GameObject.Find("Player 2").transform.position = new Vector2(gs.player1PosX + 2, gs.player1PosY);
+
         GameObject rope = GameObject.Find("Rope");
-        rope.transform.position = new Vector2(gs.player1PosX + 1, gs.player1PosY);
+        if (rope != null) rope.transform.position = new Vector2(gs.player1PosX + 1, gs.player1PosY);
         Camera.main.transform.position = new Vector3(gs.player1PosX, gs.player1PosY , -10);
 
         LeverController.setLeverStates(gs.levers);

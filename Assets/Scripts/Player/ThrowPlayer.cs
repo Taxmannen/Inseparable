@@ -106,8 +106,8 @@ public class ThrowPlayer : MovementScript {
         else if (movementController.grounded  && rb.gravityScale == 1) rb.gravityScale = 0;
     }
 
+    //Following made by Adam
     private void FixedUpdate() {
-        Debug.Log(pickup);
         if (pickup)
         {
             player.position = Vector3.MoveTowards(player.position, new Vector2(transform.position.x, transform.position.y + 1f), 0.1f);
@@ -116,9 +116,10 @@ public class ThrowPlayer : MovementScript {
         else
         {
             i = 0;
-            rightArm.transform.localPosition = rightArmStartPosition;
+            rightArm.transform.localPosition = rightArmStartPosition * rightArmParent.localScale.x;
             rightArm.transform.localEulerAngles = rightArmStartAngles;
-            leftArm.transform.localPosition = leftArmStartPosition * player.localScale.x * -1f;
+            Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
+            leftArm.transform.localPosition = leftArmStartPosition;
             leftArm.transform.localEulerAngles = leftArmStartAngles;
         }
     }
@@ -186,28 +187,6 @@ public class ThrowPlayer : MovementScript {
             i++;
         }
     }
-
-    /*private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            if (Input.GetAxisRaw(pickupButtonStr) != 0 && Time.time - pickupTime > 0.3f)
-            {
-                if (!pickup && movementController.grounded)
-                {
-                    pickup = true;
-                    rb.gravityScale = 0;
-                    AudioManager.Play("Pickup");
-                }
-                else if (pickup)
-                {
-                    pickup = false;
-                    rb.gravityScale = 1;
-                }
-                pickupTime = Time.time;
-            }
-        }
-    }*/
 
     private void OnDrawGizmos()
     {

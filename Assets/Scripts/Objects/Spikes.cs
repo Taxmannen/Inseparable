@@ -3,6 +3,7 @@
 // Script made by Jocke
 public class Spikes : MonoBehaviour
 {
+    public float growSize;
     float timer;
     float y;
     bool grow;
@@ -22,7 +23,7 @@ public class Spikes : MonoBehaviour
             shrink = false;
         }
 
-        if (timer > 2)
+        if (timer > growSize)
         {
             grow = false;
             shrink = true;

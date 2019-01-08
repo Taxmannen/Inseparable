@@ -105,8 +105,9 @@ public class LeverMoveObject : Action
                 player2.position += movement;
             }
 
-            if ((transform.position - pos).sqrMagnitude < 1)
+            if ((transform.position - pos).sqrMagnitude < 0.05f)
             {
+                transform.position = pos;
                 moving = false;
 
                 CameraManager.instance.ResetFocus();

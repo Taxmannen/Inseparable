@@ -22,6 +22,7 @@ public class GrowingBridgeController : Action {
     public GameObject staticObjects;
     
     public bool drawGizmos;
+    public bool startExtendedAndInvertInput;
     
     [Header("Cutscene Settings")]
     public bool cutscene;
@@ -45,9 +46,18 @@ public class GrowingBridgeController : Action {
 
         startPosition = movingObjects.transform.localPosition;
         endPosition = movingObjects.transform.localPosition + new Vector3(width + 6, 0);
-        leverState = false;
         moving = false;
-	}
+
+        if(startExtendedAndInvertInput)
+        {
+            leverState = true;
+            onForceStateChange(leverState);
+        }
+        else
+        {
+            leverState = false;
+        }
+    }
 
     GameObject spawnTile(float x, float y, Sprite sprite, Transform parent, int sortingOrder)
     {
@@ -66,7 +76,10 @@ public class GrowingBridgeController : Action {
     }
 
     public override void onStateChange(bool state)
-    {        
+    {
+        if (startExtendedAndInvertInput)
+            state = !state;
+
         if (cutscene)
         {
             CameraManager.instance.ChangeFocusTo(movingObjects.transform, cutsceneOffset);

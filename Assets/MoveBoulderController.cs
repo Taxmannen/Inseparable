@@ -25,8 +25,6 @@ public class MoveBoulderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(setToDestroy);
-        Debug.Log(countdown);
 
         if (rb.velocity.x < velocityX)
             rb.AddForce(new Vector3(forceX * Time.deltaTime, 0f, 0f));
@@ -36,7 +34,6 @@ public class MoveBoulderController : MonoBehaviour
             countdown--;
             Color c = sr.color;
             c.a = (countdown / maxCountdown);
-            Debug.Log(c.a);
             sr.color = c;
         }
 

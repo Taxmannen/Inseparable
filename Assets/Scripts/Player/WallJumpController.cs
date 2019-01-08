@@ -61,7 +61,6 @@ public class WallJumpController : MovementScript
 
                 if(otherController.jumpButton && otherController.wallContact) {
                     maxSpeed *= 0.65f;
-                    Debug.Log("Limiting!");
                 }
             }
             rb.AddForce(-Physics2D.gravity.normalized * (maxGroundSpeed - Mathf.Abs(rb.velocity.y)) * Time.deltaTime * flatGroundMultiplier, 0);

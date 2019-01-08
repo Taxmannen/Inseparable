@@ -30,8 +30,6 @@ public class FallingSpikeTrapScript : MonoBehaviour
             AudioManager.PlayOneShot("GateOpen");
             AudioManager.Play("GateOpen");
             timer += Time.deltaTime;
-            Debug.Log("Start = " + startPos);
-            Debug.Log("End = " + targetPos);
             if (!down)
             {
                 transform.position = Vector3.Lerp(startPos, targetPos, timer / travelTime);

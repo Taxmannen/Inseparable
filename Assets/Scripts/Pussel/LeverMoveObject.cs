@@ -50,7 +50,6 @@ public class LeverMoveObject : Action
         AudioManager.Play("MovingIsland");
         if (cutscene)
         {
-            
             CameraManager.instance.ChangeFocusTo(transform, cutsceneOffset);
 
             if (freezePlayers)
@@ -59,6 +58,14 @@ public class LeverMoveObject : Action
         }
         moving = true;
         this.leverState = state;
+    }
+
+    public override void onForceStateChange(bool state)
+    {
+        if (state)
+            transform.position = leverOnPosition;
+        else
+            transform.position = leverOffPosition;
     }
 
     public bool checkPlayer(Transform player)

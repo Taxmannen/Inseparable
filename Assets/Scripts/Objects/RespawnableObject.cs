@@ -18,7 +18,6 @@ public class RespawnableObject : MonoBehaviour
                 if (Vector3.Distance(transform.position, GameObject.Find("Player 2").transform.position) < 30)
                 {
                     AudioManager.Play("ObjectCollision");
-                    Debug.Log("Close Enough");
                 }
             }            
         }

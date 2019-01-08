@@ -323,7 +323,7 @@ MonoBehaviour:
   grounded: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   maxAirSpeed: 25
   flatAirMultiplier: 30
   maxGroundSpeed: 35
@@ -350,7 +350,7 @@ MonoBehaviour:
   grounded: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   grounded: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   maxAirSpeed: 25
   flatAirMultiplier: 30
   maxGroundSpeed: 35
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   grounded: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   playerLayer:
     serializedVersion: 2
     m_Bits: 512

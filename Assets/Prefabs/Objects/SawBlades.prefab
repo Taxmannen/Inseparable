@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394837176321522489}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBladeTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4394837176406111881}
   - component: {fileID: 4394837176406111880}
   - component: {fileID: 4394837176406111883}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4394837176426203384}
   - component: {fileID: 4394837176426203390}
   - component: {fileID: 4394837176426203385}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4394837176561918925}
   - component: {fileID: 7809870886477365507}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBlades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4394837176939357369}
   - component: {fileID: 4394837176939357368}
   - component: {fileID: 4394837176939357371}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 4394837176993017204}
   - component: {fileID: 4394837176993017207}
   - component: {fileID: 4394837176993017206}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 4394837177204352673}
   - component: {fileID: 4394837177204352672}
   - component: {fileID: 4394837177204352675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394837177335274515}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBladeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 4394837177822696049}
   - component: {fileID: 4394837177822696055}
   - component: {fileID: 4394837177822696054}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rotation 90
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -912,7 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394837178142269528}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBladeBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,7 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394837178243620135}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SawBladeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

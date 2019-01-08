@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 663240264}
   - component: {fileID: 663240263}
   - component: {fileID: 663240262}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5108,7 +5108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 289963936}
   m_Layer: 8
-  m_Name: Puzzel Bridge 1
+  m_Name: Puzzel Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

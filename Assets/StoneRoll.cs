@@ -11,15 +11,11 @@
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-            Debug.Log(gameObject.name);
             dmg = GetComponentInChildren<DamageToPlayer>();
         }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log(Mathf.Abs(rb.velocity.x));
-
         if (Mathf.Abs(rb.velocity.x) <= 0.5f) colli.enabled = false;
         else                                  colli.enabled = true;
     }

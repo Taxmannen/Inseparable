@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5631119637725594680}
   - component: {fileID: 6440322828843607652}
   - component: {fileID: 7244864119894268660}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SoundTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3432157881587818507}
   - component: {fileID: 3330630401082204581}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: NewLever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 3268787162121940997}
   - component: {fileID: 3394208147374791653}
   - component: {fileID: 650488592365428026}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 3394667400185102829}
   - component: {fileID: 3211253931474320363}
   - component: {fileID: 6577948685920504093}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 3432070188531582601}
   - component: {fileID: 3268189917007637935}
   - component: {fileID: 4755869832225200244}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

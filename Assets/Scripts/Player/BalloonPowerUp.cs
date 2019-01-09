@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /* Script made by Daniel */
 public class BalloonPowerUp : MonoBehaviour {
@@ -57,6 +57,7 @@ public class BalloonPowerUp : MonoBehaviour {
 
                 if (transform.localScale.x == 2 || transform.localScale.x == -2)
                 {
+                    GetComponent<JumpController>().state = JumpState.IsJumping;
                     inflated = true;
                     empty = false;
                     started = false;

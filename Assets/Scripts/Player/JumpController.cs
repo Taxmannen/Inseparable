@@ -72,7 +72,6 @@ public class JumpController : MovementScript
 
         if (jumpButton && state == JumpState.CanJump) {
             AudioManager.Play("Jump");
-            Debug.Log(throwPlayerScript.pickup);
             anim.Play("Jump");
             jumpParticle.Play();
             GameObject g = Instantiate(jumpParticle, transform.position, Quaternion.identity).gameObject;

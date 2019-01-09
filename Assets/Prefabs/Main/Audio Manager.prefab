@@ -47,17 +47,17 @@ MonoBehaviour:
   sounds:
   - name: Autosave
     clip: {fileID: 8300000, guid: 66a212df9b1e2d642aa8b9d9a410645e, type: 3}
-    volume: 0.1
+    volume: 0.025
     pitch: 1
     source: {fileID: 0}
   - name: Pickup
     clip: {fileID: 8300000, guid: 15e0afa317b9d754888c471b599593dc, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1.2
     source: {fileID: 0}
   - name: Throw
     clip: {fileID: 8300000, guid: 79d3e5e4f2721e24ba43ee382c14311d, type: 3}
-    volume: 1
+    volume: 0.25
     pitch: 0.9
     source: {fileID: 0}
   - name: Jump
@@ -72,22 +72,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Bridge
     clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 0.5
     source: {fileID: 0}
   - name: PressurePlateOn
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.6
+    volume: 0.4
     pitch: 0.8
     source: {fileID: 0}
   - name: PressurePlateOff
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.3
+    volume: 0.2
     pitch: 0.4
     source: {fileID: 0}
   - name: MovingIsland
     clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
-    volume: 1
+    volume: 0.12
     pitch: 3
     source: {fileID: 0}
   - name: ObjectCollision
@@ -107,7 +107,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GrowingBridge
     clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
-    volume: 1
+    volume: 0.05
     pitch: 1.15
     source: {fileID: 0}
   - name: UseItem
@@ -121,14 +121,14 @@ MonoBehaviour:
     pitch: 1.15
     source: {fileID: 0}
   - name: MenuSubmit
-    clip: {fileID: 8300000, guid: 15e0afa317b9d754888c471b599593dc, type: 3}
-    volume: 0.2
-    pitch: 1.5
+    clip: {fileID: 8300000, guid: 67589a5f7382c814dbb0e42b1edc7da0, type: 3}
+    volume: 0.03
+    pitch: 0.8
     source: {fileID: 0}
   - name: MenuCancel
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.1
-    pitch: -1
+    volume: 0.18
+    pitch: 0.8
     source: {fileID: 0}
   - name: CannotUseItem
     clip: {fileID: 8300000, guid: 1ea410a550becec4781af8e5f02777cb, type: 3}
@@ -152,11 +152,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Balloon Up
     clip: {fileID: 8300000, guid: 9c70f6d45070fd24a91a8498fe59c6b5, type: 3}
-    volume: 0.15
+    volume: 0.125
     pitch: 1
     source: {fileID: 0}
   - name: Balloon Down
     clip: {fileID: 8300000, guid: 9c70f6d45070fd24a91a8498fe59c6b5, type: 3}
-    volume: 0.15
+    volume: 0.125
     pitch: 1.2
     source: {fileID: 0}

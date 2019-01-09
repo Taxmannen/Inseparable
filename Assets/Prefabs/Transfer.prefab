@@ -12211,7 +12211,7 @@ MonoBehaviour:
   level: 
   player1PosX: 0
   player1PosY: 0
-  levers: 0000
+  levers: 0000000000
 --- !u!1 &7021912085954549859
 GameObject:
   m_ObjectHideFlags: 0

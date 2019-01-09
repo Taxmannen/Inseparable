@@ -393,11 +393,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat".incididunt
-    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-    ullamco".'
+  m_text: 'Welcome to inseparable!
+
+
+    This game is about relation, puzzle-solving, and a lot of jolly cooperation to
+    overcome them together.
+
+
+    Toss your partner around, avoid dangers and enjoy the exquisite gameplay.
+
+
+    remember to have fun!
+
+
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -432,7 +443,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 100
   m_fontStyle: 33
-  m_textAlignment: 514
+  m_textAlignment: 258
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -446,7 +457,7 @@ MonoBehaviour:
   m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
-  m_isTextTruncated: 0
+  m_isTextTruncated: 1
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -466,10 +477,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 959674041303541219}
-    characterCount: 338
+    characterCount: 226
     spriteCount: 0
-    spaceCount: 50
-    wordCount: 52
+    spaceCount: 37
+    wordCount: 34
     linkCount: 0
     lineCount: 12
     pageCount: 1

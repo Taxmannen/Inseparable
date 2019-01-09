@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum JumpState
+public enum JumpState
 {
     CanJump, IsJumping, HasJumped
 }
@@ -30,7 +30,7 @@ public class JumpController : MovementScript
     public Transform rightArm;
     public Transform leftArm;
 
-    JumpState state;
+    public JumpState state;
 
     string jumpButtonStr;
 

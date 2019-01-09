@@ -10,7 +10,6 @@ public class BalloonPowerUp : MonoBehaviour {
     Light characterLight;
     Rigidbody2D rb;
 
-    string button;
     float lightSize;
     bool inflated;
     bool empty;
@@ -23,7 +22,6 @@ public class BalloonPowerUp : MonoBehaviour {
         mc = GetComponent<MovementController>();
         characterLight = GetComponentInChildren<Light>();
         lightSize = characterLight.range;
-        button = "Seperate" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
         started = false;
     }
 	

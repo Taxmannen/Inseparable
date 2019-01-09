@@ -97,8 +97,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GateOpen
     clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
-    volume: 1
-    pitch: -1.72
+    volume: 0.2
+    pitch: 0.8
     source: {fileID: 0}
   - name: Lever
     clip: {fileID: 8300000, guid: 3ca06e37311c6b7408f275ee2125dd8d, type: 3}
@@ -152,11 +152,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Balloon Up
     clip: {fileID: 8300000, guid: 9c70f6d45070fd24a91a8498fe59c6b5, type: 3}
-    volume: 0.125
+    volume: 0.05
     pitch: 1
     source: {fileID: 0}
   - name: Balloon Down
     clip: {fileID: 8300000, guid: 9c70f6d45070fd24a91a8498fe59c6b5, type: 3}
-    volume: 0.125
+    volume: 0.05
     pitch: 1.2
     source: {fileID: 0}

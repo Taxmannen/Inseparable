@@ -932,7 +932,7 @@ PrefabInstance:
     - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
         type: 3}
       propertyPath: sounds.Array.data[10].volume
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a079094ed9c316a4fb6191431ab17b04, type: 3}
@@ -14312,7 +14312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189923644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99482b3dfe30b0a479ba9e9bced66a09, type: 3}
+  m_Script: {fileID: 11500000, guid: 48399dca7dd4dfa46b7bc2fffc976b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameSetup: {fileID: 1858070298}
@@ -14496,7 +14496,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325493346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99482b3dfe30b0a479ba9e9bced66a09, type: 3}
+  m_Script: {fileID: 11500000, guid: 48399dca7dd4dfa46b7bc2fffc976b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameSetup: {fileID: 1858070298}

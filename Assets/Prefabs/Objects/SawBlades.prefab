@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4394837176406111881}
   - component: {fileID: 4394837176406111880}
   - component: {fileID: 4394837176406111883}
+  - component: {fileID: 9209790256018049109}
   m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
@@ -177,9 +178,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aade29a6f2ae1d14ab9f38f6268fb702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  damageRate: 0.0001
   rotationSpeed: 1500
+--- !u!114 &9209790256018049109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394837176406111893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e6bbb385bcd4c48aeaa544db015245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageRate: 0.1
 --- !u!1 &4394837176426203387
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +466,7 @@ GameObject:
   - component: {fileID: 4394837176939357369}
   - component: {fileID: 4394837176939357368}
   - component: {fileID: 4394837176939357371}
+  - component: {fileID: 2562862949410509279}
   m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
@@ -586,9 +600,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aade29a6f2ae1d14ab9f38f6268fb702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  damageRate: 0.0001
   rotationSpeed: 1500
+--- !u!114 &2562862949410509279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394837176939357381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e6bbb385bcd4c48aeaa544db015245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageRate: 0.1
 --- !u!1 &4394837176993017200
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +628,7 @@ GameObject:
   - component: {fileID: 4394837176993017204}
   - component: {fileID: 4394837176993017207}
   - component: {fileID: 4394837176993017206}
+  - component: {fileID: 1736707507169997620}
   m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
@@ -735,9 +762,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aade29a6f2ae1d14ab9f38f6268fb702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  damageRate: 0.0001
   rotationSpeed: 1500
+--- !u!114 &1736707507169997620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394837176993017200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e6bbb385bcd4c48aeaa544db015245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageRate: 0.1
 --- !u!1 &4394837177204352685
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +790,7 @@ GameObject:
   - component: {fileID: 4394837177204352673}
   - component: {fileID: 4394837177204352672}
   - component: {fileID: 4394837177204352675}
+  - component: {fileID: 7184377444535018123}
   m_Layer: 12
   m_Name: SawBlade
   m_TagString: Untagged
@@ -884,9 +924,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aade29a6f2ae1d14ab9f38f6268fb702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  damageRate: 0.0001
   rotationSpeed: -1500
+--- !u!114 &7184377444535018123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394837177204352685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e6bbb385bcd4c48aeaa544db015245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  damageRate: 0.1
 --- !u!1 &4394837177335274514
 GameObject:
   m_ObjectHideFlags: 0

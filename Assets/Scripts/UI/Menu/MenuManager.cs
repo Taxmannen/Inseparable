@@ -57,7 +57,7 @@ public class MenuManager : MonoBehaviour {
 
         for(int i = 0; i < menus.Count; i++)
         {
-            if(menus[i].activeSelf)
+            if (menus[i].activeSelf)
             {
                 if (Input.GetButtonDown("Submit Player 1") || Input.GetButtonDown("Submit Player 2"))
                 {

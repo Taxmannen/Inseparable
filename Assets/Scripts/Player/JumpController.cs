@@ -72,7 +72,8 @@ public class JumpController : MovementScript
 
         if (jumpButton && state == JumpState.CanJump) {
             AudioManager.Play("Jump");
-            if (!throwPlayerScript.pickup) anim.Play("Jump");
+            Debug.Log(throwPlayerScript.pickup);
+            anim.Play("Jump");
             jumpParticle.Play();
             GameObject g = Instantiate(jumpParticle, transform.position, Quaternion.identity).gameObject;
             Destroy(g, 0.5f);
@@ -85,7 +86,8 @@ public class JumpController : MovementScript
             scale.y = 2f;
             rightArm.localScale = scale;
             leftArm.localScale = scale;
-            anim.Play("Jump Wiggle");
+            if (!throwPlayerScript.pickup)
+                anim.Play("Jump Wiggle");
         }
         else
         {
@@ -102,7 +104,7 @@ public class JumpController : MovementScript
                 jumpTimeCounter = jumpTime;
                 state = JumpState.CanJump;
                 AudioManager.Play("Land");
-                if (!throwPlayerScript.pickup) anim.Play("Idle");
+                anim.Play("Idle");
                 //Anim JUMP!
             }
             else jumpTimeCounter = 0;

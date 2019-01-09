@@ -4,14 +4,11 @@
     {
         public float force;
         Rigidbody2D rb;
-        DamageToPlayer dmg;
-        bool canHurtPlayer = true;
         public CircleCollider2D colli;
 
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-            dmg = GetComponentInChildren<DamageToPlayer>();
         }
 
     void Update()
@@ -25,14 +22,6 @@
         if(col.gameObject.tag == "Player")
         {
             rb.AddForce(new Vector2(-force, 0), ForceMode2D.Impulse);
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-                
         }
     }
 }

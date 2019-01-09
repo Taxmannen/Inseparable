@@ -22,6 +22,12 @@ public class StartMenu : MonoBehaviour {
             {
                 menuManager.OpenSettingsMenu();
                 menuManager.OnMenuChange();
+                menuManager.toggleMenu= true;
+                if(Input.GetButtonDown("Cancel Player 1"))
+                {
+                    enter = true;
+                    menuManager.toggleMenu = false;
+                }
             }
             else if (other.name == "Continue Button" && !loading)
             {

@@ -118,7 +118,6 @@ public class ThrowPlayer : MovementScript {
             i = 0;
             rightArm.transform.localPosition = rightArmStartPosition * rightArmParent.localScale.x;
             rightArm.transform.localEulerAngles = rightArmStartAngles;
-            Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
             leftArm.transform.localPosition = leftArmStartPosition;
             leftArm.transform.localEulerAngles = leftArmStartAngles;
         }

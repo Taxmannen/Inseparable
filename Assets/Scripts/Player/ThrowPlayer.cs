@@ -46,9 +46,11 @@ public class ThrowPlayer : MovementScript {
 
     void Update ()
     {
-        bool canPickup = Physics2D.OverlapCircle(transform.position, 0.8f, playerLayer);
+        bool canPickup = false;
+        if (GetPlayer.otherPlayerReady(gameObject.name))
+            canPickup = (GetPlayer.getOtherPlayerByName(gameObject.name).position - transform.position).magnitude < 2f;
+        
         if (canPickup) PickupManager();
-
         if (pickup) ThrowManager();
         else
         {

@@ -10,7 +10,7 @@ public class SawBladesAudioPlayer : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0f;
+        audioSource.Stop();
     }
 
     private void FixedUpdate()
@@ -24,10 +24,11 @@ public class SawBladesAudioPlayer : MonoBehaviour
 
             if (closest < 10)
             {
+                audioSource.Play();
                 audioSource.volume = Mathf.Clamp(1f - closest / 16f, 0f, 1f);
             }
 
-            else audioSource.volume = 0f;
+            else audioSource.Stop();
         }
     }
 }

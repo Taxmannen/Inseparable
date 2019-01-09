@@ -456,6 +456,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 116600239}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &119708687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119708688}
+  m_Layer: 0
+  m_Name: SawBlades Row (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119708688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119708687}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 252, y: 45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 846611422}
+  - {fileID: 2102421472}
+  - {fileID: 2112307345}
+  m_Father: {fileID: 121653739}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &121653738
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +518,7 @@ Transform:
   m_Children:
   - {fileID: 401177990}
   - {fileID: 1881718259}
+  - {fileID: 119708688}
   - {fileID: 201308402}
   - {fileID: 1256743185}
   - {fileID: 396298053}
@@ -863,7 +897,7 @@ Transform:
   - {fileID: 1147525028}
   - {fileID: 373354210}
   m_Father: {fileID: 121653739}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &203418341 stripped
 MonoBehaviour:
@@ -1339,7 +1373,7 @@ PrefabInstance:
     - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
         type: 3}
@@ -106897,6 +106931,66 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 820785951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &846611421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 119708688}
+    m_Modifications:
+    - target: {fileID: 4394837176561918924, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_Name
+      value: SawBlades (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.019104
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.538968
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837177822696048, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203390, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8709c32ef7f110340b32ea92c1dd3888, type: 3}
+--- !u!4 &846611422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+    type: 3}
+  m_PrefabInstance: {fileID: 846611421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &849654045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110668,7 +110762,7 @@ PrefabInstance:
     - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
         type: 3}
@@ -112365,7 +112459,7 @@ PrefabInstance:
     - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
         type: 3}
@@ -112684,6 +112778,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3577699319778192048, guid: c67f4a70f52be6747abc4d3addb9279e,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577699319778192048, guid: c67f4a70f52be6747abc4d3addb9279e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67f4a70f52be6747abc4d3addb9279e, type: 3}
 --- !u!1001 &2079755686
@@ -112823,6 +112927,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
     type: 3}
   m_PrefabInstance: {fileID: 2090401026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2102421471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 119708688}
+    m_Modifications:
+    - target: {fileID: 4394837176561918924, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_Name
+      value: SawBlades (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.22911
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.938968
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837177822696048, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203390, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203384, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203385, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8709c32ef7f110340b32ea92c1dd3888, type: 3}
+--- !u!4 &2102421472 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+    type: 3}
+  m_PrefabInstance: {fileID: 2102421471}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2110061643
 PrefabInstance:
@@ -113042,6 +113221,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1062247785, guid: deaeddcd2261cf845873a59a0ca8bfa1,
     type: 3}
   m_PrefabInstance: {fileID: 2111255001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2112307344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 119708688}
+    m_Modifications:
+    - target: {fileID: 4394837176561918924, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_Name
+      value: SawBlades (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.22911
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.26897
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837177822696048, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203390, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203384, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394837176426203385, guid: 8709c32ef7f110340b32ea92c1dd3888,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8709c32ef7f110340b32ea92c1dd3888, type: 3}
+--- !u!4 &2112307345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4394837176561918925, guid: 8709c32ef7f110340b32ea92c1dd3888,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112307344}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2126643809
 PrefabInstance:

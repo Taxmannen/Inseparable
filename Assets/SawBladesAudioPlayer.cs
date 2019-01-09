@@ -25,7 +25,7 @@ public class SawBladesAudioPlayer : MonoBehaviour
             if (closest < 10)
             {
                 audioSource.Play();
-                audioSource.volume = Mathf.Clamp(1f - closest / 16f, 0f, 1f);
+                audioSource.volume = Mathf.Clamp(1f - closest / 10f, 0f, 0.3f);
             }
 
             else audioSource.Stop();

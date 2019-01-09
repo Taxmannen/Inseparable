@@ -924,16 +924,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
-        type: 3}
-      propertyPath: sounds.Array.data[10].pitch
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5860852413967630816, guid: a079094ed9c316a4fb6191431ab17b04,
-        type: 3}
-      propertyPath: sounds.Array.data[10].volume
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a079094ed9c316a4fb6191431ab17b04, type: 3}
 --- !u!1 &584894481
@@ -16488,6 +16478,16 @@ PrefabInstance:
         type: 3}
       propertyPath: levers.Array.data[0]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577699319778192048, guid: c67f4a70f52be6747abc4d3addb9279e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b6271612bdc96c84f99a8f920e09ff07, type: 3}
+    - target: {fileID: 3577699319778192048, guid: c67f4a70f52be6747abc4d3addb9279e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67f4a70f52be6747abc4d3addb9279e, type: 3}

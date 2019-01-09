@@ -77,12 +77,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PressurePlateOn
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.4
+    volume: 0.2
     pitch: 0.8
     source: {fileID: 0}
   - name: PressurePlateOff
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 0.4
     source: {fileID: 0}
   - name: MovingIsland
@@ -97,7 +97,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GateOpen
     clip: {fileID: 8300000, guid: 6767625afa7fd7b46862eb4bbb205faa, type: 3}
-    volume: 0.2
+    volume: 0.15
     pitch: 0.8
     source: {fileID: 0}
   - name: Lever

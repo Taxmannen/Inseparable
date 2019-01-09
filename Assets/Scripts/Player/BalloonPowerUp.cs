@@ -35,16 +35,11 @@ public class BalloonPowerUp : MonoBehaviour {
         timer -= Time.deltaTime;
         if (timer < 0 && on) on = false;
 
-        if (Input.GetButtonDown(button) && !started)
-        {
-            on = !on;
-            if (on) AudioManager.Play("Balloon Up");
-            else    AudioManager.Play("Balloon Down");
-        }
         if (on)
         {
             if (!inflated && transform.localScale.y < 2)
             {
+                if (!started) AudioManager.Play("Balloon Up");
                 started = true;
                 if (mc.facingRight)
                 {
@@ -74,6 +69,7 @@ public class BalloonPowerUp : MonoBehaviour {
         {
             if (!empty && transform.localScale.y > 1)
             {
+                if (!started) AudioManager.Play("Balloon Down");
                 started = true;
                 if (mc.facingRight)
                 {

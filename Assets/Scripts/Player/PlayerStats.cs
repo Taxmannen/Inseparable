@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour {
     bool usePotion;
     Animator anim;
     MonoBehaviour[] scripts;
+    float soundTime = 0;
 
     void Start ()
     {
@@ -28,7 +29,11 @@ public class PlayerStats : MonoBehaviour {
     {
         if (!dead)
         {
-            AudioManager.Play("TakeDamage");
+            if (Time.time - soundTime > 0.15f)
+            {
+                AudioManager.Play("TakeDamage");
+                soundTime = Time.time;
+            }
             currentHealth -= damage;
             usePotion = true;
             takeDamageEffect.StartFade();

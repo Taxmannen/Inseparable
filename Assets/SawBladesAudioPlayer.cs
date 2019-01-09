@@ -22,7 +22,7 @@ public class SawBladesAudioPlayer : MonoBehaviour
 
             float closest = Mathf.Min(player1Distance, player2Distance);
 
-            if (closest < 16)
+            if (closest < 10)
             {
                 audioSource.volume = Mathf.Clamp(1f - closest / 16f, 0f, 1f);
             }

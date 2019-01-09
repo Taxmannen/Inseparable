@@ -50,8 +50,8 @@ public class BalloonPowerUp : MonoBehaviour {
                     if (transform.localScale.y > 2) transform.localScale = new Vector3(-2, 2, 2);
                 }
 
-                if (characterLight.range < lightSize * 4) characterLight.range += 0.2f;
-                if (characterLight.range > lightSize * 4) characterLight.range = lightSize * 4;
+                if (characterLight.range < lightSize * 3) characterLight.range += 0.2f;
+                if (characterLight.range > lightSize * 3) characterLight.range = lightSize * 3;
 
                 if (transform.localScale.x == 2 || transform.localScale.x == -2)
                 {

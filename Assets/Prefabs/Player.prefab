@@ -355,9 +355,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   otherPlayerJumpController: {fileID: 2590197612343119026}
-  state: 0
   rightArm: {fileID: 2590197612150214623}
   leftArm: {fileID: 2590197611520574064}
+  state: 0
   jumpParticle: {fileID: 4719134068466161743, guid: b8e426dec71687e439f69d3f2bf78cf5,
     type: 3}
 --- !u!114 &2590197611321280628
@@ -1035,9 +1035,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   otherPlayerJumpController: {fileID: 2590197611321280626}
-  state: 0
   rightArm: {fileID: 2590197613319524463}
   leftArm: {fileID: 2590197611254024025}
+  state: 0
   jumpParticle: {fileID: 4719134068466161743, guid: b8e426dec71687e439f69d3f2bf78cf5,
     type: 3}
 --- !u!114 &2590197612343119027
@@ -1511,7 +1511,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.4811321, g: 0.2722371, b: 0.088510156, a: 1}
-  m_Intensity: 15
+  m_Intensity: 12.5
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1641,7 +1641,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.20692416, g: 0.24282563, b: 0.4716981, a: 1}
-  m_Intensity: 15
+  m_Intensity: 12.5
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10

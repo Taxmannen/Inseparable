@@ -40,6 +40,7 @@ public class LeverController : MonoBehaviour {
 
         if ((tempState ^ leverState) && !disabled)
         {
+            AudioManager.Play("Lever");
             GameSettings.gameSettings.levers[index] = tempState;
             foreach (Action la in leverActions)
                 la.onStateChange(tempState);

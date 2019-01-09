@@ -79,6 +79,13 @@ public class ThrowPlayer : MovementScript {
         }
     }
 
+    public void setOtherJumpState()
+    {
+        Transform otherPlayer = GetPlayer.getOtherPlayerByName(gameObject.name);
+        JumpController jc = otherPlayer.GetComponent<JumpController>();
+        jc.state = JumpState.IsJumping;
+    }
+
     private void ThrowManager()
     {
         if (Input.GetAxisRaw(throwButtonStr) > 0.2f && buttonUpThrow)
@@ -99,6 +106,8 @@ public class ThrowPlayer : MovementScript {
             rb.AddForce(new Vector2(power.x * directionVector.x, power.y * Mathf.Clamp(directionVector.y, 0f, 1f)), ForceMode2D.Impulse);
             pickup = false;
             buttonUpThrow = false;
+
+            Invoke("setOtherJumpState", 0.1f);
             AudioManager.Play("Throw");
         }
         

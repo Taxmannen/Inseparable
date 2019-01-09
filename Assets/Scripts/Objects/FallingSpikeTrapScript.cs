@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FallingSpikeTrapScript : MonoBehaviour
 {
-    public BoxCollider2D trigger;
-    Vector3 startPos;
-    Vector3 targetPos;
     public Transform start;
     public Transform target;
     public float travelTime;
+    Vector3 startPos;
+    Vector3 targetPos;
     float timer;
     bool down;
 

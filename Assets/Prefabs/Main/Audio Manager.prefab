@@ -72,17 +72,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Bridge
     clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
-    volume: 0.2
+    volume: 0.35
     pitch: 0.5
     source: {fileID: 0}
   - name: PressurePlateOn
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.2
+    volume: 0.3
     pitch: 0.8
     source: {fileID: 0}
   - name: PressurePlateOff
     clip: {fileID: 8300000, guid: f06343eb470bc914da44a507daaac494, type: 3}
-    volume: 0.1
+    volume: 0.15
     pitch: 0.4
     source: {fileID: 0}
   - name: MovingIsland
@@ -92,7 +92,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ObjectCollision
     clip: {fileID: 8300000, guid: 75a0393f8bab91b4d8bfce7252f5ab42, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 0.41
     source: {fileID: 0}
   - name: GateOpen
@@ -107,7 +107,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GrowingBridge
     clip: {fileID: 8300000, guid: 221a016977a0aae499688f8e0c477ff4, type: 3}
-    volume: 0.05
+    volume: 0.075
     pitch: 1.15
     source: {fileID: 0}
   - name: UseItem
@@ -147,16 +147,16 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TakeDamage
     clip: {fileID: 8300000, guid: e6dcd542d56237b42b4a6440af53aafd, type: 3}
-    volume: 0.05
+    volume: 0.08
     pitch: 1
     source: {fileID: 0}
   - name: Balloon Up
     clip: {fileID: 8300000, guid: 9c70f6d45070fd24a91a8498fe59c6b5, type: 3}
-    volume: 0.05
+    volume: 0.075
     pitch: 1
     source: {fileID: 0}
   - name: Balloon Down
     clip: {fileID: 8300000, guid: 9c70f6d45070fd24a91a8498fe59c6b5, type: 3}
-    volume: 0.05
+    volume: 0.075
     pitch: 1.2
     source: {fileID: 0}

@@ -9,17 +9,14 @@ public class Main : MonoBehaviour {
     void Start()
     {
         controllers = new string[2];
+        controllers[0] = "XBOX";
+        controllers[1] = "XBOX";
         Application.targetFrameRate = frameRate;
         QualitySettings.vSyncCount = 0;
 
         if (!Application.isEditor) Cursor.visible = false;
         else                       Cursor.visible = true;
 
-        string[] names = Input.GetJoystickNames();
-        for (int x = 0; x < 2; x++)
-        {
-            controllers[x] = "XBOX";
-        }
         Image saveIcon = GameObject.Find("Auto Save Icon").GetComponent<Image>();
         saveIcon.CrossFadeAlpha(0, 0, false);
     }

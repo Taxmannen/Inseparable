@@ -59,15 +59,15 @@ public class MenuManager : MonoBehaviour {
         {
             if (toggleMenu)
             {
-                if (Input.GetButtonDown("Submit Player 1") || Input.GetButtonDown("Submit Player 2"))
+                if (Input.GetButtonDown("Submit Player 1"))
                 {
                     AudioManager.PlayOneShot("MenuSubmit");
                 }
-                if (Input.GetButtonDown("Cancel Player 1") || Input.GetButtonDown("Cancel Player 2"))
+                if (Input.GetButtonDown("Cancel Player 1"))
                 {
                     AudioManager.Play("MenuCancel");
                 }
-                if (Input.GetButtonDown("Vertical Player 1") || Input.GetButtonDown("Vertical Player 2"))
+                if (Input.GetButtonDown("Vertical Player 1"))
                 {
                     AudioManager.Play("MenuUpAndDown");
                 }

@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
-            if (Input.GetButtonDown(player1Button) || Input.GetButtonDown(player2Button)) SetMenuState();
+            if (Input.GetButtonDown(player1Button)) SetMenuState();
             {
                 settingsBackButton.SetActive(true);
             }

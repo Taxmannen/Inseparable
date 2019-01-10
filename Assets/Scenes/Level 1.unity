@@ -34292,6 +34292,26 @@ PrefabInstance:
       propertyPath: power.y
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2590197611321280584, guid: e4ed662f6ea61af488e8bf4611a9793e,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590197611321280585, guid: e4ed662f6ea61af488e8bf4611a9793e,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590197612343119030, guid: e4ed662f6ea61af488e8bf4611a9793e,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590197612343119031, guid: e4ed662f6ea61af488e8bf4611a9793e,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4ed662f6ea61af488e8bf4611a9793e, type: 3}
 --- !u!1001 &2923807841159691953

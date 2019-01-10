@@ -13,14 +13,11 @@ public class UseItems : MonoBehaviour {
     private void Start()
     {
         GameObject UI = GameObject.Find(gameObject.name + " " + "UI");
-        if (UI != null)
-        {
-            selectedItem = UI.GetComponentInChildren<SelectedItem>();
-            inventory = UI.GetComponentInChildren<Inventory>();
-            playerStats = GetComponent<PlayerStats>();
-            if (gameObject.name == "Player 1") otherPlayer = GameObject.Find("Player 2").GetComponent<PlayerStats>();
-            if (gameObject.name == "Player 2") otherPlayer = GameObject.Find("Player 1").GetComponent<PlayerStats>();
-        }
+        selectedItem = UI.GetComponentInChildren<SelectedItem>();
+        inventory = UI.GetComponentInChildren<Inventory>();
+        playerStats = GetComponent<PlayerStats>();
+        if (gameObject.name == "Player 1") otherPlayer = GameObject.Find("Player 2").GetComponent<PlayerStats>();
+        if (gameObject.name == "Player 2") otherPlayer = GameObject.Find("Player 1").GetComponent<PlayerStats>();
     }
 
     void Update()

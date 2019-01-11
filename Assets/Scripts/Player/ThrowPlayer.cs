@@ -29,8 +29,8 @@ public class ThrowPlayer : MovementScript {
 
     void Start ()
     {
-        throwButtonStr  = "Throw"  + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
-        pickupButtonStr = "Pickup" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+        throwButtonStr  = "Throw"  + " " + gameObject.name + " " + "XBOX";
+        pickupButtonStr = "Pickup" + " " + gameObject.name + " " + "XBOX";
         string otherPlayer;
 		if      (gameObject.name == "Player 1") otherPlayer = "Player 2";
 		else                                    otherPlayer = "Player 1";

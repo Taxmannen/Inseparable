@@ -20,7 +20,7 @@ public class WallJumpController : MovementScript
 
     void Start()
     {
-        jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+        jumpButtonStr = "Jump " + gameObject.name + " " + "XBOX";
 
         jumpButton = false;
         rb = GetComponent<Rigidbody2D>();

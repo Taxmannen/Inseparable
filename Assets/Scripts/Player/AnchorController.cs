@@ -13,7 +13,7 @@ public class AnchorController : MovementScript
 
     void Start()
     {
-        anchorButtonStr = "Anchor" + " " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+        anchorButtonStr = "Anchor" + " " + gameObject.name + " " + "XBOX";
         rb = GetComponent<Rigidbody2D>();
     }
 

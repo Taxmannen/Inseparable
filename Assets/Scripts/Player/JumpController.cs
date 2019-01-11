@@ -40,7 +40,7 @@ public class JumpController : MovementScript
     void Start()
     {
         state = JumpState.CanJump;
-        jumpButtonStr = "Jump " + gameObject.name + " " + Main.controllers[transform.GetSiblingIndex()];
+        jumpButtonStr = "Jump " + gameObject.name + " " + "XBOX";
         
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

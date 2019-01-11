@@ -23,7 +23,7 @@ public class MenuManager : MonoBehaviour {
 
     void Start()
     {
-        player1Button = "Menu" + " " + "Player 1" + " " + Main.controllers[0];
+        player1Button = "Menu" + " " + "Player 1" + " " + "XBOX";
         toggleMenu = false;
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         musicVolumeSlider.value  = PlayerPrefs.GetFloat("MusicVolume");

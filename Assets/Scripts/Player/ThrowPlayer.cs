@@ -27,6 +27,8 @@ public class ThrowPlayer : MovementScript {
     public Vector3 leftArmStartPosition;
     public Vector3 leftArmStartAngles;
 
+    public GameObject aimParent;
+
     void Start ()
     {
         throwButtonStr  = "Throw"  + " " + gameObject.name + " " + "XBOX";
@@ -92,16 +94,9 @@ public class ThrowPlayer : MovementScript {
     {
         if (Input.GetAxisRaw(throwButtonStr) > 0.2f && buttonUpThrow)
         {
-            float x = Input.GetAxisRaw("Horizontal " + gameObject.name);
-            float y = Input.GetAxisRaw("Vertical " + gameObject.name);
-            if (new Vector2(x, y).sqrMagnitude < 0.01f)
-            {
-                rb.gravityScale = 1;
-                pickup = false;
-                buttonUpThrow = false;
-                return;
-            }
-
+            float x = Mathf.Cos((aimParent.transform.eulerAngles.z + 360f) * Mathf.Deg2Rad);
+            float y = Mathf.Sin((aimParent.transform.eulerAngles.z + 360f) * Mathf.Deg2Rad);
+            
             Vector2 directionVector = new Vector2(x, y);
 
             rb.gravityScale = 1;

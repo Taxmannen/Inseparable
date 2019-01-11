@@ -17,10 +17,14 @@ public class Balloon : MonoBehaviour
         if (other.tag == "Player" && ! pickedUp)
         {
             pickedUp = true;
-            other.GetComponent<BalloonPowerUp>().on = true;
-            other.GetComponent<BalloonPowerUp>().timer = timer;
-            sr.enabled = false;
-            Invoke("Respawn", timer);
+            BalloonPowerUp bp = other.GetComponent<BalloonPowerUp>();
+            if(bp != null && !bp.on)
+            {
+                bp.on = true;
+                bp.timer = timer;
+                sr.enabled = false;
+                Invoke("Respawn", timer);
+            }
         }
     }
 
